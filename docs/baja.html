@@ -1,0 +1,40 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Darse de baja · Marbella en Datos</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="marca" href="./">MARBELLA EN DATOS</a></div></header>
+<main class="panel">
+  <h1>Darse de baja</h1>
+  <p style="color:#6b7280">Escribe el correo con el que te suscribiste y dejarás de recibir el boletín.</p>
+  <form id="f" method="post">
+    <input type="hidden" name="accion" value="baja">
+    <input type="hidden" name="token" id="token">
+    <label for="email">Correo electrónico</label>
+    <input type="email" id="email" name="email" required>
+    <button class="btn" type="submit">Darme de baja</button>
+    <div class="err" id="err"></div>
+  </form>
+</main>
+<script src="config.js"></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), f = document.getElementById('f'), err = document.getElementById('err');
+  if (q.get('e')) f.email.value = q.get('e');
+  if (q.get('t')) f.token.value = q.get('t');
+  f.addEventListener('submit', function (ev) {
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(f.email.value.trim())) { ev.preventDefault(); err.textContent = 'Revisa el correo electrónico.'; err.style.display = 'block'; return; }
+    if (!window.BOLETIN.webhookSuscripcion) { ev.preventDefault(); err.textContent = 'Servicio no disponible todavía.'; err.style.display = 'block'; return; }
+    f.action = window.BOLETIN.webhookSuscripcion;
+  });
+})();
+</script>
+<footer><div class="wrap"><span>Marbella en Datos · AMMA Consulting</span><span><a href="privacidad.html">Privacidad</a></span></div></footer>
+</body>
+</html>

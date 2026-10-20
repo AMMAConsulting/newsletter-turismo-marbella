@@ -1,0 +1,39 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marbella en Datos</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="marca" href="./">MARBELLA EN DATOS</a></div></header>
+<main class="mensaje">
+  <div class="ico-grande"><svg width="30" height="30" viewBox="0 0 24 24" fill="none" stroke="#0b5cad" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></div>
+  <h1 id="t">Hecho</h1>
+  <p id="p"></p>
+  <p><a class="btn sec" href="./">Volver al inicio</a></p>
+</main>
+<script>
+(function () {
+  var M = {
+    alta: ['Revisa tu correo', 'Te hemos enviado un mensaje para confirmar la suscripción. Si no lo ves en unos minutos, mira en la carpeta de correo no deseado.'],
+    confirmada: ['Suscripción confirmada', 'Gracias. Recibirás la próxima edición de Marbella en Datos en cuanto se publique.'],
+    yaactiva: ['Ya estabas suscrito', 'Esta dirección ya recibe el boletín. No tienes que hacer nada más.'],
+    baja: ['Te has dado de baja', 'No recibirás más correos de Marbella en Datos. Puedes volver a suscribirte cuando quieras.'],
+    aprobado: ['Boletín aprobado', 'La edición se está enviando ahora a todos los suscriptores.'],
+    cambios: ['Cambios recibidos', 'Se está preparando una nueva versión del boletín con tus indicaciones. Te llegará por correo en unos minutos.'],
+    caducado: ['Enlace no válido', 'Este enlace ha caducado o ya se usó. Si crees que es un error, escríbenos.'],
+    error: ['Algo no ha ido bien', 'No hemos podido completar la operación. Vuelve a intentarlo en unos minutos.']
+  };
+  var m = new URLSearchParams(location.search).get('m');
+  var x = M[m] || M.error;
+  document.getElementById('t').textContent = x[0];
+  document.getElementById('p').textContent = x[1];
+})();
+</script>
+<footer><div class="wrap"><span>Marbella en Datos · AMMA Consulting</span><span><a href="privacidad.html">Privacidad</a></span></div></footer>
+</body>
+</html>

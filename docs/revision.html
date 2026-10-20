@@ -1,0 +1,63 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Revisión del boletín · Marbella en Datos</title>
+<meta name="robots" content="noindex">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><div class="wrap"><a class="marca" href="./">MARBELLA EN DATOS</a></div></header>
+<main class="panel">
+  <span class="eyebrow" style="color:#0b5cad">Revisión interna</span>
+  <h1>Edición de <span id="ed"></span></h1>
+  <p style="color:#6b7280">Has recibido el borrador por correo. Desde aquí puedes aprobarlo para que se envíe a todos los suscriptores, o pedir cambios y recibirás una versión nueva.</p>
+
+  <form id="aprobar" method="post" style="margin:26px 0 34px">
+    <input type="hidden" name="accion" value="aprobar">
+    <input type="hidden" name="edicion"><input type="hidden" name="clave">
+    <button class="btn" type="submit">Aprobar y enviar a los suscriptores</button>
+  </form>
+
+  <form id="cambios" method="post" style="border-top:1px solid #e5e7eb;padding-top:22px">
+    <input type="hidden" name="accion" value="cambios">
+    <input type="hidden" name="edicion"><input type="hidden" name="clave">
+    <label for="texto">Cambios que hay que hacer</label>
+    <textarea id="texto" name="texto" rows="7" placeholder="Por ejemplo: cambia el titular, quita la segunda noticia, menciona la apertura del hotel..."></textarea>
+    <button class="btn sec" type="submit">Pedir una nueva versión</button>
+    <div class="err" id="err"></div>
+  </form>
+</main>
+<script src="config.js"></script>
+<script>
+(function () {
+  var q = new URLSearchParams(location.search), err = document.getElementById('err');
+  document.getElementById('ed').textContent = q.get('ed') || '';
+  ['aprobar', 'cambios'].forEach(function (id) {
+    var f = document.getElementById(id);
+    f.edicion.value = q.get('ed') || '';
+    f.clave.value = q.get('k') || '';
+    f.addEventListener('submit', function (ev) {
+      if (!window.BOLETIN.webhookBoletin || !q.get('k')) { ev.preventDefault(); err.textContent = 'Enlace de revisión incompleto.'; err.style.display = 'block'; return; }
+      if (id === 'cambios' && !f.texto.value.trim()) { ev.preventDefault(); err.textContent = 'Escribe qué hay que cambiar.'; err.style.display = 'block'; return; }
+      if (id === 'aprobar' && !confirmar(f, ev)) return;
+      f.action = window.BOLETIN.webhookBoletin;
+      f.querySelector('button').disabled = true;
+    });
+  });
+  // Segundo clic para aprobar: evita envíos accidentales sin usar diálogos del navegador
+  function confirmar(f, ev) {
+    var b = f.querySelector('button');
+    if (b.dataset.listo) return true;
+    ev.preventDefault();
+    b.dataset.listo = '1';
+    b.textContent = 'Pulsa otra vez para confirmar el envío';
+    return false;
+  }
+})();
+</script>
+<footer><div class="wrap"><span>Marbella en Datos · AMMA Consulting</span><span><a href="privacidad.html">Privacidad</a></span></div></footer>
+</body>
+</html>

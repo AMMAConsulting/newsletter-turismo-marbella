@@ -1,0 +1,78 @@
+name: Preparar boletín
+
+# Cada día comprueba si el INE ha publicado un mes nuevo de la EOH de Marbella.
+# Si lo hay, regenera datos + gráficas, los publica y pide a Make el borrador
+# (que llega por correo al revisor para aprobarlo o pedir cambios).
+on:
+  schedule:
+    - cron: "30 9 * * *"     # 11:30 en España (el INE publica a las 09:00)
+  workflow_dispatch:
+    inputs:
+      forzar:
+        description: "Pedir el borrador aunque la edición ya se hubiera preparado"
+        type: boolean
+        default: false
+
+permissions:
+  contents: write
+
+concurrency:
+  group: boletin
+  cancel-in-progress: false
+
+jobs:
+  preparar:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - run: pip install matplotlib==3.9.2
+
+      - name: Recoger datos y generar gráficas
+        run: python build.py
+
+      - name: ¿Edición nueva?
+        id: ed
+        run: |
+          ED=$(python -c "import json;print(json.load(open('docs/boletin/datos.json',encoding='utf-8'))['edicion'])")
+          PREV=$(cat docs/boletin/ultima_edicion.txt 2>/dev/null || echo "")
+          echo "edicion=$ED" >> "$GITHUB_OUTPUT"
+          if [ "$ED" != "$PREV" ] || [ "${{ inputs.forzar }}" = "true" ]; then
+            echo "nueva=true" >> "$GITHUB_OUTPUT"
+            echo "$ED" > docs/boletin/ultima_edicion.txt
+          fi
+          echo "Edición $ED (anterior: ${PREV:-ninguna})"
+
+      - name: Publicar
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
+          git add -A docs
+          git diff --cached --quiet || git commit -m "boletín: datos ${{ steps.ed.outputs.edicion }}"
+          git push
+
+      - name: Esperar a que GitHub Pages publique las imágenes
+        if: steps.ed.outputs.nueva == 'true'
+        run: |
+          URL=$(python -c "import json;print(json.load(open('docs/boletin/datos.json',encoding='utf-8'))['graficas'][0]['url'])")
+          for i in $(seq 1 30); do
+            curl -sfo /dev/null "$URL" && echo "Publicado" && exit 0
+            sleep 20
+          done
+          echo "Pages tarda más de lo normal; se pide el borrador igualmente"
+
+      - name: Pedir el borrador a Make
+        if: steps.ed.outputs.nueva == 'true'
+        env:
+          WEBHOOK: ${{ secrets.MAKE_WEBHOOK_BOLETIN }}
+          CLAVE: ${{ secrets.MAKE_CLAVE }}
+        run: |
+          if [ -z "$WEBHOOK" ]; then echo "Falta el secreto MAKE_WEBHOOK_BOLETIN"; exit 1; fi
+          curl -sf -X POST "$WEBHOOK" \
+            --data-urlencode "accion=generar" \
+            --data-urlencode "edicion=${{ steps.ed.outputs.edicion }}" \
+            --data-urlencode "clave=$CLAVE"

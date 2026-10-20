@@ -1,0 +1,130 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Marbella en Datos · Boletín de turismo</title>
+<meta name="description" content="Boletín mensual gratuito con los datos turísticos y económicos más recientes de Marbella, explicados de forma clara.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Mulish:wght@400;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body>
+<header class="top"><div class="wrap">
+  <a class="marca" href="./">MARBELLA EN DATOS</a>
+  <nav>
+    <a href="#que-recibes">Qué recibes</a>
+    <a href="#ultimos-datos">Últimos datos</a>
+    <a href="https://josehino.github.io/observatorio-turistico-marbella/">Observatorio turístico</a>
+  </nav>
+</div></header>
+
+<section class="hero" style="background-image:url('img/fotos/foto04.jpg')">
+  <div class="wrap">
+    <div>
+      <span class="eyebrow">Boletín mensual gratuito</span>
+      <h1>El turismo de Marbella, explicado con datos cada mes</h1>
+      <p class="lead">Ocupación, precios, mercados internacionales, empleo y la actualidad del sector, en un correo que se lee en cinco minutos.</p>
+      <ul class="checks">
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Datos oficiales del INE, SEPE y Seguridad Social</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Análisis y contexto, no solo cifras</li>
+        <li><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="#93c5fd" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>Un correo al mes. Te das de baja con un clic</li>
+      </ul>
+    </div>
+
+    <form class="card" id="alta" method="post" novalidate>
+      <h2>Suscríbete</h2>
+      <p class="sub">Recibirás la próxima edición en cuanto se publique.</p>
+      <input type="hidden" name="accion" value="alta">
+      <label for="nombre">Nombre</label>
+      <input type="text" id="nombre" name="nombre" autocomplete="name" required>
+      <label for="email">Correo electrónico</label>
+      <input type="email" id="email" name="email" autocomplete="email" required>
+      <label for="entidad">Empresa o entidad <span style="font-weight:400;color:#9ca3af">(opcional)</span></label>
+      <input type="text" id="entidad" name="entidad" autocomplete="organization">
+      <input class="hp" type="text" name="web" tabindex="-1" autocomplete="off" aria-hidden="true">
+      <div class="consent">
+        <input type="checkbox" id="acepto" name="acepto" value="si" required>
+        <label for="acepto" style="all:unset">Acepto recibir el boletín y la <a href="privacidad.html">política de privacidad</a>.</label>
+      </div>
+      <button class="btn" type="submit">Quiero recibirlo</button>
+      <div class="err" id="err"></div>
+      <p class="nota">Te enviaremos un correo para confirmar la suscripción.</p>
+    </form>
+  </div>
+</section>
+
+<section class="bloque" id="que-recibes">
+  <div class="wrap">
+    <h2 class="titulo-sec">Qué recibes cada mes</h2>
+    <p class="intro-sec">Un resumen claro de cómo va el destino, preparado a partir del observatorio turístico y del observatorio económico de Marbella.</p>
+    <div class="grid3">
+      <div class="feat">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b5cad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 3v18h18"/><path d="m7 15 4-4 3 3 5-6"/></svg></div>
+        <h3>Indicadores turísticos</h3>
+        <p>Viajeros, pernoctaciones, ocupación, tarifa media y RevPAR de los hoteles, apartamentos y viviendas turísticas.</p>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b5cad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M3 12h18"/><path d="M12 3a14 14 0 0 1 0 18a14 14 0 0 1 0-18"/></svg></div>
+        <h3>Mercados y empleo</h3>
+        <p>De qué países llegan los visitantes y cómo evolucionan el paro, la afiliación y la contratación en la ciudad.</p>
+      </div>
+      <div class="feat">
+        <div class="ico"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#0b5cad" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 4h12a2 2 0 0 1 2 2v14H6a2 2 0 0 1-2-2z"/><path d="M18 8h2v10a2 2 0 0 1-2 2"/><path d="M8 8h6M8 12h6M8 16h4"/></svg></div>
+        <h3>Actualidad del sector</h3>
+        <p>Una selección de las noticias que importan: aperturas, inversiones, conectividad y decisiones públicas.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="bloque suave" id="ultimos-datos">
+  <div class="wrap">
+    <h2 class="titulo-sec">Últimos datos</h2>
+    <p class="intro-sec" id="kpi-intro">Lo más reciente publicado sobre Marbella.</p>
+    <div class="kpis" id="kpis"></div>
+    <p class="fuente">Fuente: INE, Encuesta de Ocupación Hotelera; SEPE. Variación frente al mismo mes del año anterior.</p>
+  </div>
+</section>
+
+<footer><div class="wrap">
+  <span>Marbella en Datos · AMMA Consulting</span>
+  <span><a href="privacidad.html">Privacidad</a> · <a href="baja.html">Darse de baja</a></span>
+</div></footer>
+
+<script src="config.js"></script>
+<script>
+(function () {
+  var form = document.getElementById('alta');
+  var err = document.getElementById('err');
+  function fallo(msg) { err.textContent = msg; err.style.display = 'block'; }
+  form.addEventListener('submit', function (ev) {
+    err.style.display = 'none';
+    var email = form.email.value.trim();
+    if (!form.nombre.value.trim()) { ev.preventDefault(); return fallo('Escribe tu nombre.'); }
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { ev.preventDefault(); return fallo('Revisa el correo electrónico.'); }
+    if (!form.acepto.checked) { ev.preventDefault(); return fallo('Tienes que aceptar la política de privacidad.'); }
+    if (!window.BOLETIN.webhookSuscripcion) { ev.preventDefault(); return fallo('Las suscripciones abren muy pronto.'); }
+    form.action = window.BOLETIN.webhookSuscripcion;
+  });
+
+  function n(v, d) { var p = v.toFixed(d || 0).split('.'); return p[0].replace(/\B(?=(\d{3})+(?!\d))/g, '.') + (p[1] ? ',' + p[1] : ''); }
+  function tarjeta(et, v, d, suf, invertir) {
+    var cls = d == null ? '' : ((invertir ? d < 0 : d >= 0) ? 'up' : 'down');
+    var txt = d == null ? '' : (d > 0 ? '+' : '') + n(d, 1) + (suf || ' %');
+    return '<div class="kpi"><div class="et">' + et + '</div><div class="v">' + v + '</div><div class="d ' + cls + '">' + txt + '</div></div>';
+  }
+  fetch('boletin/datos.json?v=' + Date.now()).then(function (r) { return r.json(); }).then(function (d) {
+    var t = d.turismo_marbella, e = d.economia_marbella, h = '';
+    document.getElementById('kpi-intro').textContent = 'Datos de ' + d.edicion_texto + ', los últimos publicados por el INE.';
+    if (t.pernoct_hotel) h += tarjeta('Pernoctaciones hoteleras', n(t.pernoct_hotel.valor), t.pernoct_hotel.variacion_interanual_pct);
+    if (t.ocupacion_plazas) h += tarjeta('Ocupación hotelera por plazas', n(t.ocupacion_plazas.valor, 1) + ' %',
+      t.ocupacion_plazas.anio_anterior != null ? Math.round((t.ocupacion_plazas.valor - t.ocupacion_plazas.anio_anterior) * 10) / 10 : null, ' p.p.');
+    if (t.adr) h += tarjeta('Tarifa media diaria (ADR)', n(t.adr.valor) + ' €', t.adr.variacion_interanual_pct);
+    if (e.paro_registrado) h += tarjeta('Paro registrado (' + e.paro_registrado.mes + ')', n(e.paro_registrado.valor), e.paro_registrado.variacion_interanual_pct, ' %', true);
+    document.getElementById('kpis').innerHTML = h;
+  }).catch(function () { document.getElementById('ultimos-datos').style.display = 'none'; });
+})();
+</script>
+</body>
+</html>
