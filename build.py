@@ -281,6 +281,10 @@ def main():
     for k, (cod, desc) in SERIES.items():
         r = resumen(series[k], 2 if k in ("ocupacion_plazas", "estancia_media", "adr", "revpar") else 0)
         if r:
+            if k == "ocupacion_plazas" and "anio_anterior" in r:
+                # Una tasa se compara en puntos, no en % de variación
+                r["variacion_puntos"] = round(r["valor"] - r["anio_anterior"], 1)
+                del r["variacion_interanual_pct"]
             r["indicador"] = desc
             r["serie_ine"] = cod
             turismo[k] = r
