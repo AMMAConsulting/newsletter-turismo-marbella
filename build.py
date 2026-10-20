@@ -195,7 +195,10 @@ def noticias(dias=35, por_consulta=12, maximo=40):
             n += 1
             out.append({"titular": titular, "fuente": fuente, "fecha": fecha.strftime("%Y-%m-%d"), "enlace": link})
     out.sort(key=lambda x: x["fecha"], reverse=True)
-    return out[:maximo]
+    out = out[:maximo]
+    for i, x in enumerate(out, 1):
+        x["id"] = i
+    return out
 
 
 # ---------------------------------------------------------------- plantilla
