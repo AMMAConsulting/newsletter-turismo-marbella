@@ -115,6 +115,8 @@ redactar = [
 ]
 
 baja_url = f'{WEB}/baja.html?e=@@E@@&t=@@T@@'
+# La búsqueda del data store solo garantiza la clave (= email); el token se recalcula
+TOKEN24 = f'md5(replace("{CLAVE}:EMAIL"; "EMAIL"; lower(trim(24.key))))'
 
 aprobar = [
     {"id": 20, "module": "datastore:GetRecord", "version": 1,
@@ -139,10 +141,10 @@ aprobar = [
                  {"a": "estado", "o": "text:equal", "b": "activo"}]]}},
             {"id": 25, "module": "email:ActionSendEmail", "version": 7,
              "parameters": {"account": SMTP, "saveAfterSent": False},
-             "mapper": {"to": ["{{24.email}}"], "from": REMITENTE, "subject": "{{20.asunto}}",
+             "mapper": {"to": ["{{24.key}}"], "from": REMITENTE, "subject": "{{20.asunto}}",
                         "contentType": "html",
-                        "html": '{{replace(replace(replace(replace(20.html; "%%AVISO_REVISION%%"; ""); "%%BAJA%%"; "' + baja_url + '"); "@@E@@"; encodeURL(24.email)); "@@T@@"; 24.token)}}'},
-             "onerror": [{"id": 92, "module": "builtin:Ignore", "version": 1}]},
+                        "html": '{{replace(replace(replace(replace(20.html; "%%AVISO_REVISION%%"; ""); "%%BAJA%%"; "' + baja_url + '"); "@@E@@"; encodeURL(24.key)); "@@T@@"; ' + TOKEN24 + ')}}'},
+             },
         ]},
         {"flow": [dict(responder(26, "caducado"), filter={"name": "Ya enviado o edición distinta", "conditions": [
             [{"a": "{{20.estado}}", "o": "text:notequal", "b": "borrador"}],
