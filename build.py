@@ -266,6 +266,39 @@ def noticias(dias=8, por_consulta=12, maximo=40):
 
 
 
+# ---------------------------------------------------------------- foto de la semana
+def elegir_foto(edicion):
+    """Una foto distinta por edición: la primera del banco que no se haya usado nunca.
+
+    El banco (docs/img/fotos/banco.json) son fotos libres de Wikimedia Commons revisadas
+    a mano; las usadas quedan en docs/boletin/fotos_usadas.json. Si se reejecuta la misma
+    semana se repite su foto. Si el banco se agota, se reutiliza la que lleve más tiempo
+    sin salir y se avisa para ampliarlo.
+    """
+    banco = json.loads((RAIZ / "docs" / "img" / "fotos" / "banco.json").read_text(encoding="utf-8"))
+    ruta = SALIDA / "fotos_usadas.json"
+    usadas = json.loads(ruta.read_text(encoding="utf-8")) if ruta.exists() else []
+    ya = next((u["file"] for u in usadas if u["edicion"] == edicion), None)
+    vistas = {u["file"] for u in usadas}
+    if ya:
+        f = next((x for x in banco if x["file"] == ya), None)
+    else:
+        f = next((x for x in banco if x["file"] not in vistas), None)
+        if f is None:
+            print("AVISO: banco de fotos agotado; se reutiliza la más antigua. Conviene ampliarlo.", file=sys.stderr)
+            orden = [u["file"] for u in usadas]
+            f = min(banco, key=lambda x: max((i for i, n in enumerate(orden) if n == x["file"]), default=-1))
+        usadas.append({"edicion": edicion, "file": f["file"]})
+        ruta.write_text(json.dumps(usadas, ensure_ascii=False, indent=1), encoding="utf-8")
+    if f is None:                               # foto antigua fuera del banco: la primera del banco
+        f = banco[0]
+    restantes = len([x for x in banco if x["file"] not in {u["file"] for u in usadas}])
+    print(f"Foto {f['file']} · quedan {restantes} sin usar en el banco")
+    return {"url": f'{WEB}/img/fotos/{f["file"]}',
+            "credito": f'Foto: {f["autor"] or "Wikimedia Commons"} · {f["licencia"]} · Wikimedia Commons',
+            "enlace": f["url"]}
+
+
 # ---------------------------------------------------------------- plantilla
 def num(v, dec=0):
     s = f"{v:,.{dec}f}"
@@ -486,11 +519,7 @@ def main():
         fn(serie, titulo, nombre)
         graficas.append({"clave": clave, "url": f"{WEB}/boletin/{nombre}", "titulo": titulo})
 
-    # Foto de la semana: rota sobre las fotos libres
-    fotos = json.loads((RAIZ / "docs" / "img" / "fotos" / "creditos.json").read_text(encoding="utf-8"))
-    foto = fotos[(anio * 53 + semana) % len(fotos)]
-    foto = {"url": f'{WEB}/img/fotos/{foto["file"]}',
-            "credito": f'Foto: {foto["autor"]} · {foto["licencia"]} · Wikimedia Commons', "enlace": foto["url"]}
+    foto = elegir_foto(edicion)
 
     datos = {
         "generado": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
