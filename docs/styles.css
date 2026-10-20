@@ -21,16 +21,23 @@ header.top .wrap{display:flex;align-items:center;justify-content:space-between;h
 .top nav a{color:var(--tinta);text-decoration:none;font-size:15px;margin-left:24px}
 .top nav a:hover{color:var(--azul)}
 
-/* Portada */
-.hero{position:relative;color:#fff;background:var(--azul-noche) center/cover no-repeat}
-.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(10,31,92,.92) 0%,rgba(16,68,205,.62) 58%,rgba(16,68,205,.18) 100%)}
-.hero .wrap{position:relative;display:grid;grid-template-columns:1.1fr .9fr;gap:48px;padding-top:72px;padding-bottom:72px;align-items:center}
-.hero h1{font-size:46px;line-height:1.1;margin:0 0 18px;color:#fff;font-weight:700}
-.hero p.lead{font-size:19px;color:#e6ecff;margin:0 0 22px;max-width:520px}
-.eyebrow{display:inline-block;font-weight:700;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--verde);margin-bottom:14px}
+/* Portada: panorámica de Puerto Banús con La Concha, sin tapar la montaña */
+.hero{position:relative;color:#fff;background:var(--azul-noche) 30% 55%/cover no-repeat;min-height:500px;display:flex;align-items:flex-end}
+.hero::before{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(10,31,92,0) 30%,rgba(10,31,92,.55) 58%,rgba(10,31,92,.9) 100%)}
+.hero .wrap{position:relative;width:100%;padding-top:40px;padding-bottom:40px}
+.hero h1{font-size:46px;line-height:1.1;margin:0;color:#fff;font-weight:700;max-width:540px;text-shadow:0 1px 12px rgba(0,0,0,.25)}
+.hero .credito{position:absolute;right:12px;bottom:8px;font-size:11px;color:rgba(255,255,255,.75);text-decoration:none}
+.eyebrow{display:inline-block;font-weight:700;font-size:13px;letter-spacing:1.4px;text-transform:uppercase;color:var(--verde);margin-bottom:12px}
+
+/* Alta: texto a la izquierda y formulario que sube sobre la foto (en la zona del mar) */
+.alta{background:#fff}
+.alta .wrap{display:grid;grid-template-columns:1.1fr .9fr;gap:48px;align-items:start}
+.alta-texto{padding:36px 0 40px}
+.alta p.lead{font-size:20px;color:var(--tinta);margin:0 0 20px;max-width:540px}
 .checks{list-style:none;padding:0;margin:0}
-.checks li{display:flex;gap:10px;align-items:flex-start;margin:8px 0;color:#e6ecff}
-.checks svg{flex:none;margin-top:4px}
+.checks li{display:flex;gap:10px;align-items:flex-start;margin:10px 0;color:var(--texto)}
+.checks svg{flex:none;margin-top:3px}
+.alta .card{margin-top:-260px;position:relative;margin-bottom:40px}
 
 /* Formulario */
 .card{background:#fff;border-radius:14px;padding:28px;box-shadow:0 20px 50px rgba(2,12,40,.28);color:var(--texto);border-top:4px solid var(--verde)}
@@ -85,8 +92,11 @@ footer .pie-marca img{height:32px;width:auto}
 .panel .eyebrow{color:var(--azul)}
 
 @media (max-width:860px){
-  .hero .wrap{grid-template-columns:1fr;padding-top:44px;padding-bottom:44px;gap:28px}
-  .hero h1{font-size:34px}
+  .hero{min-height:300px;background-position:22% 50%}
+  .hero h1{font-size:32px}
+  .alta .wrap{grid-template-columns:1fr;gap:0}
+  .alta-texto{padding:24px 0 8px}
+  .alta .card{margin-top:0}
   .grid3{grid-template-columns:1fr}
   .kpis{grid-template-columns:1fr 1fr}
   .top nav{display:none}
