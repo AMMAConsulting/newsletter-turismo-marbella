@@ -12,7 +12,7 @@ Boletín mensual automático con datos del Observatorio Turístico y del Observa
 ## Ficheros
 
 - `build.py`: recogida de datos, gráficas y relleno de la parte fija de la plantilla.
-- `plantilla/boletin.html`: diseño del correo. `[[...]]` lo rellena `build.py`; `{{...}}` lo rellena Make.
+- `plantilla/boletin.html`: diseño del correo. `[[...]]` lo rellena `build.py`; `%%...%%` lo rellena Make (no se usan llaves porque Make las toma por fórmulas).
 - `docs/`: la web pública (alta, baja, revisión, privacidad). `docs/config.js` guarda las URL de los webhooks.
 - `docs/img/fotos/`: fotos libres de Wikimedia Commons (`creditos.json`); rotan cada mes.
 
