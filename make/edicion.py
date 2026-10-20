@@ -95,7 +95,7 @@ redactar = [
                     {"role": "user", "content":
                         "{{if(1.accion = \"cambios\"; \"MODO REVISIÓN. " + REVISION.replace('"', "'") +
                         "\"; \"MODO NUEVA EDICIÓN: redacta desde cero con los datos de esta semana. El borrador anterior que aparece abajo es el de la semana pasada: no repitas su titular, su asunto ni su enfoque.\")}}"
-                        "\n\nBORRADOR ANTERIOR (JSON):\n{{3.contenido}}"
+                        "\n\nBORRADOR ANTERIOR (JSON):\n{{toString(3.contenido)}}"
                         "\n\nCAMBIOS QUE PIDE EL REVISOR:\n{{1.texto}}"},
                 ]}},
     {"id": 7, "module": "json:ParseJSON", "version": 1, "parameters": {}, "mapper": {"json": "{{6.result}}"}},
@@ -106,7 +106,7 @@ redactar = [
      "parameters": {"datastore": STORE},
      "mapper": {"key": "borrador", "overwrite": True, "data": {
          "tipo": "borrador", "estado": "borrador", "edicion": "{{1.edicion}}",
-         "asunto": "{{7.asunto}}", "contenido": "{{6.result}}", "html": "{{8.html}}", "fecha": "{{now}}",
+         "asunto": "{{7.asunto}}", "contenido": "{{toBinary(6.result)}}", "html": "{{toBinary(8.html)}}", "fecha": "{{now}}",
          "envio": "{{ifempty(1.envio; 3.envio)}}"}}},
     {"id": 11, "module": "email:ActionSendEmail", "version": 7,
      "parameters": {"account": SMTP, "saveAfterSent": False},
@@ -150,7 +150,7 @@ enviar = [
      "parameters": {"account": SMTP, "saveAfterSent": False},
      "mapper": {"to": ["{{24.key}}"], "from": REMITENTE, "subject": "{{20.asunto}}",
                 "contentType": "html",
-                "html": '{{replace(replace(replace(replace(20.html; "%%AVISO_REVISION%%"; ""); "%%BAJA%%"; "' + baja_url + '"); "@@E@@"; encodeURL(24.key)); "@@T@@"; ' + TOKEN24 + ')}}'}},
+                "html": '{{replace(replace(replace(replace(toString(20.html); "%%AVISO_REVISION%%"; ""); "%%BAJA%%"; "' + baja_url + '"); "@@E@@"; encodeURL(24.key)); "@@T@@"; ' + TOKEN24 + ')}}'}},
 ]
 
 aprobar = [
