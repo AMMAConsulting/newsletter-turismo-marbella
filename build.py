@@ -1,4 +1,8 @@
-"""Prepara el material del boletín mensual de turismo de Marbella.
+"""Prepara el material del boletín SEMANAL de turismo de Marbella.
+
+Cada semana rota el tema central (hoteles, alojamiento extrahotelero, mercados,
+empleo) para que el contenido y las gráficas cambien aunque las fuentes
+oficiales sean mensuales. Las noticias son siempre las de los últimos días.
 
 Reúne lo último de:
   - INE Tempus3 (EOH hoteles, EOAP apartamentos, VUT) para Marbella
@@ -16,6 +20,7 @@ import datetime as dt
 import email.utils
 import html
 import json
+import os
 import re
 import sys
 import time
@@ -52,8 +57,35 @@ SERIES = {
     "adr":              ("EOT43542", "Tarifa media diaria ADR (€)"),
     "revpar":           ("EOT43946", "Ingreso por habitación disponible RevPAR (€)"),
     "pernoct_apart":    ("EOT41394", "Pernoctaciones en apartamentos turísticos"),
+    "ocup_apart":       ("EOT9851",  "Ocupación de apartamentos turísticos (%)"),
+    "pernoct_apart_esp": ("EOT9425", "Pernoctaciones en apartamentos de residentes en España"),
+    "pernoct_apart_ext": ("EOT9426", "Pernoctaciones en apartamentos de residentes en el extranjero"),
     "vut_viviendas":    ("VTE3889",  "Viviendas de uso turístico"),
+    "vut_plazas":       ("VTE15629", "Plazas en viviendas de uso turístico"),
 }
+TASAS = ("ocupacion_plazas", "ocup_apart")
+
+TEMAS = [
+    {"id": "hoteles", "etiqueta": "TEMA DE LA SEMANA · HOTELES",
+     "foco": "Hoteles: viajeros, pernoctaciones, ocupación, estancia media, tarifa media (ADR) y RevPAR."},
+    {"id": "extrahotelero", "etiqueta": "TEMA DE LA SEMANA · APARTAMENTOS Y VIVIENDAS TURÍSTICAS",
+     "foco": "Alojamiento extrahotelero: apartamentos turísticos (pernoctaciones, ocupación, origen) y viviendas de uso turístico (número y plazas)."},
+    {"id": "mercados", "etiqueta": "TEMA DE LA SEMANA · MERCADOS INTERNACIONALES",
+     "foco": "Mercados: de qué países llegan los visitantes, peso del turista extranjero frente al nacional y su evolución."},
+    {"id": "empleo", "etiqueta": "TEMA DE LA SEMANA · EMPLEO Y ECONOMÍA",
+     "foco": "Empleo: paro registrado, afiliación a la Seguridad Social, contratos y estabilidad (indefinidos)."},
+]
+
+def hora_madrid(fecha, hh, mm):
+    """ISO 8601 con el desfase de Madrid (horario de verano: último domingo de marzo a último de octubre)."""
+    def ultimo_domingo(anio, mes):
+        d = dt.date(anio, mes, 31)
+        return d - dt.timedelta(days=(d.weekday() + 1) % 7)
+    verano = ultimo_domingo(fecha.year, 3) <= fecha < ultimo_domingo(fecha.year, 10)
+    return f"{fecha.isoformat()}T{hh:02d}:{mm:02d}:00{'+02:00' if verano else '+01:00'}"
+
+
+DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "domingo"]
 
 AZUL, AZUL_CLARO, GRIS = "#0b5cad", "#9cc3ea", "#6b7280"
 
@@ -124,7 +156,8 @@ def estilo(ax):
     ax.grid(axis="y", color="#e5e7eb", linewidth=0.8)
     ax.set_axisbelow(True)
     ax.yaxis.set_major_formatter(mticker.FuncFormatter(
-        lambda v, _: f"{v / 1000:.0f} mil".replace(".", ",") if v >= 1000 else f"{v:.0f}"))
+        lambda v, _: (f"{v / 1000:.0f} mil" if v >= 10000 else f"{v / 1000:.1f} mil").replace(".", ",")
+        if v >= 1000 else f"{v:.0f}"))
 
 
 def grafica_interanual(serie, titulo, fichero):
@@ -141,6 +174,36 @@ def grafica_interanual(serie, titulo, fichero):
     estilo(ax)
     ax.set_title(titulo, loc="left", fontsize=11, color="#111827", fontweight="bold", pad=12)
     ax.legend(frameon=False, fontsize=8, loc="upper left", ncols=2, bbox_to_anchor=(0, 1.02), labelcolor=GRIS)
+    fig.tight_layout()
+    fig.savefig(SALIDA / fichero, facecolor="white")
+    plt.close(fig)
+
+
+def grafica_barras_h(pares, titulo, fichero):
+    """Ranking horizontal (p. ej. países)."""
+    pares = list(reversed(pares))
+    fig, ax = plt.subplots(figsize=(6.4, 3.1), dpi=150)
+    ax.barh([a for a, _ in pares], [b for _, b in pares], color=AZUL, height=0.6)
+    for sp in ("top", "right", "bottom"):
+        ax.spines[sp].set_visible(False)
+    ax.spines["left"].set_color("#d1d5db")
+    ax.tick_params(colors=GRIS, labelsize=9, length=0)
+    ax.xaxis.set_visible(False)
+    for i, (_, b) in enumerate(pares):
+        ax.text(b, i, " " + f"{b:,.0f}".replace(",", "."), va="center", fontsize=8.5, color="#374151")
+    ax.set_title(titulo, loc="left", fontsize=11, color="#111827", fontweight="bold", pad=12)
+    fig.tight_layout()
+    fig.savefig(SALIDA / fichero, facecolor="white")
+    plt.close(fig)
+
+
+def grafica_columnas(serie, titulo, fichero):
+    """Columnas simples para series cortas o semestrales."""
+    fig, ax = plt.subplots(figsize=(6.4, 2.9), dpi=150)
+    ax.bar(range(len(serie)), [x["v"] for x in serie], 0.55, color=AZUL)
+    ax.set_xticks(range(len(serie)), [f'{MESES[int(x["t"][5:]) - 1][:3]} {x["t"][2:4]}' for x in serie])
+    estilo(ax)
+    ax.set_title(titulo, loc="left", fontsize=11, color="#111827", fontweight="bold", pad=12)
     fig.tight_layout()
     fig.savefig(SALIDA / fichero, facecolor="white")
     plt.close(fig)
@@ -167,7 +230,7 @@ CONSULTAS = ["turismo Marbella", "hoteles Marbella", "Costa del Sol turismo", "M
 DESCARTE = re.compile(r"accidente|detenid|apuñal|tiroteo|muert|fallec|incendio|robo|ladr|narco|polic[ií]a|muere|despide|luto", re.I)
 
 
-def noticias(dias=35, por_consulta=12, maximo=40):
+def noticias(dias=8, por_consulta=12, maximo=40):
     vistas, out = set(), []
     limite = dt.datetime.now(dt.timezone.utc) - dt.timedelta(days=dias)
     for q in CONSULTAS:
@@ -201,13 +264,15 @@ def noticias(dias=35, por_consulta=12, maximo=40):
     return out
 
 
+
+
 # ---------------------------------------------------------------- plantilla
 def num(v, dec=0):
     s = f"{v:,.{dec}f}"
     return s.replace(",", "X").replace(".", ",").replace("X", ".")
 
 
-def kpi(etiqueta, valor, var, sufijo_var="%", invertir=False):
+def kpi(etiqueta, valor, var, sufijo_var=" %", invertir=False):
     """Tarjeta KPI. `invertir` = bajar es bueno (paro)."""
     if var is None:
         flecha = ""
@@ -223,45 +288,83 @@ def kpi(etiqueta, valor, var, sufijo_var="%", invertir=False):
             f'{flecha}</div></td>')
 
 
-def render_plantilla(d):
+def mes_corto(r):
+    return r["mes"].split(" ")[0]
+
+
+def tarjetas_tema(tema, d):
     t, e = d["turismo_marbella"], d["economia_marbella"]
-    tarjetas = []
-    if "pernoct_hotel" in t:
-        x = t["pernoct_hotel"]
-        tarjetas.append(kpi("Pernoctaciones hoteleras", num(x["valor"]), x.get("variacion_interanual_pct")))
-    if "ocupacion_plazas" in t:
-        x = t["ocupacion_plazas"]
-        dif = round(x["valor"] - x["anio_anterior"], 1) if "anio_anterior" in x else None
-        tarjetas.append(kpi("Ocupación hotelera (plazas)", num(x["valor"], 1) + " %", dif, " p.p."))
-    if "adr" in t:
-        x = t["adr"]
-        tarjetas.append(kpi("Tarifa media diaria (ADR)", num(x["valor"]) + " €", x.get("variacion_interanual_pct")))
-    if e.get("paro_registrado"):
-        x = e["paro_registrado"]
-        tarjetas.append(kpi(f'Paro registrado ({x["mes"].split(" ")[0]})', num(x["valor"]),
-                            x.get("variacion_interanual_pct"), invertir=True))
+    out = []
 
-    tabla = ""
+    def tarjeta(k, etiqueta, dec=0, suf="", inv=False, src=t):
+        x = src.get(k)
+        if x:
+            var = x.get("variacion_puntos", x.get("variacion_interanual_pct"))
+            out.append(kpi(f"{etiqueta} ({mes_corto(x)})", num(x["valor"], dec) + suf, var,
+                           " p.p." if "variacion_puntos" in x else " %", inv))
+
+    if tema == "hoteles":
+        tarjeta("pernoct_hotel", "Pernoctaciones hoteleras")
+        tarjeta("ocupacion_plazas", "Ocupación por plazas", 1, " %")
+        tarjeta("adr", "Tarifa media (ADR)", 0, " €")
+        tarjeta("revpar", "RevPAR", 0, " €")
+    elif tema == "extrahotelero":
+        tarjeta("pernoct_apart", "Pernoct. en apartamentos")
+        tarjeta("ocup_apart", "Ocupación de apartamentos", 1, " %")
+        tarjeta("vut_viviendas", "Viviendas turísticas")
+        tarjeta("vut_plazas", "Plazas en viviendas turísticas")
+    elif tema == "mercados":
+        tarjeta("viajeros_ext", "Viajeros extranjeros")
+        tarjeta("viajeros_esp", "Viajeros nacionales")
+        tarjeta("cuota_extranjeros", "Cuota de extranjeros", 1, " %")
+        p = d.get("mercados_internacionales")
+        if p:
+            a = p["top_pernoctaciones_hotel"][0]
+            out.append(kpi(f'Primer mercado ({p["mes"].split(" ")[0]})', a["pais"], None))
+    else:
+        tarjeta("paro_registrado", "Paro registrado", inv=True, src=e)
+        tarjeta("afiliados_seguridad_social", "Afiliados S. Social", src=e)
+        tarjeta("contratos", "Contratos firmados", src=e)
+        x = e.get("contratos")
+        if x and "pct_indefinidos" in x:
+            out.append(kpi(f'Contratos indefinidos ({mes_corto(x)})', num(x["pct_indefinidos"], 1) + " %", None))
+    return "".join(out)
+
+
+def caja_novedades(nov):
+    if not nov:
+        return ""
+    return ('<tr><td class="px" style="padding:4px 32px 6px"><div style="background:#ecfdf5;border-left:3px solid #047857;'
+            'border-radius:6px;padding:10px 14px;font-size:13px;line-height:20px;color:#065f46">'
+            f'<strong>Datos nuevos esta semana:</strong> {html.escape(" · ".join(nov))}</div></td></tr>')
+
+
+def tabla_paises(p):
+    filas = "".join(
+        f'<tr><td style="padding:7px 0;border-bottom:1px solid #eef0f3;font-size:14px">{i + 1}. {x["pais"]}</td>'
+        f'<td align="right" style="padding:7px 0;border-bottom:1px solid #eef0f3;font-size:14px;font-weight:600">{num(x["pernoctaciones"])}</td></tr>'
+        for i, x in enumerate(p["top_pernoctaciones_hotel"]))
+    return (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:6px 0 4px">'
+            f'<tr><td style="font-size:11px;color:#9ca3af;padding-bottom:4px">Pernoctaciones hoteleras por país · {p["mes"]}</td>'
+            f'<td align="right" style="font-size:11px;color:#9ca3af">Fuente: Turismo Costa del Sol</td></tr>{filas}</table>')
+
+
+def render_plantilla(d):
+    tema = d["tema"]["id"]
     p = d.get("mercados_internacionales")
-    if p:
-        filas = "".join(
-            f'<tr><td style="padding:7px 0;border-bottom:1px solid #eef0f3;font-size:14px">{i + 1}. {x["pais"]}</td>'
-            f'<td align="right" style="padding:7px 0;border-bottom:1px solid #eef0f3;font-size:14px;font-weight:600">{num(x["pernoctaciones"])}</td></tr>'
-            for i, x in enumerate(p["top_pernoctaciones_hotel"]))
-        tabla = (f'<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="margin:10px 0 4px">'
-                 f'<tr><td style="font-size:11px;color:#9ca3af;padding-bottom:4px">Pernoctaciones hoteleras por país · {p["mes"]}</td>'
-                 f'<td align="right" style="font-size:11px;color:#9ca3af">Fuente: Turismo Costa del Sol</td></tr>{filas}</table>')
-
-    g = {x["clave"]: x["url"] for x in d["graficas"]}
+    img = '<img src="{}" width="536" alt="{}" style="display:block;width:100%;height:auto;border:0;margin:6px 0 16px">'
     rep = {
-        "[[EDICION]]": d["edicion_texto"].capitalize(),
+        "[[EDICION]]": d["edicion_texto"],
         "[[FOTO_URL]]": d["foto"]["url"],
         "[[FOTO_ENLACE]]": d["foto"]["enlace"],
         "[[FOTO_CREDITO]]": html.escape(d["foto"]["credito"]),
-        "[[KPIS]]": "".join(tarjetas),
-        "[[GRAF1]]": g.get("pernoct_hotel", ""),
-        "[[GRAF2]]": g.get("adr", ""),
-        "[[TABLA_PAISES]]": tabla,
+        "[[KPIS]]": tarjetas_tema(tema, d),
+        "[[NOVEDADES]]": caja_novedades(d["novedades"]),
+        "[[TEMA_ETIQUETA]]": d["tema"]["etiqueta"],
+        "[[GRAFICAS]]": "".join(img.format(x["url"], html.escape(x["titulo"])) for x in d["graficas"]),
+        # La tabla solo si no hay gráfica de países (no repetir el ranking)
+        "[[TABLA_PAISES]]": tabla_paises(p) if (tema == "mercados" and p and
+                                                not any(x["clave"] == "paises" for x in d["graficas"])) else "",
         "[[FUENTES]]": d["fuentes"],
         "[[WEB]]": d["enlaces"]["web"],
     }
@@ -272,25 +375,61 @@ def render_plantilla(d):
 
 
 # ---------------------------------------------------------------- main
+def novedades(previo, actual):
+    """Indicadores cuyo último periodo ha cambiado desde la edición anterior."""
+    out = []
+    for bloque in ("turismo_marbella", "economia_marbella"):
+        for k, x in actual.get(bloque, {}).items():
+            if not isinstance(x, dict) or "periodo" not in x:
+                continue
+            antes = (previo.get(bloque) or {}).get(k) or {}
+            if antes.get("periodo") and antes["periodo"] != x["periodo"]:
+                out.append(f'{x.get("indicador", k)} ({x["mes"]})')
+    p, q = actual.get("mercados_internacionales"), previo.get("mercados_internacionales")
+    if p and q and p["periodo"] != q["periodo"]:
+        out.append(f'mercados por país ({p["mes"]})')
+    return out
+
+
 def main():
     SALIDA.mkdir(parents=True, exist_ok=True)
+    # BOLETIN_FECHA=AAAA-MM-DD permite simular otra semana (pruebas)
+    hoy = dt.date.fromisoformat(os.environ["BOLETIN_FECHA"]) if os.environ.get("BOLETIN_FECHA") else dt.date.today()
+    lunes = hoy - dt.timedelta(days=hoy.weekday())
+    anio, semana, _ = lunes.isocalendar()
+    edicion = f"{anio}-S{semana:02d}"
+    martes = lunes + dt.timedelta(days=1)
+    tema = TEMAS[semana % len(TEMAS)]
+    previo = {}
+    if (SALIDA / "datos.json").exists():
+        previo = json.loads((SALIDA / "datos.json").read_text(encoding="utf-8"))
+        if previo.get("edicion") == edicion:          # reejecución de la misma semana
+            previo = previo.get("_previo") or {}
+
     series = {k: serie_ine(cod) for k, (cod, _) in SERIES.items()}
-    ref = series["pernoct_hotel"][-1]["t"]          # mes de referencia del boletín
 
     turismo = {}
     for k, (cod, desc) in SERIES.items():
-        r = resumen(series[k], 2 if k in ("ocupacion_plazas", "estancia_media", "adr", "revpar") else 0)
+        r = resumen(series[k], 2 if k in TASAS + ("estancia_media", "adr", "revpar") else 0)
         if r:
-            if k == "ocupacion_plazas" and "anio_anterior" in r:
+            if k in TASAS and "anio_anterior" in r:
                 # Una tasa se compara en puntos, no en % de variación
                 r["variacion_puntos"] = round(r["valor"] - r["anio_anterior"], 1)
                 del r["variacion_interanual_pct"]
             r["indicador"] = desc
             r["serie_ine"] = cod
             turismo[k] = r
-    ext, esp = turismo.get("viajeros_ext"), turismo.get("viajeros_esp")
-    if ext and esp:
-        turismo["cuota_extranjeros_pct"] = round(ext["valor"] / (ext["valor"] + esp["valor"]) * 100, 1)
+    # Cuota de viajeros extranjeros en hoteles (serie propia, para la gráfica de mercados)
+    esp = {x["t"]: x["v"] for x in series["viajeros_esp"]}
+    cuota = [{"t": x["t"], "v": round(x["v"] / (x["v"] + esp[x["t"]]) * 100, 1)}
+             for x in series["viajeros_ext"] if esp.get(x["t"])]
+    c = resumen(cuota, 1)
+    if c:
+        if "anio_anterior" in c:
+            c["variacion_puntos"] = round(c["valor"] - c["anio_anterior"], 1)
+            del c["variacion_interanual_pct"]
+        c["indicador"] = "Cuota de viajeros extranjeros en hoteles (%)"
+        turismo["cuota_extranjeros"] = c
 
     acumulados = {k: acumulado_anual(series[k]) for k in ("viajeros_hotel", "pernoct_hotel")}
 
@@ -303,47 +442,64 @@ def main():
         pern = p["datos"]["Hoteles"]["Pernoctaciones"]
         top = sorted(((pais, v[i]) for pais, v in pern.items()
                       if v[i] and pais not in ("España", "Extranjero", "Total") and not pais.startswith("Resto")),
-                     key=lambda x: -x[1])[:6]
+                     key=lambda x: -x[1])[:8]
         paises = {"periodo": mes, "mes": nombre_mes(mes), "fuente": p["meta"]["fuente"],
                   "top_pernoctaciones_hotel": [{"pais": a, "pernoctaciones": round(b)} for a, b in top]}
     except Exception as e:
         print("paises:", e, file=sys.stderr)
 
     # Observatorio económico
-    economia = {}
+    economia, paro_s, afi_s = {}, [], []
     try:
         paro = json.loads(get(f"{ECO}/paro_mensual.json"))["serie"]
-        economia["paro_registrado"] = resumen([{"t": x["t"], "v": x["total"]} for x in paro])
-        afi = json.loads(get(f"{ECO}/afiliacion.json"))["marbella"]["total"]
-        economia["afiliados_seguridad_social"] = resumen(afi)
+        paro_s = [{"t": x["t"], "v": x["total"]} for x in paro]
+        economia["paro_registrado"] = dict(resumen(paro_s), indicador="Paro registrado")
+        afi_s = json.loads(get(f"{ECO}/afiliacion.json"))["marbella"]["total"]
+        economia["afiliados_seguridad_social"] = dict(resumen(afi_s), indicador="Afiliados a la Seguridad Social")
         con = json.loads(get(f"{ECO}/contratos_mensual.json"))["serie"]
-        economia["contratos"] = resumen([{"t": x["t"], "v": x["total"]} for x in con])
+        economia["contratos"] = dict(resumen([{"t": x["t"], "v": x["total"]} for x in con]), indicador="Contratos")
         u = con[-1]
         economia["contratos"]["pct_indefinidos"] = round(u["indefinidos"] / u["total"] * 100, 1)
     except Exception as e:
         print("economia:", e, file=sys.stderr)
 
-    # Gráficas (nombre con el periodo para que el correo no muestre otra versión en caché)
+    # Gráficas del tema (nombre con la edición para que el correo no muestre otra versión en caché)
+    planes = {
+        "hoteles": [("pernoct_hotel", "Pernoctaciones hoteleras en Marbella", grafica_interanual, series["pernoct_hotel"]),
+                    ("adr", "Tarifa media diaria de los hoteles (€)", grafica_linea, series["adr"])],
+        "extrahotelero": [("pernoct_apart", "Pernoctaciones en apartamentos turísticos", grafica_interanual, series["pernoct_apart"]),
+                          ("vut_viviendas", "Viviendas de uso turístico registradas", grafica_columnas, series["vut_viviendas"][-8:])],
+        "mercados": [("cuota_ext", "Peso de los viajeros extranjeros en hoteles (%)", grafica_linea, cuota)],
+        "empleo": [("paro", "Paro registrado en Marbella", grafica_linea, paro_s),
+                   ("afiliacion", "Afiliados a la Seguridad Social (residentes)", grafica_linea, afi_s)],
+    }[tema["id"]]
     graficas = []
-    for clave, titulo, fn in (
-        ("pernoct_hotel", "Pernoctaciones hoteleras en Marbella", grafica_interanual),
-        ("adr", "Tarifa media diaria de los hoteles (€)", grafica_linea),
-    ):
-        nombre = f"graf-{ref}-{clave}.png"
-        fn(series[clave], titulo, nombre)
+    if tema["id"] == "mercados" and paises:
+        nombre = f"graf-{edicion}-paises.png"
+        grafica_barras_h([(x["pais"], x["pernoctaciones"]) for x in paises["top_pernoctaciones_hotel"]],
+                         f'Pernoctaciones hoteleras por país · {paises["mes"]}', nombre)
+        graficas.append({"clave": "paises", "url": f"{WEB}/boletin/{nombre}", "titulo": "Pernoctaciones por país"})
+    for clave, titulo, fn, serie in planes:
+        if not serie:
+            continue
+        nombre = f"graf-{edicion}-{clave}.png"
+        fn(serie, titulo, nombre)
         graficas.append({"clave": clave, "url": f"{WEB}/boletin/{nombre}", "titulo": titulo})
 
-    # Foto del mes: rota sobre las fotos libres
+    # Foto de la semana: rota sobre las fotos libres
     fotos = json.loads((RAIZ / "docs" / "img" / "fotos" / "creditos.json").read_text(encoding="utf-8"))
-    a, m = map(int, ref.split("-"))
-    foto = fotos[(a * 12 + m) % len(fotos)]
+    foto = fotos[(anio * 53 + semana) % len(fotos)]
     foto = {"url": f'{WEB}/img/fotos/{foto["file"]}',
             "credito": f'Foto: {foto["autor"]} · {foto["licencia"]} · Wikimedia Commons', "enlace": foto["url"]}
 
     datos = {
         "generado": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
-        "edicion": ref,
-        "edicion_texto": nombre_mes(ref),
+        "edicion": edicion,
+        "edicion_texto": f"Semana del {lunes.day} de {MESES[lunes.month - 1]} de {lunes.year}",
+        "envio": hora_madrid(martes, 13, 30),
+        "envio_texto": f"martes {martes.day} de {MESES[martes.month - 1]} a las 13:30",
+        "tema": tema,
+        "novedades": [],
         "turismo_marbella": turismo,
         "acumulado_anual": acumulados,
         "mercados_internacionales": paises,
@@ -360,15 +516,19 @@ def main():
         "fuentes": "INE (Encuesta de Ocupación Hotelera, Apartamentos Turísticos y Viviendas Turísticas), "
                    "Turismo Costa del Sol Big Data, SEPE, Seguridad Social (IECA).",
     }
+    datos["novedades"] = novedades(previo, datos)
+    # Lo mínimo de la edición anterior, para poder reejecutar la misma semana sin perder las novedades
+    datos["_previo"] = {k: previo.get(k) for k in ("turismo_marbella", "economia_marbella", "mercados_internacionales")}
     (SALIDA / "datos.json").write_text(json.dumps(datos, ensure_ascii=False, indent=1), encoding="utf-8")
     (SALIDA / "plantilla.html").write_text(render_plantilla(datos), encoding="utf-8")
 
-    # Borrar gráficas de ediciones antiguas (se conservan las 3 últimas)
-    eds = sorted({p.name[5:12] for p in SALIDA.glob("graf-*.png")})
-    for viejo in eds[:-3]:
+    # Borrar gráficas de ediciones antiguas (se conservan las 6 últimas)
+    eds = sorted({m.group(1) for p in SALIDA.glob("graf-*.png")
+                  if (m := re.match(r"graf-(\d{4}-(?:S\d\d|\d\d))-", p.name))})
+    for viejo in eds[:-6]:
         for p in SALIDA.glob(f"graf-{viejo}-*.png"):
             p.unlink()
-    print(f"Edición {ref}: {len(datos['noticias_candidatas'])} noticias candidatas")
+    print(f"Edición {edicion} · tema {tema['id']} · {len(datos['noticias_candidatas'])} noticias · novedades: {datos['novedades']}")
 
 
 if __name__ == "__main__":

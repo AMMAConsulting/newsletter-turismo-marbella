@@ -1,12 +1,12 @@
 # Marbella en Datos — boletín de turismo
 
-Boletín mensual automático con datos del Observatorio Turístico y del Observatorio Económico de Marbella, más noticias del sector.
+Boletín SEMANAL automático (sale los martes a las 13:30) con datos del Observatorio Turístico y del Observatorio Económico de Marbella, más noticias del sector.
 
 ## Cómo funciona
 
-1. **GitHub Actions** (`.github/workflows/boletin.yml`) se ejecuta cada día. Cuando el INE publica un mes nuevo de la Encuesta de Ocupación Hotelera, `build.py` genera `docs/boletin/datos.json`, las gráficas y `plantilla.html`, y avisa al webhook de Make.
+1. **GitHub Actions** (`.github/workflows/boletin.yml`): el **lunes** `build.py` genera `docs/boletin/datos.json`, las gráficas del tema de la semana (rotan: hoteles, apartamentos/VUT, mercados, empleo) y `plantilla.html`, y pide el borrador a Make. El **martes a las 13:30** pide el envío.
 2. **Make, escenario "Boletín"**: GPT redacta los textos a partir de `datos.json`, rellena la plantilla y manda el **borrador al revisor** con un enlace a `revision.html`.
-3. El revisor **aprueba** (se envía a todos los suscriptores activos) o **pide cambios** (GPT rehace el borrador y le llega uno nuevo).
+3. El revisor **aprueba** (si es antes del martes 13:30 queda programado; si es después, sale en el momento) o **pide cambios** (GPT rehace el borrador y le llega uno nuevo).
 4. **Make, escenario "Suscripciones"**: altas con doble confirmación, confirmaciones y bajas desde la web (`docs/`, GitHub Pages).
 
 ## Ficheros
@@ -21,4 +21,4 @@ Boletín mensual automático con datos del Observatorio Turístico y del Observa
 - `MAKE_WEBHOOK_BOLETIN`: URL del webhook del escenario "Boletín".
 - `MAKE_CLAVE`: clave compartida con Make para que nadie más pueda lanzar o aprobar ediciones.
 
-Lanzar a mano: `gh workflow run boletin.yml -f forzar=true`.
+Lanzar a mano: `gh workflow run boletin.yml -f accion=generar` (o `accion=enviar`). Simular otra semana en local: `BOLETIN_FECHA=2026-11-02 python build.py`.

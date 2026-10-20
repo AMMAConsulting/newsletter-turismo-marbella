@@ -48,9 +48,8 @@ def http_get(i, url):
 # --- composición del HTML: un replace() anidado por marcador
 CAMPOS = {
     "ASUNTO": "7.asunto", "TITULAR": "7.titular", "ENTRADILLA": "7.entradilla",
-    "ENTRADILLA_CORTA": "7.entradilla_corta", "TITULO_TURISMO": "7.titulo_turismo",
-    "TEXTO_TURISMO": "7.texto_turismo", "TEXTO_MERCADOS": "7.texto_mercados",
-    "TEXTO_ECONOMIA": "7.texto_economia",
+    "ENTRADILLA_CORTA": "7.entradilla_corta", "TITULO_TEMA": "7.titulo_tema",
+    "TEXTO_TEMA": "7.texto_tema", "TEXTO_RESUMEN": "7.texto_resumen",
 }
 for n in (1, 2, 3):
     CAMPOS[f"N{n}_TITULAR"] = f'get(7.noticias; "{n}.titular")'
@@ -67,6 +66,7 @@ AVISO = (
     '<table role="presentation" width="100%" cellpadding="0" cellspacing="0" style="background:#fff7e6;border-bottom:2px solid #f59e0b">'
     '<tr><td align="center" style="padding:16px 12px;font-family:Arial,Helvetica,sans-serif;font-size:14px;color:#78350f">'
     '<strong>BORRADOR PARA REVISIÓN</strong> · Edición @@ED@@ · Todavía no se ha enviado a nadie.<br>'
+    'Si lo apruebas antes del martes a las 13:30 saldrá a esa hora; si lo apruebas después, saldrá en el momento.<br>'
     f'<a href="{WEB}/revision.html?ed=@@ED@@&k={CLAVE}" '
     'style="display:inline-block;margin-top:10px;background:#0b5cad;color:#ffffff;padding:10px 18px;border-radius:8px;text-decoration:none;font-weight:bold">'
     'Aprobar o pedir cambios</a></td></tr></table>'
@@ -91,10 +91,10 @@ redactar = [
                 "response_format": "json_object", "parseJSONResponse": False,
                 "messages": [
                     {"role": "system", "content": SISTEMA},
-                    {"role": "user", "content": "DATOS DEL MES (JSON):\n{{toString(4.data)}}"},
+                    {"role": "user", "content": "DATOS DE LA SEMANA (JSON):\n{{toString(4.data)}}"},
                     {"role": "user", "content":
                         "{{if(1.accion = \"cambios\"; \"MODO REVISIÓN. " + REVISION.replace('"', "'") +
-                        "\"; \"MODO NUEVA EDICIÓN: redacta desde cero con los datos del mes e IGNORA el borrador anterior que aparece abajo (es de otra versión).\")}}"
+                        "\"; \"MODO NUEVA EDICIÓN: redacta desde cero con los datos de esta semana. El borrador anterior que aparece abajo es el de la semana pasada: no repitas su titular, su asunto ni su enfoque.\")}}"
                         "\n\nBORRADOR ANTERIOR (JSON):\n{{3.contenido}}"
                         "\n\nCAMBIOS QUE PIDE EL REVISOR:\n{{1.texto}}"},
                 ]}},
@@ -106,7 +106,8 @@ redactar = [
      "parameters": {"datastore": STORE},
      "mapper": {"key": "borrador", "overwrite": True, "data": {
          "tipo": "borrador", "estado": "borrador", "edicion": "{{1.edicion}}",
-         "asunto": "{{7.asunto}}", "contenido": "{{6.result}}", "html": "{{8.html}}", "fecha": "{{now}}"}}},
+         "asunto": "{{7.asunto}}", "contenido": "{{6.result}}", "html": "{{8.html}}", "fecha": "{{now}}",
+         "envio": "{{ifempty(1.envio; 3.envio)}}"}}},
     {"id": 11, "module": "email:ActionSendEmail", "version": 7,
      "parameters": {"account": SMTP, "saveAfterSent": False},
      "mapper": {"to": [REVISOR], "from": REMITENTE,
@@ -118,37 +119,61 @@ baja_url = f'{WEB}/baja.html?e=@@E@@&t=@@T@@'
 # La búsqueda del data store solo garantiza la clave (= email); el token se recalcula
 TOKEN24 = f'md5(replace("{CLAVE}:EMAIL"; "EMAIL"; lower(trim(24.key))))'
 
+def cond(a, o, b=None):
+    c = {"a": a, "o": o}
+    if b is not None:
+        c["b"] = b
+    return c
+
+
+BORRADOR_OK = [cond("{{20.estado}}", "text:equal", "borrador"), cond("{{20.edicion}}", "text:equal", "{{1.edicion}}")]
+ES_APROBAR = cond("{{1.accion}}", "text:equal", "aprobar")
+
+enviar = [
+    {"id": 22, "module": "datastore:UpdateRecord", "version": 1,
+     "parameters": {"datastore": STORE},
+     "filter": {"name": "Enviar ahora", "conditions": [
+         # aprobado después de la hora de envío...
+         [ES_APROBAR, *BORRADOR_OK, cond("{{now}}", "date:greaterorequal", "{{20.envio}}")],
+         # ...o llega la hora (GitHub, martes 13:30) y ya estaba aprobado
+         [cond("{{1.accion}}", "text:equal", "enviar"), cond("{{20.estado}}", "text:equal", "aprobado"),
+          cond("{{20.edicion}}", "text:equal", "{{1.edicion}}")]]},
+     "mapper": {"key": "borrador", "data": {"estado": "enviado", "fecha": "{{now}}"},
+                "upsert": False, "overwriteArrays": False}},
+    responder(23, "aprobado"),
+    {"id": 24, "module": "datastore:SearchRecord", "version": 1,
+     "parameters": {"datastore": STORE, "continueWhenNoRes": False, "limit": 900},
+     "mapper": {"filter": [[
+         {"a": "tipo", "o": "text:equal", "b": "suscriptor"},
+         {"a": "estado", "o": "text:equal", "b": "activo"}]]}},
+    {"id": 25, "module": "email:ActionSendEmail", "version": 7,
+     "parameters": {"account": SMTP, "saveAfterSent": False},
+     "mapper": {"to": ["{{24.key}}"], "from": REMITENTE, "subject": "{{20.asunto}}",
+                "contentType": "html",
+                "html": '{{replace(replace(replace(replace(20.html; "%%AVISO_REVISION%%"; ""); "%%BAJA%%"; "' + baja_url + '"); "@@E@@"; encodeURL(24.key)); "@@T@@"; ' + TOKEN24 + ')}}'}},
+]
+
 aprobar = [
     {"id": 20, "module": "datastore:GetRecord", "version": 1,
      "parameters": {"datastore": STORE},
      "mapper": {"key": "borrador", "returnWrapped": False},
-     "filter": {"name": "Aprobar (con clave)", "conditions": [
-         [clave_ok(), {"a": "{{1.accion}}", "o": "text:equal", "b": "aprobar"}]]}},
+     "filter": {"name": "Aprobar o enviar (con clave)", "conditions": [
+         [clave_ok(), ES_APROBAR],
+         [clave_ok(), cond("{{1.accion}}", "text:equal", "enviar")]]}},
     {"id": 21, "module": "builtin:BasicRouter", "version": 1, "routes": [
         {"flow": [
-            {"id": 22, "module": "datastore:UpdateRecord", "version": 1,
+            {"id": 27, "module": "datastore:UpdateRecord", "version": 1,
              "parameters": {"datastore": STORE},
-             "filter": {"name": "Borrador pendiente de esta edición", "conditions": [[
-                 {"a": "{{20.estado}}", "o": "text:equal", "b": "borrador"},
-                 {"a": "{{20.edicion}}", "o": "text:equal", "b": "{{1.edicion}}"}]]},
-             "mapper": {"key": "borrador", "data": {"estado": "enviado", "fecha": "{{now}}"},
+             "filter": {"name": "Aprobado antes de la hora: se programa", "conditions": [
+                 [ES_APROBAR, *BORRADOR_OK, cond("{{now}}", "date:less", "{{20.envio}}")]]},
+             "mapper": {"key": "borrador", "data": {"estado": "aprobado"},
                         "upsert": False, "overwriteArrays": False}},
-            responder(23, "aprobado"),
-            {"id": 24, "module": "datastore:SearchRecord", "version": 1,
-             "parameters": {"datastore": STORE, "continueWhenNoRes": False, "limit": 900},
-             "mapper": {"filter": [[
-                 {"a": "tipo", "o": "text:equal", "b": "suscriptor"},
-                 {"a": "estado", "o": "text:equal", "b": "activo"}]]}},
-            {"id": 25, "module": "email:ActionSendEmail", "version": 7,
-             "parameters": {"account": SMTP, "saveAfterSent": False},
-             "mapper": {"to": ["{{24.key}}"], "from": REMITENTE, "subject": "{{20.asunto}}",
-                        "contentType": "html",
-                        "html": '{{replace(replace(replace(replace(20.html; "%%AVISO_REVISION%%"; ""); "%%BAJA%%"; "' + baja_url + '"); "@@E@@"; encodeURL(24.key)); "@@T@@"; ' + TOKEN24 + ')}}'},
-             },
+            responder(28, "programado"),
         ]},
-        {"flow": [dict(responder(26, "caducado"), filter={"name": "Ya enviado o edición distinta", "conditions": [
-            [{"a": "{{20.estado}}", "o": "text:notequal", "b": "borrador"}],
-            [{"a": "{{20.edicion}}", "o": "text:notequal", "b": "{{1.edicion}}"}]]})]},
+        {"flow": enviar},
+        {"flow": [dict(responder(26, "caducado"), filter={"name": "Ya aprobado/enviado o edición distinta", "conditions": [
+            [ES_APROBAR, cond("{{20.estado}}", "text:notequal", "borrador")],
+            [ES_APROBAR, cond("{{20.edicion}}", "text:notequal", "{{1.edicion}}")]]})]},
     ]},
 ]
 

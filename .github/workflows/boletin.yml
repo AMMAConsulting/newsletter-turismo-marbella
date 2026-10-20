@@ -1,17 +1,21 @@
-name: Preparar boletín
+name: Boletín semanal
 
-# Cada día comprueba si el INE ha publicado un mes nuevo de la EOH de Marbella.
-# Si lo hay, regenera datos + gráficas, los publica y pide a Make el borrador
-# (que llega por correo al revisor para aprobarlo o pedir cambios).
+# Lunes por la mañana: se recogen los datos, se generan las gráficas del tema
+# de la semana y se pide a Make el borrador (llega al revisor).
+# Martes 13:30 (hora de Madrid): se pide a Make el envío; solo sale si el
+# revisor ya lo aprobó (si lo aprueba más tarde, sale al aprobarlo).
 on:
   schedule:
-    - cron: "30 9 * * *"     # 11:30 en España (el INE publica a las 09:00)
+    - cron: "0 7 * * 1"                 # lunes 08:00-09:00 en España
+    - cron: "30 11 * * 2"               # martes 13:30 en verano (CEST)
+    - cron: "30 12 * * 2"               # martes 13:30 en invierno (CET)
   workflow_dispatch:
     inputs:
-      forzar:
-        description: "Pedir el borrador aunque la edición ya se hubiera preparado"
-        type: boolean
-        default: false
+      accion:
+        description: "generar = nuevo borrador · enviar = enviar ya la edición aprobada"
+        type: choice
+        options: [generar, enviar]
+        default: generar
 
 permissions:
   contents: write
@@ -21,58 +25,76 @@ concurrency:
   cancel-in-progress: false
 
 jobs:
-  preparar:
+  boletin:
     runs-on: ubuntu-latest
     steps:
+      - name: ¿Qué toca?
+        id: que
+        run: |
+          if [ "${{ github.event_name }}" = "workflow_dispatch" ]; then
+            echo "accion=${{ inputs.accion }}" >> "$GITHUB_OUTPUT"; exit 0
+          fi
+          DIA=$(TZ=Europe/Madrid date +%u); HORA=$(TZ=Europe/Madrid date +%H)
+          if [ "$DIA" = "1" ]; then
+            echo "accion=generar" >> "$GITHUB_OUTPUT"
+          elif [ "$DIA" = "2" ] && [ "$HORA" -ge 13 ] && [ "$HORA" -le 14 ]; then
+            echo "accion=enviar" >> "$GITHUB_OUTPUT"      # el otro cron cae a las 12:30 o 14:30 y Make ignora el repetido
+          else
+            echo "accion=nada" >> "$GITHUB_OUTPUT"
+          fi
+          echo "Madrid: día $DIA, hora $HORA"
+
       - uses: actions/checkout@v4
+        if: steps.que.outputs.accion == 'generar'
 
       - uses: actions/setup-python@v5
+        if: steps.que.outputs.accion == 'generar'
         with:
           python-version: "3.12"
 
-      - run: pip install matplotlib==3.9.2
-
       - name: Recoger datos y generar gráficas
-        run: python build.py
-
-      - name: ¿Edición nueva?
-        id: ed
+        if: steps.que.outputs.accion == 'generar'
         run: |
-          ED=$(python -c "import json;print(json.load(open('docs/boletin/datos.json',encoding='utf-8'))['edicion'])")
-          PREV=$(cat docs/boletin/ultima_edicion.txt 2>/dev/null || echo "")
-          echo "edicion=$ED" >> "$GITHUB_OUTPUT"
-          if [ "$ED" != "$PREV" ] || [ "${{ inputs.forzar }}" = "true" ]; then
-            echo "nueva=true" >> "$GITHUB_OUTPUT"
-            echo "$ED" > docs/boletin/ultima_edicion.txt
-          fi
-          echo "Edición $ED (anterior: ${PREV:-ninguna})"
+          pip install matplotlib==3.9.2
+          python build.py
 
       - name: Publicar
+        if: steps.que.outputs.accion == 'generar'
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "41898729+github-actions[bot]@users.noreply.github.com"
           git add -A docs
-          git diff --cached --quiet || git commit -m "boletín: datos ${{ steps.ed.outputs.edicion }}"
+          git diff --cached --quiet || git commit -m "boletín: $(python -c "import json;print(json.load(open('docs/boletin/datos.json',encoding='utf-8'))['edicion'])")"
           git push
 
-      - name: Esperar a que GitHub Pages publique las imágenes
-        if: steps.ed.outputs.nueva == 'true'
+      - name: Esperar a que GitHub Pages publique las gráficas
+        if: steps.que.outputs.accion == 'generar'
         run: |
-          URL=$(python -c "import json;print(json.load(open('docs/boletin/datos.json',encoding='utf-8'))['graficas'][0]['url'])")
+          URL=$(python -c "import json;g=json.load(open('docs/boletin/datos.json',encoding='utf-8'))['graficas'];print(g[0]['url'] if g else '')")
+          [ -z "$URL" ] && exit 0
           for i in $(seq 1 30); do
             curl -sfo /dev/null "$URL" && echo "Publicado" && exit 0
             sleep 20
           done
           echo "Pages tarda más de lo normal; se pide el borrador igualmente"
 
-      - name: Pedir el borrador a Make
-        if: steps.ed.outputs.nueva == 'true'
+      - name: Avisar a Make
+        if: steps.que.outputs.accion != 'nada'
         env:
           WEBHOOK: ${{ secrets.MAKE_WEBHOOK_BOLETIN }}
           CLAVE: ${{ secrets.MAKE_CLAVE }}
+          ACCION: ${{ steps.que.outputs.accion }}
         run: |
           if [ -z "$WEBHOOK" ]; then echo "Falta el secreto MAKE_WEBHOOK_BOLETIN"; exit 1; fi
+          # La edición es la semana ISO del lunes, igual que en build.py
+          EDICION=$(TZ=Europe/Madrid python3 -c "import datetime as d;h=d.date.today();l=h-d.timedelta(days=h.weekday());a,s,_=l.isocalendar();print(f'{a}-S{s:02d}')")
+          ENVIO=""
+          if [ "$ACCION" = "generar" ]; then
+            ENVIO=$(python3 -c "import json;print(json.load(open('docs/boletin/datos.json',encoding='utf-8'))['envio'])")
+          fi
+          echo "$ACCION edición $EDICION (envío $ENVIO)"
           curl -sf -X POST "$WEBHOOK" \
-            --data-urlencode "accion=generar" \
-            --data-urlencode "edicion=${{ steps.ed.outputs.edicion }}" \
+            --data-urlencode "accion=$ACCION" \
+            --data-urlencode "edicion=$EDICION" \
+            --data-urlencode "envio=$ENVIO" \
             --data-urlencode "clave=$CLAVE"

@@ -1,7 +1,15 @@
 {
- "generado": "2026-10-20T08:35:26Z",
- "edicion": "2026-08",
- "edicion_texto": "agosto de 2026",
+ "generado": "2026-10-20T08:55:08Z",
+ "edicion": "2026-S43",
+ "edicion_texto": "Semana del 19 de octubre de 2026",
+ "envio": "2026-10-20T13:30:00+02:00",
+ "envio_texto": "martes 20 de octubre a las 13:30",
+ "tema": {
+  "id": "empleo",
+  "etiqueta": "TEMA DE LA SEMANA · EMPLEO Y ECONOMÍA",
+  "foco": "Empleo: paro registrado, afiliación a la Seguridad Social, contratos y estabilidad (indefinidos)."
+ },
+ "novedades": [],
  "turismo_marbella": {
   "viajeros_hotel": {
    "periodo": "2026-08",
@@ -84,6 +92,33 @@
    "indicador": "Pernoctaciones en apartamentos turísticos",
    "serie_ine": "EOT41394"
   },
+  "ocup_apart": {
+   "periodo": "2026-08",
+   "mes": "agosto de 2026",
+   "valor": 91.59,
+   "anio_anterior": 71.1,
+   "variacion_puntos": 20.5,
+   "indicador": "Ocupación de apartamentos turísticos (%)",
+   "serie_ine": "EOT9851"
+  },
+  "pernoct_apart_esp": {
+   "periodo": "2026-08",
+   "mes": "agosto de 2026",
+   "valor": 17099.0,
+   "anio_anterior": 26365.0,
+   "variacion_interanual_pct": -35.1,
+   "indicador": "Pernoctaciones en apartamentos de residentes en España",
+   "serie_ine": "EOT9425"
+  },
+  "pernoct_apart_ext": {
+   "periodo": "2026-08",
+   "mes": "agosto de 2026",
+   "valor": 76174.0,
+   "anio_anterior": 75826.0,
+   "variacion_interanual_pct": 0.5,
+   "indicador": "Pernoctaciones en apartamentos de residentes en el extranjero",
+   "serie_ine": "EOT9426"
+  },
   "vut_viviendas": {
    "periodo": "2026-05",
    "mes": "mayo de 2026",
@@ -93,7 +128,23 @@
    "indicador": "Viviendas de uso turístico",
    "serie_ine": "VTE3889"
   },
-  "cuota_extranjeros_pct": 78.6
+  "vut_plazas": {
+   "periodo": "2026-05",
+   "mes": "mayo de 2026",
+   "valor": 36435.0,
+   "anio_anterior": 44013.0,
+   "variacion_interanual_pct": -17.2,
+   "indicador": "Plazas en viviendas de uso turístico",
+   "serie_ine": "VTE15629"
+  },
+  "cuota_extranjeros": {
+   "periodo": "2026-08",
+   "mes": "agosto de 2026",
+   "valor": 78.6,
+   "anio_anterior": 71.8,
+   "variacion_puntos": 6.8,
+   "indicador": "Cuota de viajeros extranjeros en hoteles (%)"
+  }
  },
  "acumulado_anual": {
   "viajeros_hotel": {
@@ -139,6 +190,14 @@
    {
     "pais": "Países Bajos",
     "pernoctaciones": 11459
+   },
+   {
+    "pais": "Bélgica",
+    "pernoctaciones": 8194
+   },
+   {
+    "pais": "Países africanos",
+    "pernoctaciones": 7784
    }
   ]
  },
@@ -148,14 +207,16 @@
    "mes": "septiembre de 2026",
    "valor": 6246,
    "anio_anterior": 6954,
-   "variacion_interanual_pct": -10.2
+   "variacion_interanual_pct": -10.2,
+   "indicador": "Paro registrado"
   },
   "afiliados_seguridad_social": {
    "periodo": "2026-09",
    "mes": "septiembre de 2026",
    "valor": 69317,
    "anio_anterior": 65645,
-   "variacion_interanual_pct": 5.6
+   "variacion_interanual_pct": 5.6,
+   "indicador": "Afiliados a la Seguridad Social"
   },
   "contratos": {
    "periodo": "2026-09",
@@ -163,307 +224,308 @@
    "valor": 4772,
    "anio_anterior": 4695,
    "variacion_interanual_pct": 1.6,
+   "indicador": "Contratos",
    "pct_indefinidos": 68.9
   }
  },
  "noticias_candidatas": [
   {
+   "titular": "El último gran gesto del conde Rudi: «En vez de flores se agradecerán donativos a Cudeca»",
+   "fuente": "Diario Sur",
+   "fecha": "2026-10-20",
+   "enlace": "https://news.google.com/rss/articles/CBMimwFBVV95cUxPdGhnbmJtbjlwNDBqSU56TWgyQ2lLdWZxRlhHSEdwYzJROVk5Rnh3b2ZHWFUzT09uYnVaS3drb29hMFEyeUhYX3hnMUd2SF9mMFJ6Z0puVW5RSDdnS0xjYTloRXBoRUFnaU5Ub0NabFpJWWxtTDZsOE9uZmZUQlNKRlU4cjZzZ1FiUUhYd0k5U0psLTNtYXEtRFJFVdIBoAFBVV95cUxQYXprZXhzdHlNMFVjR2s5OFBxMzBJNWp4enNzLURBQS1oV3NRTjZnUG9uREgwUW1MazJLT2NZME1EbXZyUnZHSjREbjgxUWg0dnp6TjQtWFJuTklnanJOT1ZtYnJ3U0VWVGotY3FyV1otT1dJNzV3V3pyVHJTT3VYV0hTZ0FyaUNHUWhPSUM5QTFTUjM1M1k2WHJIM1FmN29v?oc=5",
+   "id": 1
+  },
+  {
    "titular": "Turismo hormonal: hoteles ofrecen paquetes con chequeos y tratamientos de testosterona",
    "fuente": "La Vanguardia",
    "fecha": "2026-10-19",
    "enlace": "https://news.google.com/rss/articles/CBMimgFBVV95cUxNLWVsclBmUFhJYktSbTEyaWFmdkNhT0p6bkhHazN5dGZDVzhFQUtzeUlSYlZEaWo1TE9QdEhVOXZKdmV2cDJKeVIxREFvOHRjMUlKV19ad0NzZ0pHR19vbGhGUHNHRXR1bnp2eUlzejByYW1XMkVLRHF6QlJVd2FxQXZkSkpDdkNjYlByaGhmbnlwb2NZRktyNU9R0gGfAUFVX3lxTE9hY3RCQlp0VWdxc2pNa0lkMlh4d1dJZXBMX3RfTGxmWFhreGkzWjR0MklLRUlTNGx4Uzl1YXNkQTFabjZqYkV3ZTZ5SWNKZTg4aW0yVktGcGZOTWNkbnE3YmR1RTkybTg5VmlBQ3U4cXhLaVFaSFc5cTR3QkxUSmItM1YzVnZGSEpvY3hieE5VQ19JN0dkRGxfWm9UWGgyMA?oc=5",
-   "id": 1
+   "id": 2
   },
   {
    "titular": "Marbella (Málaga) se afianza como la meca turística de los tratamientos con testosterona",
    "fuente": "Tourinews",
    "fecha": "2026-10-19",
    "enlace": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxPQ1BITlUyS01OODhKTE9sX3ZMMXJVTTl4aVJZckNidVl6Ny0ySmxqRE42VVROaVdreUlObGt3UW1qbnVCSWVPZzlzN0pNUC1MMEVxLWEyZEp6V3lZWnVjQncxeExmeWtReGdiM2t4UnAyYjZnTWE2bGYtZnZhZzZnTEx3SVF6LXZ1MDcyRDV3WWZoOF9mbW9SLTB1LUJFMXl0MEg0Tkd5bXplRzNVUkdqVTdSTUhCSkIwV2JFMjZuOVNUODVkaWFKcjdWUmIzZGxIN2lnaUJzallycWhNTE1MUXoxMUJHckFyZkJEY2RlQ0VpeS1DMFhneXZRXzl1QdIBgwJBVV95cUxNMks4WUpQa1lTbXVvUEZNQ0dGOGJxYXgyN1RINjdrZ1Q1Qk5DUW15UFFzWl9hblVLRkV5Z2Vwb0VNTW1ucFNaREktSlJiaWc0REVJUE1hSWtKYmJpNUt4aE12RmxxLW16UGFIXzBIbVFva3RFV0o0UWNPbWY1em11X1FwSjB5OE1KUUZWdlVBSTA1ZDZLMm9rdmwxYzQyU0ZEcnVGNjlfUFV3VFpfdFJhM3ZCbXQtR3VveC1KQ2c0d3RPWlNZLWlGeWVkcTllajBBNjlPQlpISlRvTWlYaE9OdXdOYkVtNF9EWTVmS0VGOVRGTkhJeXZ5cVpreG0zWmxsWHdj?oc=5",
-   "id": 2
+   "id": 3
+  },
+  {
+   "titular": "Adiós al Conde Rudi, uno de los pioneros de la Marbella del lujo y el esplendor: \"Fue una figura clave e insustituible\"",
+   "fuente": "La Opinión de Málaga",
+   "fecha": "2026-10-19",
+   "enlace": "https://news.google.com/rss/articles/CBMipAFBVV95cUxQSUhNVzFaNUZ3aVZxcmsyRDdMSldvT1QyZ2d3M0xvQUotR3FsZDNJamFsUVQxb1V5aFZTYmdodU55MjB1eFhZY3dUaWVieExQaklLNUY3amtlMUhydDVVR0FucmtPQmN3WGNJVEFQNHFuOTh4RHBnZlRFRWhObER3elJzQXgxUlQ0ZjF0WEQ4M2xxOUxWUnVQc3VRQkFValRVUUNVaNIBqgFBVV95cUxPLXIwMDhfdzUzQ2hfcUc0bnB4Y1hhcWxwYTh4VmxzREFoZmJSVHhWSEVBZHVCYnkwUG42X2RMZlotTE5GS2wyUnpjTmt0clZ3a2tsendPa3BGeGlyOEhTZlZQdnZpUTQwR0NnTnktaVJoWjZkZ2ViSGlLaFduc1pFMW16UktDVl9nVlR6a2NMVVUyRlZxbGlPQUhITmxnRThlT3BzTUc1eHN6QQ?oc=5",
+   "id": 4
+  },
+  {
+   "titular": "Un pecio en Marbella arroja luz sobre el comercio transoceánico en el siglo XIX",
+   "fuente": "Diario Sur",
+   "fecha": "2026-10-19",
+   "enlace": "https://news.google.com/rss/articles/CBMitgFBVV95cUxOR3dKdVJoYkZCN0hNNjlqUTUyQkZJdnVWMWloNmh1cUJ5NzBJeDYwTFE0MUpEbTJwUW0xd3NCVF9GQUNQT1FHXzl0TzA4Y0NGVmFqUHBMeThLcXhJaGcydlpUNzNaLWNIRWdCYjVpaVlXTXdiUkpDOEFaWVMwNFlSQzZJVnlsaW9EelkzM3U5dF95UV9kczFUQkVOZnZrYU5vVHlCbS0za0xZYjZjU1lZYzlPWVAtd9IBtgFBVV95cUxOR3dKdVJoYkZCN0hNNjlqUTUyQkZJdnVWMWloNmh1cUJ5NzBJeDYwTFE0MUpEbTJwUW0xd3NCVF9GQUNQT1FHXzl0TzA4Y0NGVmFqUHBMeThLcXhJaGcydlpUNzNaLWNIRWdCYjVpaVlXTXdiUkpDOEFaWVMwNFlSQzZJVnlsaW9EelkzM3U5dF95UV9kczFUQkVOZnZrYU5vVHlCbS0za0xZYjZjU1lZYzlPWVAtdw?oc=5",
+   "id": 5
+  },
+  {
+   "titular": "Conde Rudi, el legado de un hombre que sabía hacer sentir en casa | Gentleman - El valor de la elegancia - Gentleman",
+   "fuente": "Gentleman - El valor de la elegancia",
+   "fecha": "2026-10-19",
+   "enlace": "https://news.google.com/rss/articles/CBMirgFBVV95cUxNMEJCSGpOdUNEOFdRcjEwMmRZVjlzdjFja0VFU0N5cjNIOHBwTWxkV0x6ekp3TnZMUDllWG80NHpEM0xLY1d6S0NZanoxYWMtWTRoZTV2bjZaWjVtS0xmdXg1V3BBVUcxVVBfVEtxNk9NeWV3Yi1VTm1zQkZUdVZldUJBR1R0U09ZVEN4Q3NyaThiXzBVVS1uZldwVXRjSzBVTnE3cUhTdWJ2U210T0HSAbMBQVVfeXFMTjFpZFk4U1JYampsNlNoc0FpZHhRaHotLVNkT3E2MlFXVFpueHI3eW5CRVhFUE9OTjQzTHJYajhwX0hZMkd3M2pjVjltanJiOHZQLU8wekdCMU1EWVg3SDgxSjRWaXdfX2tLVkR0eVFVeEtRU2tGNXFiek9TdmxZMGxXUHJIZjI0Tkd0VDlvTVZMVHI0dVYxLU5Gd2pSbWg0ZG04dXN5TUluQzlfSmNKei1LTUE?oc=5",
+   "id": 6
   },
   {
    "titular": "¿Qué busca en la Costa del Sol el turista atraído por la oferta de salud y bienestar?",
    "fuente": "Diario Sur",
    "fecha": "2026-10-19",
    "enlace": "https://news.google.com/rss/articles/CBMiogFBVV95cUxONDRsUEZHMjA3R1VXaGdLQ0JweElpalhiQlhoMmk2bGVmTjdxRTNuQzg5dkdvWkt3MUJxeml5RVVzNndSNGs4OF9pa0pnYlM0TXFSQTZyVVRGZWZJRkx3TG5WRG41SktCUDJvZEZQSzF6eF9hY09VZHJWRnBQdG9RTXZmZXpJRkdSbGNtTUI4Y2RWSkxaTXVjQmVfRHMtY0tJTWfSAacBQVVfeXFMTjVnamhWeDNXMUlXNW1PMk9XZFUydVU2VG14d2JpTU5wZ29wSDJjR1p6Yll4YXRfZE94Q2hNMVJLUmZjQmNFWUVBMzlqV3Zncjl1SzI5a1puYjNEMU1yMHM1Y1FyS19YS3hkMGIwOEdweTIwbnpKZVRWcmdyU1NsNlBpMTd0TVFYOHBuaHV2Wm93WmFqSEs5TjhHMWFhZGhWLWRwSGhLM0E?oc=5",
-   "id": 3
+   "id": 7
+  },
+  {
+   "titular": "Así es el viajero 'wellness' que elige la Costa del Sol: mujeres de más de 60 años, para larga estancia y que buscan desconexión y relax",
+   "fuente": "20Minutos",
+   "fecha": "2026-10-19",
+   "enlace": "https://news.google.com/rss/articles/CBMi_gFBVV95cUxOUzJPcVFQRVo0X29QcGdrMDNKQzhmMmhxUHl0Vjg2X3ZXZ0hETUJGSlJLYnB0R2I4emhERWtPWUFucmZKem84ODMzR1psS05BQjAzOW92cFQxU1RnZFBSSXgtSFNHTHJxOEc5ZFJfd0xXQ0o0QmRmOEowRnUxdDN1V3FJQXA3YUpwcWdjNm44Zm95TGVIcGNRQUt4ZWNsVHBvdjVaWlV4VGY3elN1cHlRWDFGdndKY1RZdmNSam1pRFNlMVRCZXU3LWk0ZDVYOHhUUEdtRDhoaWI0NzhZUDNXZFNiWVpZbjVWYkY5SFNnWEdKdjRzcENJLU5kRUhjUQ?oc=5",
+   "id": 8
+  },
+  {
+   "titular": "Caen ocho bandas que robaban relojes de lujo en Marbella y otras ciudades",
+   "fuente": "Marbella24horas",
+   "fecha": "2026-10-19",
+   "enlace": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNNHUxVVJOcDIyeldfbmkySzlZMm01WGhTS3Nac0VzcHhDdTZPUXo3TC1HYmI1TERvUXg1QVJZazBuWXpabU1DTHpsbnRNMm9SRHhUMUppLTFUR2VmQTVqcW9RdnhnbnFtSFRiSmVqckEtTmsxNXZlOTBFd21OdWtJdm1ocUV1cEJzdllPX0JnRktxbDA5RlRENlRVSjNuZDY3emdJNXNMd0xhZXdvbVVJZ0ZweF9nVm8?oc=5",
+   "id": 9
+  },
+  {
+   "titular": "Un Beach Club de Tarragona, reconocido como el mejor de Europa",
+   "fuente": "Diari de Tarragona",
+   "fecha": "2026-10-19",
+   "enlace": "https://news.google.com/rss/articles/CBMiwgFBVV95cUxOOTByZnQyUWNYaFJ6NlVPUkluSVZBaWFkWWM3b0RyM0pxOW0zQlFHNWFlS1luWEFPOWNNOHlVcTNFQjBTN3lzdTlnX3lyVGJ5b2hxcVQzOXFzZ2xEOVdPVk9tT3hCZFdXMlJzMFVod3hLSmJrRjRqZEdDZXhjZzFjS0l6N3R0UnpCTzlSNXBYTUxZcUwxbjBMSjN2NDFXYmpWTkttNDdwVDhUM3JwT3Zhck1tal9YcklySVdCOEtYWk1PQdIBxwFBVV95cUxOb1dRWTNIZU11eXhxamF3eTVYOVktSzZ1aVB4bjN2cGtPWjdUMFp1LTh2aWd1bHYxZWZyWjZmZlFXVmlaSVVMSVh6R1FCT1dkYUx1azc0ZEcwVEUyM2YyY1NXX1FEajFhZWNQcDJoUHpwMk9ZTnRLNGF1MFpPR0VfeGZoSy1EdVMxQzUxNlVDV0hvTVNfbkZ2cG1xdXM2eTFrU0UzeUZFNVYxX1cteFNvRzRUMFZCUmh1VkZNUmw0cG02c256MlBV?oc=5",
+   "id": 10
   },
   {
    "titular": "Onda Viajera'descubre los atractivos de Marbella: turismo, gastronomía, deporte y tradición desde San Pedro Alcántara",
    "fuente": "Onda Cero",
    "fecha": "2026-10-18",
    "enlace": "https://news.google.com/rss/articles/CBMinAJBVV95cUxQY01yaDR2bmR6Y1JBMXV4ejZxYlRiT21DZVY4SHhEajBoTHRLaHRHU1FMa1JSNVNYeGJuSlJuaHNSdEhHU1ZpQmc0cEl2c0RPMDFMbU9aUzZJUmliNFc0d1BSeGJBZFEtUG1lcjM4anc4aFdRamtWWF9fd181a0JYQlFHR1ltbG9MdFJSTmltU1g2aEpxWUdrQjBXXzkzQTg0LVEzanIwQ0ExWTAyRERNbFU1Rl9VMWlneWVnWm5iTzRrdjV3RVh2VEFpdVNocmU1MFdFU1V3VWdmZUVvN240TFZTdGRFTlBQZWpLWEFSY0EycnlfbjE4SjJ1WGVQaTVnb2FpSWdGenVVZjdWY01wMk1NLVlscjFDb3VFWA?oc=5",
-   "id": 4
+   "id": 11
   },
   {
    "titular": "La alcaldesa de Marbella reivindica el atractivo turístico de la ciudad: \"Tenemos una planta hotelera excepcional\"",
    "fuente": "Onda Cero",
    "fecha": "2026-10-18",
    "enlace": "https://news.google.com/rss/articles/CBMingJBVV95cUxQbVViTFF5a1JfbXQ1Tmd1TTJCSXpMZkJBQ0Z4Umx1Q1JXeFdQQWt1MmVhSVRxM1Vnd09KcGNjNHBqcHFDUWYzX2pld0xpdF9HSnZwaERGb0NxVlFMR0dDQklReWFBY3h2MjJsdDN2blBOWGJVNGYzRnFoeXZhOHo1UVIzdjYtanVEcTFTUmFrU2R1ZEFIYVZCYWZBY1dPb2dQREFwZWxQWEp4YnBRa3gzc3ZSNk9ic0lzTmJHRWRlQVJMU2RoaTVqQ3lDM2I3R081UzAxeFBpd3ZHMTdrM05tYU1VN1NLeXFrZHczaWJLRUYxZ3Q1d1JRbjR2bVdwZWZ6c1Y0aDl5SFAzVW5pMTVEQkhsNUNLckR0d0NOWUlB0gGeAkFVX3lxTFBQbzZxX3czamN5ZjQ4VzhQSXNOTEdzV3Zqc3ZvUGVGS2huV2JBSFFTQUFZX3VQUFFiRVZNemJRSU9XMVJUVHVIUFlFcWozUk91N2lEUFZuNVpOVmllNHljVXB0TzdWRWZVWU9YblhXY3dfMk1kVkxaWDZBUC02Qnk0anBzaTA2RDNiNWtxd2NaS05WTktVSkxrU2RLUW1nbXRmaEZoMjhaaDNFSkUySWFBRE5pUmdMSDd5SzBYVnYzeGxxcW5ET0szeHpQWUQwQXlsVmdFdllPMmRVV3lZaXRRUkhsWG5UNkdnX1ZyMjVOcU9FMDVLQXdLelpFbnl3SkZxdHNVWE5JNVQyVDlVWHZTV09oSUlfOVd4QkFUaWc?oc=5",
-   "id": 5
+   "id": 12
+  },
+  {
+   "titular": "Marbella, destino de lujo",
+   "fuente": "Onda Cero",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMivwFBVV95cUxNYkJ1cS1qNnBwNjE3RVlLREJnWlAtZDR0WXNCUHZxbWlfa3lsT0xnMzFWYTMxS252LXVzb3pEcUVFb2YxZVRSTkRoZ3pveWlHTWpvQzBTcHcyMlhPWlRsTHdDZEpBTlRsMm5UNVFONVVpTjJoV2paa1NVODhBQmZoZExWZ3picC1mSnRmTk0tMFM1T2NFYXMzNUxNNy1xOFdLV2hUazVwR3VpUGhzSjk4QTFXaS11VDgwR2JMSGJIRdIBvwFBVV95cUxQTjRzeDNTbTctTjRzTTJ3aUFScVRHZHBQSmNFbFA2VkxXcnpibXdsWUNSNElCSEM4ZU9CWDdZQVQ3VGdhckM2YmpfaXhmdHlETjA5SGFKcVhhMU9SNnlaXzJvYmszckxHX3FQRGszc1djaExnaHI5VzRZSHhIcjJNNEZyWUo1d1JBTEdLU1VUc3VqejN3dEd5Sm1laXNKdTJZblhXRXRqMlo3UnppbU15aG9jRHZKTzF1all4S3V2RQ?oc=5",
+   "id": 13
+  },
+  {
+   "titular": "Leandro García, el hostelero de Marbella que dijo no al rey Fahd",
+   "fuente": "Málaga Hoy",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMioAFBVV95cUxQcXNpZHZQNGRpcGVfMXpsa0JZV05Fel9VMlJ1WVI1Sk9URzlqWGs2UmNVTW1RX1ZqZVZ3VmJrVnp3VlJGZWZlcW1ZOHpLOUNUSVU2V09zOTliZ3luamFzQnNteTRHUG9LZ0p5WEszZ3VsTU0xemNSNENLS25HalVCOFhFbWpfdEV2MWgzUTRpME5SYmpvQWdtWElOMktEc2Rv0gGmAUFVX3lxTFBqWUhfcWx0cG9GeXBNMlV0YkJqeWY1Uk9IR3lGOTZINC01V0pvUThkUGFFaEZGWkk3ZWhZRE1STThqZHI2Y2FfUGdBUjJiMXBVbVJUYnlsNXVBdHYzM3d3TzVmYUNnT05fSEMwaGx1ZjBRWDJPMnZQanpqTG9zeC14TkVsY1libXpuVHlQcDhWVWVuQzNHMEVtOF9rdUlsaU8zbUdxd0E?oc=5",
+   "id": 14
   },
   {
    "titular": "Turismo de Gibraltar, finalista en los TTG Awards por su apuesta por el turismo responsable",
    "fuente": "Al Sol de la Costa",
    "fecha": "2026-10-18",
    "enlace": "https://news.google.com/rss/articles/CBMiugFBVV95cUxNY1RKWkpQRTFKdWtNalg5T0JSWUp5dk5jdzA1bEducjlHaDlWZExSaFNuQWhpQWdXbEpadFlDUVBjS1RJbXA0cnBXN0NodmM5SE1MZDAybE1OSG5IX3FyYURqZFNxbTlmUENaM293eHhXUFlUNUZCajAtSVh0cnN0QmlzVi1jSm9NcnFvVEsySE80SnctVC1vQXEwTGFWRUN4dE5IaDFteGN5ODVTQXlMVmY0S1JkMVlWaXc?oc=5",
-   "id": 6
+   "id": 15
+  },
+  {
+   "titular": "Turismo reúne a las principales empresas del sector para impulsar la implantación del sello SICTED en San Roque",
+   "fuente": "Al Sol de la Costa",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMi1gFBVV95cUxQWDVIOXJfN3FIRVVQZHloVk50ZzFWZmduS0h0WmNaRFY4T29oaDd6ODZBLUJ4NmwxaU8wOFNLRW50STFPbUVfb1FHbk80LXBTOFk5R1gyU0lpYVpZeHEyd0FLdGNmWVg5Tm8xX1FvSklQdnFJd09IcXVIY2djd25sQVBrSXRCRFlvT2FjRmF3d2htYmlvSDI2eW1VeVJGOHR3am14ZXdtOXI0SUVpTFRXZC1oOTZmQU40YjRtblAyczNLc09XdlNiWGp1V2dwaVp3VHFZZ1ZB?oc=5",
+   "id": 16
+  },
+  {
+   "titular": "La Junta de Andalucía plantea en Marbella una gestión turística centrada en el valor económico y el equilibrio territorial",
+   "fuente": "Al Sol de la Costa",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMi5AFBVV95cUxQSDk0dVhYMzVsaVB6UWx3MXR0QU9FUkxZYXI2c1U5QVFIVHJTeTQ4VHFpR3lHZ2RoeHdjcFZMZVJTSTY4OWJYXzdYWVF4dFF6eWZJcU04YjE0VnJqQUdFQ2lpZWwyU0dTZjRPOVB1WDVzczRUUE95QUNPUHNFV3hNX1lQek9vWF9QYnZRZS1ZSE9hVkgwd2VtWFdpRTVEZ1BMS3FYQ2pJQWc2dlhVd2FYS3NVNmhGUWxJbnY5WHlqMHZqczdiZWJXY2NWWVhXeVNZWnN6MFBvSjlDYnEyd1ZWNFlDaWM?oc=5",
+   "id": 17
+  },
+  {
+   "titular": "Quién era el conde Rudi, el hotelero que ayudó a convertir Marbella en un destino internacional de lujo",
+   "fuente": "Demócrata",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMivgFBVV95cUxOZHc0dWtqSVdZQlZMX3NUVmxDZG9rc0IwLWs4bDlhNWxUQmtCejk4MTA3cU9lYVQzSG5xU0lXQXhjcFlINGdCRkgwaF8tLXRicjdjeVluSlY4d1BLcndKVUw1cFpiWmF5eGhhMklycHZFTFZabUNXaGNOc29nYlJyaGtld19uZDE2VDEyMm9tLW8zSWJoVE8zYlF5dDRNWGktSllTMWV3cVgtV3pxMkQtV0tBV0prZkFMSUhIcXpR0gHDAUFVX3lxTFBlNTlqZUpIRHFOWU1SMVAtOEJrU1BuaEF6cktWNWFablk0MmNNNWhLY2NBelNPY2ZBa0U1UVNXRE5tckdwSmNBcU5odkszSm44REFNZ09lc09EYkV3aGdVQlhBbmdxM2ZLdXNReG9jVGV0X0JKY1EzYzU2V0tDLUd6VjRYeVEtck8wU3REVERXVEJUc29HbWZ4MnJYdm9fd1FxdTZwMTFBYV9DMkxhWkdLUE9ZMnJHd2NFbEs2TjdwZkx2bw?oc=5",
+   "id": 18
+  },
+  {
+   "titular": "Los Realejos impulsa un pionero viaje de turismo social con 20 niños y niñas con discapacidad del municipio",
+   "fuente": "Canal 4 Tenerife",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxPQ0h0aksxMVFVa2stX1VUVm51LVF5dkhOcjd3c0c0UXQ0VWpjaGhjRXZyX3YxOVdYd0lLTm92RnBUZkl4MEhfeUtjTzZ0WmJOOTd5WWRMV1JPQk5xQWp3NkFLaVZfVHBaZ0hFdF85SnhMdm9pR29KR0JLQXFRQXhIT0gwSnYwbmRzWGVKUXVrU3NWSjViTmc0d2VJcHM1VmR6UGsxSlR4M0NGS013dHRRN3U2VGM3Zlk3eGlyckxvTTY4RGpYNFJmUURiSl83VHA0R2tJTQ?oc=5",
+   "id": 19
+  },
+  {
+   "titular": "Marbella busca sostener su éxito turístico y pone el foco en la inversión y el talento",
+   "fuente": "Al Sol de la Costa",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMitAFBVV95cUxOd194Zm1NQkNTcVVtbXdfQ1E0ZUNnRGRyRzY5LWZQZ3NCcS15MXUxZmJHU2pDa2VscEhSTVhuYXlwVW4wblZPUzRSaGlZa3pJRjZDOERRdmFENXJ0M0x4LXRuRVNLWDZsSFNXZkJ5d2h5b2hPS0tqVExJNkM3bGF5QlZyVVdPQ1F3SFhPbW54R0FycHREN2xZb3dZejZ1TVBCNkcxZk9lZEtWLWo4Q3BRTWpSNks?oc=5",
+   "id": 20
+  },
+  {
+   "titular": "El turismo es un gran invento",
+   "fuente": "Periódico de Ibiza y Formentera",
+   "fecha": "2026-10-18",
+   "enlace": "https://news.google.com/rss/articles/CBMiowFBVV95cUxNSXhmbzN6QnVrOVEwVWNuZi1QYXkxWVM3YUppQ3FYdGVLXzNYMDJ0WlktelE1ME02ZU5FY2ROaVM0N2FxX29mYnZYbnlLY0dRV3pVcGYtZnUwam1XeGFrcFZkbGlLODAtbzVGeHhrZzk2bXY3VUxJSUwtcERyaWlFZ1h5aGxETlM4OGtBWFhpZ2VPOVdYcWFiUUFrVFQyZmVjeTNv0gGjAUFVX3lxTFAwWEpZRVBwSjNJLVRuY3NsOFl1RVZVcUhLZDNSMWc3SF9IeEc2cFBUaWdTVFk0TS1Gbjg4WjFONEZTcmMxRXNsR09acXVrVHNqUXo2NGtkcW41S0wwdkw3d0paa0dwNGVDYk5GbkZETlUwOGdKcHhVUU1hU1hJRU9EWV8ycTJBaS1iZjYxQklwdFRway1TRjVQemtCeDBFcmtoaTQ?oc=5",
+   "id": 21
+  },
+  {
+   "titular": "Investigan un presunto intento de secuestro a punta de pistola en Marbella",
+   "fuente": "Infobae",
+   "fecha": "2026-10-17",
+   "enlace": "https://news.google.com/rss/articles/CBMi3wFBVV95cUxOUUpDYW1oWjVSM1IyN3hlZTM2ZmgwdHBHem9JMVJmcnhlNmo2bmZsa2ltN2s1U0RqV1p3R2NPUi12UnBWV0JfQVUtUk9FVmpxdGVwSEZCMk9XOVNoWU9OSFNZUmlDYWJqaVY3NFBWaV9NNDYyc0NKNFkyWXV3a1VCVkIzZkx2TVdqRU9Gd1lmLWRoR2NYTTFFcllLNURRLUd0bXUwSkNkSUpvcEs4VHBWN245SlJyZ1BCdkdSVGcyaXhKMi1PUWVIN0FJSWxKTVNoSjM2b0pFM0lIOXBtYVhF0gHfAUFVX3lxTE5RSkNhbWhaNVIzUjI3eGVlMzZmaDB0cEd6b0kxUmZyeGU2ajZuZmxraW03azVTRGpXWndHY09SLXZScFZXQl9BVS1ST0VWanF0ZXBIRkIyT1c5U2hZT05IU1lSaUNhYmppVjc0UFZpX000NjJzQ0o0WTJZdXdrVUJWQjNmTHZNV2pFT0Z3WWYtZGhHY1hNMUVyWUs1RFEtR3RtdTBKQ2RJSm9wSzhUcFY3bjlKUnJnUEJ2R1JUZzJpeEoyLU9RZUg3QUlJbEpNU2hKMzZvSkUzSUg5cG1hWEU?oc=5",
+   "id": 22
   },
   {
    "titular": "La alcaldesa traslada al consejero de Turismo y Justicia las prioridades de la ciudad en ambas materias",
    "fuente": "www.marbella.es",
    "fecha": "2026-10-16",
    "enlace": "https://news.google.com/rss/articles/CBMi5wFBVV95cUxQY3pxQnR1ajdvYm0wbTFMNDRYczdKX25oSEk4SVlUUElIb3QzNVJiemRobGE0WGdzcjJvbmswZGZWaldvVTdnckQ0enRTQzJXc3lxZ2hWOWdXeHR1aXk2VVd2Y1FxVmhwbS1MXzhBTzFwd2ZqYzZVbGl5bUk4YXhnSUIwanQyY2J0WDExa20zc0VMMk5aaWJyVk9xM29lWVVXbGhGSm9xZ3RqR3ZKVTFvQm90blNaVGZ0Q091aUtUa3RuTmxqeC10ZzhFU01Uc2tLRkxxNHd1djNiV1czUUhZVDNzNTdHM0k?oc=5",
-   "id": 7
+   "id": 23
   },
   {
    "titular": "Gavira defiende en Marbella un crecimiento del turismo en «equilibrio» con el territorio y los residentes",
    "fuente": "Diario Sur",
    "fecha": "2026-10-16",
    "enlace": "https://news.google.com/rss/articles/CBMiwAFBVV95cUxPVjh4ZGQ1MDNHem9EbzFxemkxVWpFU3htdjhDWEtvQjkzM3g0ejZ0M2N0VE92U0xkQTBfRzRCNEx5S1YwVk45UzRwT1ItSU5HeXF4bEhYTm1jUXdlTEhVQmtWUU9LMDk4SmJvdTlDVlF0VkpiNXFwZFpET05NaVR4ZFVPVkp5bk9LUVFjZHJqQklDSXpsTlNTM1dqc01FOE1NMC1SNE5Va1pTX1lxY08wWVVsVnVwUmVnU2ZlRmJxdVrSAcYBQVVfeXFMTjJpeU5VbE1aTDRCU1BZU1lmT0lrYUVmcFowNmF5UTRWTnpGeHQwbVdwZ3hfbUJ3aktoUGQyM09wRGVnekZnWm1QSG9KUnRMX2ZzTmNYUjZnR1pLOEttLTlxNE9lSlZERGplc1dURzBHcnlPVUdSQnFFOGtwREJKRFczSmV5MHdaY2tWcjBZc29pRTZSTUhILTJrbDNteGVNQTgyckV5Y0JiVzRCdHZYZ2VSczg2RmZPOTZleXZQVERabzRzOEV3?oc=5",
-   "id": 8
-  },
-  {
-   "titular": "He visitado el hotel de Marbella (Málaga) donde puedes encontrarte a Antonio Banderas o desayunar frente al mar, pasar la tarde en el spa y acabar bailando bajo las estrellas: \"Hace tiempo que no duermo así de bien\"",
-   "fuente": "El Periódico",
-   "fecha": "2026-10-16",
-   "enlace": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPdlNuaU1wWWw2cWJmX2UzanlJMDhvN2ktdnd1cXpQaHByMjZBU0ZqdUFrcnR1QWg1WHpDclRmVVFhRFl2blBjQjZjNl9OTGE0dnJPOHlZMDJfd2pyZ1lwVHVfOW1Yd2gyR3R6NkpYQ09FWk9CQURYMGoydEZEUFRaMnRNMDhBcmE2YzNPQ2VQYTFGMWRRQ2Q3MXJFWWxMTGdVZk15MHFVb9IBrAFBVV95cUxPVlc2Ung4X2xacDVSM2piSGozZ3gyWFZfU0s3NU8tclNCdGIyT3phMHJsV0FNQVZaSFZ5UjdNYkRUaVR0NmJpUkxMY2NwcUxYTTR3UzFMRldrSk5nTDdkRXB6S1Rjc1F6ejdlSFFVYlBFT1FvQzBqV1NsWlJTLS1ScXk5cVFZcFRsWTdlUTl5YTA5NnlVU3lqNWtoZlFTUEduRmVZQWlvUEtuS2lB?oc=5",
-   "id": 9
-  },
-  {
-   "titular": "Business Golf Summit y Turismo Costa del Sol de la mano",
-   "fuente": "OpenGolf",
-   "fecha": "2026-10-16",
-   "enlace": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUmVRUTlpZWZZbTNSOEdpeTNIbXZXcHluX25jRFdrRlhncEZMd2xrMVRVdVpsOUU4Y2Y0TW9mbUMxaXh5b194VUFSZS1kOVFjeUFFY0FQSTR5bGsyaGhkLTVKbDRXYW95V1VmU3E5emI1RDJrTGI4d19tanRoX1ZWR2FQLTQ5VFFJX2FsbDN0cVhqRmp6SjRFOGlVcGRYNC16c09sTXA5SFB2QWFHMHFBTnVrYUxJZF95aWtnaQ?oc=5",
-   "id": 10
+   "id": 24
   },
   {
    "titular": "Gavira plantea en Marbella \"una gestión turística centrada en el valor económico y el equilibrio territorial\"",
    "fuente": "Europa Press",
    "fecha": "2026-10-16",
    "enlace": "https://news.google.com/rss/articles/CBMi9gFBVV95cUxNVTlFQnE1MmtMdjlWWkdteGl4V2dPTlQyeWo3OE9CSWpES1VrUmlxVTA0dEl3cC1BYWpZQWNobXVya016anlOdjB2bGoydDlkX2RSTGwzVk1uZzJleFdpajJfdE8teHF3YkgwU0taNDlqN2ZDTEVNalhBeXB6cGt1dEdaZmVXZ3h0YzRoMzNydzR4clBKN2NqQld6NjhoVWM3UjFRVTJ3bFE5Tm55Zmp4NVh3eDROZklCRk93UVZLblY4cFVISmFZSUFKZERUcWFOeV9NZnhiYTRGbDlHV3FOMFU1dUVjSVN3Q2NNbkpWNkFxZjRJNmc?oc=5",
-   "id": 11
+   "id": 25
+  },
+  {
+   "titular": "He visitado el hotel de Marbella (Málaga) donde puedes encontrarte a Antonio Banderas o desayunar frente al mar, pasar la tarde en el spa y acabar bailando bajo las estrellas: \"Hace tiempo que no duermo así de bien\"",
+   "fuente": "El Periódico",
+   "fecha": "2026-10-16",
+   "enlace": "https://news.google.com/rss/articles/CBMipwFBVV95cUxPdlNuaU1wWWw2cWJmX2UzanlJMDhvN2ktdnd1cXpQaHByMjZBU0ZqdUFrcnR1QWg1WHpDclRmVVFhRFl2blBjQjZjNl9OTGE0dnJPOHlZMDJfd2pyZ1lwVHVfOW1Yd2gyR3R6NkpYQ09FWk9CQURYMGoydEZEUFRaMnRNMDhBcmE2YzNPQ2VQYTFGMWRRQ2Q3MXJFWWxMTGdVZk15MHFVb9IBrAFBVV95cUxPVlc2Ung4X2xacDVSM2piSGozZ3gyWFZfU0s3NU8tclNCdGIyT3phMHJsV0FNQVZaSFZ5UjdNYkRUaVR0NmJpUkxMY2NwcUxYTTR3UzFMRldrSk5nTDdkRXB6S1Rjc1F6ejdlSFFVYlBFT1FvQzBqV1NsWlJTLS1ScXk5cVFZcFRsWTdlUTl5YTA5NnlVU3lqNWtoZlFTUEduRmVZQWlvUEtuS2lB?oc=5",
+   "id": 26
+  },
+  {
+   "titular": "Pelayo Cortina rehabilita por 260 millones el antiguo hotel Incosol (Marbella) para reabrirlo como un resort de salud",
+   "fuente": "Tourinews",
+   "fecha": "2026-10-16",
+   "enlace": "https://news.google.com/rss/articles/CBMi7wFBVV95cUxPNVA2TjRVS3RSVXNqQmxHR1RiOGtqamtBR2pvT2djTDlYSXJtak1ib2FycE43Zm5RakctTFZEenRhclJmY2ZVbkNTc0l4SHVxOHZkR3JTTmk0UGtRUlAxZ0h6R0tESmRDTDRveHBFaElEYVdHWVlqVS0zZE12YzBnLUFSSnBHVW9HNXZaTnhNSlQxZlhWNUJtRkxYOTgtd2RNM242Q2dMU0IyaWRfTVhndU9OSDROWjk5UGpnTHAzVVozNUMwaWp6RllxRmJJTlVSNWpOLWZlUlRkS3AxR3h5NkU4MW84Y3hDQVpZamlUWdIB9AFBVV95cUxNNGo5QVppR1I3WHJhMnQ4SUtmRmxGalB3LUFRTE5BZy1zT3h1TktCejZxX0x4WUtLTFljM3labGFVT0pyVVU5WGMwWktfVmxiRTBEOUFUTWNXbVpXWnRkeW9UdXBrSGJNcnlKVVFaOEUtYXpOUDVqY3Q2YjA3RGFWVGF1VnhPRG9xb0c3bnRhR1NHVnlxQnV4QS1EalZZYk1GMldpOGtrZlVObkVURXF4dFNPZEdsM1pxcTJoM2E3Ty1Qc0dSQ3BmVDYxWGFVZHhrM21vVXhGZGZiYklDSklqNDdxZ2Y3T3ZiOWpsc1RpbzJPQlFo?oc=5",
+   "id": 27
+  },
+  {
+   "titular": "Francesco Roccato, nuevo director general del marbellí ‘Puente Romano’",
+   "fuente": "Alimarket.es",
+   "fecha": "2026-10-16",
+   "enlace": "https://news.google.com/rss/articles/CBMiugFBVV95cUxOMS1MVC0xZTFIX1h6WkdlWWRxdlBSZnVBczRYUTJaX1RMNGZxTmF1eS1QbFAtM2lIb2dEaWNBc1o1dTRBVldKS3JkOXhvWGphVkEtVlNkVUxGTWRhOTV0akgwNEdqNnVaWGVDUElMeG5qaE1ZT29VNWZZME5UUTNZZWtHZ0RhM0RDcU9QeUVNN3VEbFl6Y014WEFTbU9YaEk0M01XQjktekZXdHI1VUowYng5LUxLbFBCYVHSAb8BQVVfeXFMTm80MzZlcjVRZWJGc2ZubFZURnIxaEdPR0taa3QyRlhjYXpwNGZBak5CUTQ0VDEtLV80WDZKSGtDelZ6eEdQUjFrbmIxdEpDOFgxMGlHX2hxeFhhc3I1UUpiWHRBczhxZjJRelpRMWhxTjE1VnhreE1MdHFnMThFb2phdnY5LTE5R3FkelZHWHAycWdlNlJ5ajdTdk5BMHVIc2Qza3VVbHh4TWZoVFZpRTVJc3o1TGxwSFllcldLNE0?oc=5",
+   "id": 28
+  },
+  {
+   "titular": "Les Roches reúne en Marbella a más de 220 directivos y empresarios hoteleros formados en sus aulas",
+   "fuente": "Vidaeconómica",
+   "fecha": "2026-10-16",
+   "enlace": "https://news.google.com/rss/articles/CBMi0wFBVV95cUxNOGNOQ0NYWklHSW12V0pwN19HTzJmTDA2WXpiMTZBRFdPdFJtVWxrM3Rqa2hiZlRvTjVjeEEtY0pFejVYUkNobnFpWUYtS0FUaHVWUmtYczBYV3RjTTBnbk9RWmpYZTBkcmhGVTdJTXBsYkE2NHVYV1htek1VbWU5VUZNUXlYTU9aSWcwNWRUX3RsSVkzYkMxd0JjM3M3cG9TWEZacGRDSTJuR2o5NWk1dnJxclNsV2ZnLUtyRzFrS1RhekVFejUycFJURHBuTUw1RnQw?oc=5",
+   "id": 29
+  },
+  {
+   "titular": "Business Golf Summit y Turismo Costa del Sol de la mano",
+   "fuente": "OpenGolf",
+   "fecha": "2026-10-16",
+   "enlace": "https://news.google.com/rss/articles/CBMivAFBVV95cUxQUmVRUTlpZWZZbTNSOEdpeTNIbXZXcHluX25jRFdrRlhncEZMd2xrMVRVdVpsOUU4Y2Y0TW9mbUMxaXh5b194VUFSZS1kOVFjeUFFY0FQSTR5bGsyaGhkLTVKbDRXYW95V1VmU3E5emI1RDJrTGI4d19tanRoX1ZWR2FQLTQ5VFFJX2FsbDN0cVhqRmp6SjRFOGlVcGRYNC16c09sTXA5SFB2QWFHMHFBTnVrYUxJZF95aWtnaQ?oc=5",
+   "id": 30
   },
   {
    "titular": "El Ayuntamiento pone a disposición de los ciudadanos la nueva web del Plan General de Ordenación Municipal",
    "fuente": "www.marbella.es",
    "fecha": "2026-10-15",
    "enlace": "https://news.google.com/rss/articles/CBMi6wFBVV95cUxOZXROa2I2UmVDdzlsZ1hhNVhERjVhMXVoemNlanNxTlpFa3FEZGJuYzNTY3NqOW9hSnNlejlKS1AyZnYwVG5ZRUpzV0xTWVJGVXpmV2xGOEFCZGJRLWRTTzJMdDBKdEN1ZnVCZzgybF9kUTNxTFNvTDQ2VVBjWDQ1aGNZODBuTE9YOXl1X25reHdjd3Fqd2dya1oyanRSM19lc3FCRFkxQnFIS015RFNfcDhzSnlZZ0FkVTNfTC1kdlZnSlZuNU1ER2g3MWszVUVUa0dhQXA2MlhtTmVIcmE5d2dWR1o0bkJRNkI0?oc=5",
-   "id": 12
-  },
-  {
-   "titular": "El resort Oakmond Marbella, el antiguo Incosol, abrirá en 2029 con una clínica de 10.000 m²",
-   "fuente": "La Revue des Hôtels",
-   "fecha": "2026-10-15",
-   "enlace": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQdnh4SUI1WndSTFhzQ2xIcXFQaXo5b01uUmlrWWt6OTl5bTA4STYzNldrQnQ2aDBZX21KU0RrQ05aZWMxcG9JMVRXMExZNGVfNXoyYWxkM2N5LWN4MUVIb21PSXJyXzRSZmhhOGZQLWVmQTBaOEFlM0FoRk1uQlZMVVBURXNyNjZWRlBmejdwZGYyYTdTT2c?oc=5",
-   "id": 13
+   "id": 31
   },
   {
    "titular": "Turismo Costa del Sol promociona este ámbito turístico en el Business Golf Summit Madrid",
    "fuente": "Malaga Actualidad",
    "fecha": "2026-10-15",
    "enlace": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQNjBTZFNBVnV2NzB1ZnJzNEg3YTRHSDlnVDlaUmVqNjdHSGFuZW5wMHdQZ0hDb1p3T0l5aHVyR1hJa18xY1A2S0lkeEdDSmZHU0NGd1llcmQtS0p6ck5MTXdBZENjUWN4d00zcnZkbXlJa1gwM292ZGpYcnUwS29CWFpkdmxBOEdxa0RHczdsS2NRODRRdGsxaGx4SFBsWEFSOW9Xb3dVVV9GYWtNTlVhWVZnRnVLUHhoQnRSOUNCUnFfZEt3VTBxZ2ZtbjljWDlN?oc=5",
-   "id": 14
+   "id": 32
+  },
+  {
+   "titular": "El resort Oakmond Marbella, el antiguo Incosol, abrirá en 2029 con una clínica de 10.000 m²",
+   "fuente": "La Revue des Hôtels",
+   "fecha": "2026-10-15",
+   "enlace": "https://news.google.com/rss/articles/CBMilgFBVV95cUxQdnh4SUI1WndSTFhzQ2xIcXFQaXo5b01uUmlrWWt6OTl5bTA4STYzNldrQnQ2aDBZX21KU0RrQ05aZWMxcG9JMVRXMExZNGVfNXoyYWxkM2N5LWN4MUVIb21PSXJyXzRSZmhhOGZQLWVmQTBaOEFlM0FoRk1uQlZMVVBURXNyNjZWRlBmejdwZGYyYTdTT2c?oc=5",
+   "id": 33
+  },
+  {
+   "titular": "La Junta descarta daño a la imagen de la Costa del Sol por el cierre de playas y sostiene que no ha habido una crisis",
+   "fuente": "Demócrata",
+   "fecha": "2026-10-15",
+   "enlace": "https://news.google.com/rss/articles/CBMi6AFBVV95cUxQNWxjMzRUX0hTRUZjcjBrUjNlUHFxWnBtLTBZak9sS0c3TkhaVEY0bm1kTHotVFctRk9tMW1UTkFqeC1IYVZUMGIwSV9Ld2xZVFFSZ2VSSEpsckwxQlcwQjhBQjVyT1JZNnBRVG9OdVV0T0NDdlhYRkpVZ0FjazRLbkpSRzJGcTRzZXl6NDRIX3cta3ljZTdLSXJMc01aUUNOVi04ZmpWdzBjMXNCQ1NOTzlZWHdqTWtGSF95dVdZbVBpakJHQm1ZQ1EzdzFQRHR6ZzhCSFlXUlozUm5XUzRuQTFnVkFudDZ20gHuAUFVX3lxTE9NRjJ3bWNEMnpIRW5TNk9pd1BFVmU5STZzc2xhLUFSN01WWlJJUTlLQ3lzRU5iN21nMGdhcWt4bm8wbEd2WHBka19nYXFOU0xWY1VwMmdRZ013dUtUenMyVEFDc1YyQ0tLZ1gtRUpJSjFGV1pQNWVqS2hZc21EUjdqOHVORGt2UzdPZEpLZ1Y0NWVlR0FJNThROTlMVy1Gd2V5OGJ2bUM5NE5IVUxqaTc3TGh5aERHN19DV0xqSExLeGx5RGFueElXd3RnMnZWSlA5bEFDdkt6QTZNd1dpcGVxeUoxOVZSRE1LazJucWc?oc=5",
+   "id": 34
+  },
+  {
+   "titular": "La Junta niega el impacto del cierre de playas en la Costa del Sol: \"No ha habido una crisis reputacional\"",
+   "fuente": "Andalucía Información",
+   "fecha": "2026-10-15",
+   "enlace": "https://news.google.com/rss/articles/CBMi8gFBVV95cUxOMVRXdlRuS1A0VEdkS1dMN1FGM0pDRjJWdVROSEY4ZDI2NmYtbmhMV19ZOGs3Nzg3bFpMMWNINkR6OENIZzdqMEtua1RUd2psOEdLWTNEUmNYajBEWTR3WFJyYk1qQ21ibENLX2I3MUtENjNkSk5rdjgxZGJIcDFOa2RJemxSZE5wWFlwM2kxUmI5RFhialNQOXRJSm9XRDE1Z2NKRU9QTTZZQWpPVUNCT0ZZVlJYMkVTYXdWZHgwNVBDYVR1WlRNODNEMUJpRW9jUFRiRHcwbFpTamw3TzZmZ0dIQ2dWbmo0aVlqZ3RJVnlhUdIB9wFBVV95cUxPWGlOSjBKdzV5dEp6T3NWWGg1RGYyVVFpWW1MQ0w3XzJJbXd6V1NDcVZ4TWpLZjZ3U0k4TFF0RXhRdkZsYXpQRE95MGFlMWFTaFpycmdtQ2N5aXJuNXU0NldBTGJrdENBSEVwWU5DVXhVdHBoM3plSGJROHlPeEVLd0FheXhaRzZ0MzBIZVRLOUZUYk93VzlucWZpbVEyU1dHXzhuSTNqbUJUc3kzOW9wUm1Nb0hXdkphNENHVVFHcnlOMzBKX083d0NqWGdZSURQX19mdFpRVHdxUENEZGNQN3JfMEx5VE1pTTFReTVZWUROWGMtaW1J?oc=5",
+   "id": 35
+  },
+  {
+   "titular": "Costa del Sol inicia una campaña para reivindicar el papel de los chiringuitos en la identidad de Málaga",
+   "fuente": "Al Sol de la Costa",
+   "fecha": "2026-10-15",
+   "enlace": "https://news.google.com/rss/articles/CBMizAFBVV95cUxPS2VDTTNVWV84SkRHWUt4UFFkdDl0WE03OE5VQTEzckJFV2l6Y3NaNFA2TnNuSU4zR0RVb09IZEVDVk02OWM2UVM0YXNUeWZleUNVOUNlX2NuMExZUTUyRk5WMU9TYVV1MkdPVHMwV0pUVzF5YUVKSjg1WE00Ri15ZU5IbjcxaFltOVNqYmhWWmprazFBM3hqb2xqMFZWOVJxTzMwXzZMYkhMeEwyQkZ6MWx4ZnFjYzRfZE5ULVByNWZ0Qkg0Um1KLVA1UVo?oc=5",
+   "id": 36
   },
   {
    "titular": "Sanjose Constructora construirá el hotel Oakmond Marbella",
    "fuente": "Brains Real Estate News",
    "fecha": "2026-10-14",
    "enlace": "https://news.google.com/rss/articles/CBMickFVX3lxTE5Lekp3UndMSVlGTjBTdTdHZWwzUDlYS3RKdWtiXzRhUzJZMUUzdGV6bWo3Um1tRi1kTlI5dUFnMkl6WE1QaFFoMDZUWHJYcDJPeWw3YXgxRnVqRWE0VHlnLVBnb3UxVHlOSklLc0gxTGU5dw?oc=5",
-   "id": 15
+   "id": 37
   },
   {
    "titular": "Ilanga Capital adjudica a la constructora San José las obras del hotel Oakmond Marbella",
    "fuente": "EjePrime",
    "fecha": "2026-10-14",
    "enlace": "https://news.google.com/rss/articles/CBMivAFBVV95cUxNa19NMFhqX1ZOQnI0d2N1a1I2czFlajREb0xSY0FOSWwySUNIM3ZmTXEya28yUUhZcVYxLUpDalJ0VkVuUEdsRHF4MjhaWXFESEpfNHprTUxpOGtKblU3SE8yTXJOb0M5aFNJeTg1OEJYY0tWVEJfZ0k1cEZJQUp5Wjc1elV4WlNRYktCTWdsM25YWjVKYldWZGp3WWxyQmhaMk5RZlJOemV6OF80ZEZJMEtVRHZwWnA2NXdXZA?oc=5",
-   "id": 16
+   "id": 38
+  },
+  {
+   "titular": "La Costa del Sol refuerza su liderazgo turístico con una conectividad aérea récord y la llegada de más de 11 millones de pasajeros al Aeropuerto de Málaga-Costa del Sol hasta septiembre",
+   "fuente": "Diputación de Málaga",
+   "fecha": "2026-10-14",
+   "enlace": "https://news.google.com/rss/articles/CBMi0gJBVV95cUxNNE1QcUN6OF84RzI1M1JndktvSUt1V2ZHVnFoWnVndDQ2TDRYQXU3emQ3M3NCSzNIelFDNTNGeDZ0UndGUFN2S1VMLWs1SUpYMnlKOF8xU09oVlNodjdXQzdlal9tU21sSk5YMlhfN181MjB2eVExYURJSnJPaG1jNnBYZFRhLXFLdmQwV2dvazB5YnBHQ0dsNVpYblRyRWZjdVduRmEyaDh0Vlc0aG9WRHR2S3ZPVFhjOFBBOWRHSHpIclJKeXhVU19PbE4zQXFFWXhWWEpJcjhVVEFya29CTkpVM3otX0hWQWVwTTZYcEJyWVJxcVNkc1lMTWhzeFBRVGdzU1N1T0I0Wjh4aWpLX0p6MmZNMVIzVHVDVHN1VkthZ1ZmQ3Q1eDc3SThxYnUtSWhYYWg4R1I4Q3piTG1FdGhyWE41dWFVeU1uS1JyNnM4dw?oc=5",
+   "id": 39
   },
   {
    "titular": "Ryanair refuerza su operativa en la Costa del Sol al sumar seis nuevas rutas, hasta las 82 en invierno",
    "fuente": "Málaga Hoy",
    "fecha": "2026-10-14",
    "enlace": "https://news.google.com/rss/articles/CBMijwFBVV95cUxNN1Rwb0YxUzBfbFlKREhMUHJfUGtscUtoNUxpWllNUEVNbWdIZmxBQ0xZWmxtVkVEc2VTSWhyTmF1dGxadUUxOFRaa04wQ0U1WVVnNm1pd3VBSnJvazZLbFFzQ08xLTZWcDVORGowQ2tYWko4SjhKblhyQlJwWEh5V0NQcUE4cFJXZWdvTjI3ONIBlAFBVV95cUxPTUVEdHlKanh4TFhqX0hGWGM0RnVtTVhjTHJQN2l4UDhTRF9sUHhFOVd5eUgwMWhJb2d1WElqVnUtOWhTWW80UzYzc0ozSkswRFA3TVhLNjIwb0NiaW9PMXNFVFhMNW0yay15Y3N6WkFDT2x6anZ6UWlRV2dZNi1vcC14RFpUMXAzNVJ5R3VNVVlCSHI1?oc=5",
-   "id": 17
-  },
-  {
-   "titular": "La Feria de San Pedro Alcántara arranca hoy tras un mes de preparativos en el...",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-10-13",
-   "enlace": "https://news.google.com/rss/articles/CBMi4gJBVV95cUxNcURCb0xCWUxHTmxGOE94WmFoTF80ZkpRdUlxOGl1ek5JYlZJMWNORjJmRE9OSmtkb0h1RF84QzJQM0ZVNnRsS3hkc2kzT2pOWW1LdE04ZVI5bjFhbWpwZXh3ZW5qaDI0ZzczTkxpTEhLSVNaZ2ZPVmVEMG0yM01fWFFKNFRUREQ5Z1RNMlMtRS1zNWxjNGxVMjktV1gtaW9hYkllbXB6eW9zb19ZaHJWRGVOSUViOHZ1NGp5OWFfczE3OEhiTkM5UHNfVERjdnhJVk9DOEpwelVURkNFOFB3ZERSVk1VYjlWWVcyVTY2dUNoZmc0eDlBd3AxSUtaNlUtdzA4QjQ3ZjloLWtGc1Q5UC1aaVNKLXdSTHQ1Y085UjlJN1hLaEtibEVIbHpqMTltaURFdUhXRkNwQ3VtVkNQVHlPbTF6WTgzY0lWQ0dIVEktYTZpMS1zVXMxUmNqYUJGRVE?oc=5",
-   "id": 18
-  },
-  {
-   "titular": "La Fonda Marbella se incorpora a Relais & Châteaux",
-   "fuente": "Forbes España",
-   "fecha": "2026-10-13",
-   "enlace": "https://news.google.com/rss/articles/CBMi3AFBVV95cUxOWEF5V3ZGNUQxdXpnaUItQklONV9MZGlpYmdDLUZNamJia2dTVTVBQ1F0bGFobDdCQ1FITVhsc2NNNk16RVVpSkdYTk9wODNEeHdPLUxXczBzeG05OEc1NGt3WGstSkpMYUtVVGhIOHRoR2ZfbF9Yck5lYW8yajJZenpuYkVGXzNGQXYxLTREYV9Xb0haQzRSOHhkYlNPVWFGNXNaV1NHWExFMGVPdklVN2kxQWFWeGs5eDlYREc4VDY4ZUgtQnVNZEVGSGcyeGhsRVZEM2Z4OGtndGhk?oc=5",
-   "id": 19
-  },
-  {
-   "titular": "Marbella celebrará del 7 al 12 de octubre el Día de la Hispanidad y la...",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-10-12",
-   "enlace": "https://news.google.com/rss/articles/CBMi3wJBVV95cUxOUXl5ZFMzV3kxaWNKdWFuZVNROVpUZ2RWZlQ2UU1VVFdvZG9YN1pTTUdIVEZwc0ZHLVQxMldJSlZGNGJLMWJWd3FvT2llUUUxUC1aU0xSc3dHbklYZEhLMktBWnRpOFBoc0phd1RHVGVRb0pabTJqNXRmSXA4NXp6SnE4NEM5SUdTUEd1WFg3YVlfbG5OeXpOenY5bXM0TEJLWHdkSFlieWY3OG9rVjRkX2xKZkVOS2hjQ1lIY2h5eUczbVN4SDhoLWVsN052alFudWN4Ul9mZ0V1U2t3VV80WF93OXlLc2dudll2dW1hSmU3N2xZTXpnQ0ZndmFuLWxDeUhoNUQxZlhLajNwSG5WZjlGbGJ1VlVVekxVbFlRNzhuSUtZN1JsQWVFNm9YdTM5S0s4bEN0RTA3bWR2X2xOZ0VObWNsOHNybGI0c1FFV09ucENNdFFBRzlpVzh3cGs?oc=5",
-   "id": 20
-  },
-  {
-   "titular": "El vídeo en Marbella del coche que ha volado cuatro metros e incluso ha seccionado una palmera: uno de los ocupantes, en estado crítico",
-   "fuente": "La Voz del Sur",
-   "fecha": "2026-10-12",
-   "enlace": "https://news.google.com/rss/articles/CBMijwJBVV95cUxPQXFlcmdfNURpODdtelNUNmVkOGtqc1FwQWxDUzZ2T1l1cGxuQXltU3ctcE9XdnZPSWxUcWVMUVJXdFhPWnBJc05uRmJaYnhBMVpsOHdJTXhDa29SVWxlQmgtUUY4V2hwbDBfWjJFeTFYRWZvdlpGeDh2ZDN5amtic0xRandpb0JmTHUxN0dUcHpkVkxIczVpdHZwTllwWlRNR2owWTZ6Y1ZCMFJKOTNEd2NEN2JQZHVyR28zOWNsV2tBQXoxc0VxS1BaNFFjTjlwSVcwT241Y3dra3hhLUZYSEI3c29wQlpQZW10bW5TOWxmWHRsVWs1NHV1cm5RbUFGU3Y0NmpYZTFiTDAtMnNJ?oc=5",
-   "id": 21
-  },
-  {
-   "titular": "El sector del turismo en Marbella busca el equilibrio entre cantidad y calidad en su modelo",
-   "fuente": "Vidaeconómica",
-   "fecha": "2026-10-11",
-   "enlace": "https://news.google.com/rss/articles/CBMikwFBVV95cUxPdUdBRlJKMUhQQ0QzN2xnZHd6dG1tVmN3ZWNPX1NNeHZrU2VaUUxZM3FxY2RrdGZ5bU5zREhSLUxNV1k3MzV3TGtQeUFMQ1l0Yks1RUtjeV93cThFSXJpVzRGTlV6Y1M1X2lzdkxwUGQyd3pmdUpmYzdneG9Yb2lyS2M5RTM0ME5UU0tlZ3RIZ3lmYlk?oc=5",
-   "id": 22
-  },
-  {
-   "titular": "Un turismo sale volando y se empotra contra la fachada de un edificio en Marbella",
-   "fuente": "El Mundo",
-   "fecha": "2026-10-11",
-   "enlace": "https://news.google.com/rss/articles/CBMifkFVX3lxTE51eWJ2dXFBQnBDT253Y2QzTHNWanp3MHc0TGI2V25hQmxkaW52bkhfSUhXRTNTS0NsbkdNWlZXWXF3QUdaTFR2Ym9zS0hYSTNzRUU3VzB2WlBJV1ZiWENtY0ZMWGxRM2w3WU9sWWFkQ0U1SE1vRU9ydVYzZzZ4QdIBfkFVX3lxTFBMekV1MF9EUGtuX1dLVTBRb0R0UnpEeDRDNkZKdHpMdmpnQkNubTRJQzlxbXhuWWdQa1pHTDNxcmxiazV1akJVTkFMSWgyY2hvSVVCNzJ0QnpHRk5nSzNxWGczbmJMVkhkZEt3bWJXVGMxMmN0QWdqbFhDQjJYZw?oc=5",
-   "id": 23
-  },
-  {
-   "titular": "En estado crítico uno de los jóvenes que salió volando con su coche y se estrelló contra un edificio en Marbella",
-   "fuente": "Málaga Hoy",
-   "fecha": "2026-10-11",
-   "enlace": "https://news.google.com/rss/articles/CBMikAFBVV95cUxPM3dVTGpGMk9nWGc1eTdnYWJwanpSa29UNWVPZlNhX1VuRDFDYU5KVnVPRHVZTmhrbjlRT3k4LWxsT2RRYnZSMGZfT3IwejYyVXFVZm5CNFFiVzZuWWRXMnR6dnRJeUZFV1VvNHk1NjNZSW1DQi1IdnFQaUhMb183bzNqU1FhNkI4S3E1d00xeV_SAZYBQVVfeXFMTkotRTc4SjdDcXNoVlZnUkZCaHR6Z3NtTVVDd2NUMGtoQnVXYW9MY0JnWHNhSTYwODFIR1hDR3RUenJsaXc2UXhpVm9HYlhWMEt0a0NFdkVKLVpmdGFlSURRYU1tM3REOGo3X3haTkhvUFBOSW9WQkl0YnljeW90MmRreEFCX2RWTGF3b1Jtc0JDamtleU5B?oc=5",
-   "id": 24
-  },
-  {
-   "titular": "La nueva biblioteca pública de San Pedro Alcántara estará finalizada en primavera de 2027",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-10-09",
-   "enlace": "https://news.google.com/rss/articles/CBMi1AFBVV95cUxNdDVmdjRoM2hnQmcxNGZweFFKZFRUMUhrZFF2MFIwdnRSS1JkZEZHeEJhaFpYQ0RsY0hBVmFLaXQ3M1NKaUY0NW1rTzk5a2ZUdHhHSjhQZ2VkLU92cFJiZllPc2VEZHNOYkR4ZUpZMWQ0TlhrTG51SUhCRk1UWUJ2cHB5a2toZ1hRd2RrZ0xRbi1fbV9ndDYxdVhZOUFGc3gwMG1QZzZhbmwzakhYV0VtVUlVRFk3WS1UZkxvVnJkTFVlZE4xMy15Y002WktZX2RzR0VIbg?oc=5",
-   "id": 25
-  },
-  {
-   "titular": "Marbella refuerza su posicionamiento como destino de lujo en Alemania con una misión promocional en Múnich y Hamburgo",
-   "fuente": "Diario Sur",
-   "fecha": "2026-10-09",
-   "enlace": "https://news.google.com/rss/articles/CBMiuwFBVV95cUxPaEJ1ajhVRXlfUjV6VkRuQ21fd2dTYjllc3NPbTBrbVg5aEc4RW9aQ2IxY1pOWnV5OFowZk9OZ1BfTzNlTmFfNTVaaXVOZGNYMDdheFdZYXU1RmtpMU1EcEh2Z3hZZUZWUV9xcGRMbUFKekktM0FwMGRCOHdKOFUwOExDdmpBWTZxMmI4U2RsY05PbE8wRVM5SGRueWVWMFZnSHVHLUxzTVRrc3EyNjRuczc2RkpySkExQWpF0gHAAUFVX3lxTFBVY1FDdnd1YUI3ajF3WlotdjV2aUw3Q3VXQktLM1NuYW9IWnZrODVKeFdHcFlZd0ZZeFM4elNZVzBFdEluOU5EN3NuYWJjSmxLdU45S2kyQlhyYVA1MndXSUVTejNjZlJwRmlFeVZ5MWwyX1ZtWnp6dWFLVGV4LVhEZGMyZVpWQjk0QmIxWl9BOUFMME9QU0F2X0swbUg3ZGxiLWhiZml4M19mOXhpdmZYTExRRWJnWGRCMmFYaklaNw?oc=5",
-   "id": 26
-  },
-  {
-   "titular": "El turismo de bodas se perfila como uno de los grandes motores económicos del turismo en España",
-   "fuente": "Madrid es Noticia",
-   "fecha": "2026-10-07",
-   "enlace": "https://news.google.com/rss/articles/CBMi0AFBVV95cUxQLU1zUF9kUFJickJXTVQxOVU3T2JoYmlxNld4TXZNUkc2THV2ejlrYWRzZVFnMEplWWJVWXpwT2xBMmNFSmZDSzNEZUl0Yk01TlhsRVBEWFRrS2NoWi1waE5ER2JhbUpZbGttRW8zQ203ZlhXZXRvRWxxSEJnV014Y28td09wbzFQaVFmMWNOczdYZF9CZGRqZFZWWFVTclhBY0huQUpSRURFMkZMd25BV1hRUVQyZlBUZ2NjSnN1VERmcGJSd2RKT19zWUVFajJq?oc=5",
-   "id": 27
-  },
-  {
-   "titular": "El Ayuntamiento de Marbella tramita un hotel de cinco estrellas en suelo rústico con una inversión de 60 millones",
-   "fuente": "Tourinews",
-   "fecha": "2026-10-07",
-   "enlace": "https://news.google.com/rss/articles/CBMilgJBVV95cUxOdDkwb09Jc2hhQktOMGZPc25fZUZOS0xGRXh2WGRCOUkzMnhhNXZjZktkeThMOXF2clo3SEItUGIycV9BRmZ0MmgwOHRCVkVZVUxnRkFJOGNwaXZDdFFNSXFqbzBXaTdURFNpd1Zwemp6QWh2Vi1tWG9Yd096VC03RmUta180S0JPdk9HNTlERV9GUFcxajNCMjVjTGVscTR1YzY0TDdjVFNEZzJLWVhkUDV1bndoaGZaMkpabDhGLUlDVlU2d3dDVlZWc3BlQnVMRGpWRGl3WEs3V3dYQlNtRGNucm9BNDRKV2taY3ZSNTBOYkRRR2thR0wzUVlVNmlEN0E4bmVkZ0VwdkZqb21qcy11RkV3Z9IBmwJBVV95cUxNYWhNMmlGMmJRcGZOQjVZNUdZOVVLUFVQQmU5bEZKQkxyd0ZtVm92X3NUVWpWRnBZOTRpUEw5cGtxREhpV0Ftd0FKTGtURS1xOFgxRDFBaktfSW9KUnBfU3A5d3R3OHFQSHBSYzM0enNkdC10cE1FTlJGaWhtUnB4aEFwbWV3TVNoMENRWWZOemktRlBHYWE3LTZZdzN4aWNaWmprVUNyeG9RRGFmN2RrZjNGRFAyY0RjTnJyeVpYRWItaUUtdU1raEV2cUNnSW9CcG9tUGtTVzA4YjZXdmtydjZlcnd6YnM0a3B1cjVXM3Jqa0RtOTVUT0tmWHB1Vm5fTngzdGhVN2RNcjdTYVFvRTNubVYtbTNkTkxZ?oc=5",
-   "id": 28
-  },
-  {
-   "titular": "Marbella dibuja su futuro urbanístico 40 años después",
-   "fuente": "La Razón",
-   "fecha": "2026-10-05",
-   "enlace": "https://news.google.com/rss/articles/CBMixwFBVV95cUxQdjh5czJ1dE91bE9zSWJzNzdpZ0pndmRZZ05zU1NKWm5TdVNLejdZQzdvbTBDNkFzdGRKVDlFZk90cW1FZENsTXlxeURPOURzY3pMd2FPcXl1UVhiOW4zX0dRUGl1M0NleXh6ai1wNnlTU3BvektueExPblMwVlRwTEFtb3llbzVRUEZDY3l2U0lyUjZ6UWcyUEVXSjFLX2txRE9QWjE4bXUzZmtlSXNGNjV3eXAzMk5MOEtMMGtiWGdIMWtOWW800gHbAUFVX3lxTFBsWWNrUEI4MHJTTDJqdzl6MURKYTNybDZGRTd0b084UGZUWlItYm10aHhYWkM2dFJndFduZVdxMm9tcXBpXzBlZEpKblNsMElXbmhVeDMxaFZjZXgtaXJPaXowanpHYmd5YXFkQVRyTkFkMEM2V0xtTDViMjhDRUlRR1Q1QjJaYkFCaWR5SERhWFA4VzZDbVozVEhLVkpicE42Znlaa2RoaWtaemFsVm5wNEVWY3o2YWhKdDFhNWNJVUVISDE4RlJkQmVMb1JzZHNxazg4TmJFcUFiUQ?oc=5",
-   "id": 29
-  },
-  {
-   "titular": "Entre el turista y el vecino: ¿Quién puede permitirse vivir en la Costa del Sol?",
-   "fuente": "101TV",
-   "fecha": "2026-10-04",
-   "enlace": "https://news.google.com/rss/articles/CBMitwFBVV95cUxNeE5aai1YRWYyVGRuN2VXbTYwVUxYWnRTZTBaZG02aWhhZG9IQTRaM0pqQjljNDRJTVFhbUZxSERlb3BEVDlCNi1FaEF0MkZCMThRYnVndWo1UzE4cXpiUDFOMFN2YkZRRXhIcy05TGR0eExYTkRvejgxaFZ4aVFQR0d5dGdyZHFERTRfV04yaDNrbjRzY2E1RmZqQmNRLVZibzFnVHIzZVdnSktZWk04VHJ6emNUTWs?oc=5",
-   "id": 30
-  },
-  {
-   "titular": "Marbella prepara un nuevo resort de lujo y longevidad con una inversión de 260 millones: tendrá 140 habitac...",
-   "fuente": "OkDiario",
-   "fecha": "2026-09-30",
-   "enlace": "https://news.google.com/rss/articles/CBMizAFBVV95cUxQakUzVFB4dkoyejB5b1NhWEtEWUtDeWlrSUNGZGtFWjVKSTYxVHMxekozMDdMLWdUcE1zdXh4NFBnTHJxSndrSzV4VjlRRnJZRUJxNGNhb1F1TUVPNUkzOXBrQnk0a0ZOX1JGS2pibkpHcHhKSlBKTy11cGJRZ3R6eHNPN1NBNHhmaU5kaVQtbGRvMHVSRFg2bWxDVXpOelVIQkdmYU0xelVXOW84REh0MHBTcHRDTVY2dVpSWEhpeGR2TjJvMXNKV2NkcW_SAdIBQVVfeXFMUGtQeDYwTWxpdTBkRWNFWndHLXZ6SjBERWY5aE5sRVFGT3g3bDhEQmxhcGthV0VvMXc4djdOVHUzSUxaSFIwamVRMk03MTFHNF9Yb1FzSWtpNHJCN0x3cXpqLXBUUjFpeTRCX0VHcFNKU2VkQ2NIV0MyUURJLTVneTRrcUczdGlOdFI5c3YzUGw0bHRaZXNTS3FFSDlPM1R4d0JUeDNDWTJZQUJHMkY0dFZPSVdWRTVmX2tmVHZ4NmZ5U0xQTEllaHdFQ1gtS2RNVzZ3?oc=5",
-   "id": 31
-  },
-  {
-   "titular": "Turismo Costa del Sol lanza una campaña en la que reivindica el papel de los chiringuitos como parte esencial de la identidad de la provincia y reclama seguridad y estabilidad para el sector",
-   "fuente": "Diputación de Málaga",
-   "fecha": "2026-09-30",
-   "enlace": "https://news.google.com/rss/articles/CBMixwJBVV95cUxPT0R6a1FwYWRmVzJZenk1dURDWldzaE54aXI3cVdqLUZsVVVHM0V1RGZtbUJjRjlFQnp4ZHZ5d1RhWlNYQll1RDFleHI3Y1dPTy1PdTV4d0oxelkwSFk2eXZ3Zk1UVEQxVTR5MnV3N1o2dE01MjBOTkVLeHN6YWo3SzBTRGcxTWE5R001UUdxSi1ua2hSdHBCdEJRUEY0RF9SV21sZWlNc2xuM0l2RkxUQjBWbUZEYy0yX0RyOWNHN0JNS0trWE9zUTZOQVBtR3NPOWRGZ19LV0tZWVFNRjBxTy13bUhRS2ItVHREUEkwaWJmM0pCZ3ZicmhQZzgxVG4yMDdOYU9vOC1NQzhOYlNpOFlLZW5xdGZpcm5rV25oRkNOel9IYjNjWlJxb0FHYVFDVkpzblhBZlJfeFh1Vkg3ZzE3SkU5cU0?oc=5",
-   "id": 32
-  },
-  {
-   "titular": "Turismo Costa del Sol lanza una campaña que reivindica el papel de los chiringuitos en la identidad de la provincia",
-   "fuente": "Europa Press",
-   "fecha": "2026-09-30",
-   "enlace": "https://news.google.com/rss/articles/CBMi8AFBVV95cUxOcHdIYUpXdzZMQzlMR1NBS3dyR3ZTV19vZnpBaTJMNzcyT2tuZWNqeEZURlMzZVpDNXVXSWd3M1hEblZWclNUWjFsYS1Dd0cyR3FEeUlJTEtQelVpUUhuakFHVVpRSS1xd2hGa3FtM1I5c19HSlcweVRaNnZpWXJRc29UR2RTazdPbWNSMWJtcFpSaTV0YnZreTNTcjBjTElUeVB4STJ4TldXN0VpUTlOdzdtQmd5NzlfT0ItWUVuTTF3R1lSRTFzUzc3cWlLenV0VGthYVQwYmpYUGpwNU4zUnJCYVlOQkVoQk8zRWJlc08?oc=5",
-   "id": 33
-  },
-  {
-   "titular": "Turismo Costa del Sol destaca la colaboración empresarial como motor de nuevas oportunidades en el Málaga Tourism Meeting 2026",
-   "fuente": "Diputación de Málaga",
-   "fecha": "2026-09-29",
-   "enlace": "https://news.google.com/rss/articles/CBMihgJBVV95cUxNemxqVWxwN3k3THB6QmJLQl9FcmhCZkVzWGxvZE94Mk5TWTl5TmtORjJQeTNseHZ4S2ZiS1owcVdNWTd6OXpJdFM3d1V1REdsN0c0TlFxWXpXTlhFVE15TWhaSTNhQ2xjZ2J2ZGF4aEc2dHNiazMyd3IwaVdFTG9CZmd4aTU4UFFjeWZDd0NBMU1KelFpSmFHMkc2Zk9VZ29GbWdjOENKXzZrblBmcjlqX1pOelRCV1Jnc3J0ZVhYS3BXMDdSemZpaXRrSG9YdGlPOXd5V29abXlaUng0cWd5T21rSmV1QnJYVkFGUXdhVmN0OTBOQTk5eFlWUklsQ1ZkWkJNeUFB?oc=5",
-   "id": 34
-  },
-  {
-   "titular": "La alcaldesa destaca “la estabilidad financiera, la inversión histórica de 200...",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-09-28",
-   "enlace": "https://news.google.com/rss/articles/CBMi-AJBVV95cUxOZ0JvUi15eDY5VFozTDNtak9iNURZNUFBS25IQlJJeGRSRFNFSGNIRjBiYjByLW85SHJfTWJvT2hYeFlsaTVEWjRVZUhHV1RyNF9NalBBT3RtNExOMzhNazduTkliVllCX1A5MmZtRHo1UW1KNS1leXlreWlQdmw5RU5uYWcxXzBWVkVXRTlXVG40SEVmMzVDTzREZ1E0b2NLSTlOeHI0SVBuclhxekFjbHUtSFBpRkMtOHRreVNiZl9qRmlvSDh5V0lKMkhKQjg1SlJOX2dUdU1jQ0ZTYXZpWV9TelROcHptTTFDRUJJLTU0R19PVGdJakVyQ0hyNVRmaDl5elpOXy0tWnltdlZSR0gwY0U3aXI1RG5YRG8xcTBQUGRlN0puOTN5Nk9DMjRoOEtSY0xYNUFvSzRrRjA5YThlNEY0ZUM1eTcxSkxCOC1EOVNoQ29oSWs4WG14Y0R5RjFyVTF6MUJUeWtHeGVGVFItbkFUWmZM?oc=5",
-   "id": 35
-  },
-  {
-   "titular": "Madrid y Marbella, dos destinos que atraen a un nuevo turismo de experiencias",
-   "fuente": "Diario de Avisos",
-   "fecha": "2026-09-28",
-   "enlace": "https://news.google.com/rss/articles/CBMixwFBVV95cUxPeFA2bDUzTUdLS083VjNsbWFQSmVudnFYc25nQk5mMk5ZRUtsUlRPakZBMHBjV3dEcjNGblBXNUtPWFFvMUxnNUdNTXJTcUpEQTg5MmFjTHZONjhXbndoVlMwY084LXo4YThDWENIcW1VY3lZV2NkXzM4Y01VbW9sUzNGVGp2V0MtRXlDaEt3ODMyVGJPT0doT19GdXFIM2x2NXpnOUwwYUFiSUtHTnV4ZVNXYkhLcnZyWTMxTzdqTzhhZ0VBRk53?oc=5",
-   "id": 36
-  },
-  {
-   "titular": "Estepona acoge deporte y turismo de primer nivel en la Costa del Sol Gran Fondo 2026",
-   "fuente": "Ayuntamiento de Estepona",
-   "fecha": "2026-09-28",
-   "enlace": "https://news.google.com/rss/articles/CBMixAFBVV95cUxNUXZNVzRSZjdoX1A1anoxdDMxRWZpVHJuUl9ya1FJc2JHWVpDTExkWDFCLXB0R2N3SGpGMHVIRG5vRmlrc2tSTG1ZZkUwcngxWEdhMXVwYWxXbkNNMHYzT0JHdWtQRE8wOU84dGpxb0g1em9UNlNnUEd1ZjBKOXFJcVJDX3BlNlFCNTVoWDdraGR3Z0NKZ2h6VjZIU3dINklLdV9rLW9vQy1sQnJjOXd2R25ycHVQWm1sajdIU1VJTWVPOVVS?oc=5",
-   "id": 37
-  },
-  {
-   "titular": "Turismo Costa del Sol promociona su oferta de naturaleza y turismo activo en la XXIV Feria Internacional de Turismo, Deporte y Aventura, Tierra Adentro, una de las grandes citas del sector en Andalucía",
-   "fuente": "Radio Marca Málaga",
-   "fecha": "2026-09-28",
-   "enlace": "https://news.google.com/rss/articles/CBMizwJBVV95cUxQZzBCdWNGSlJZVkExRTNpcDNDblRyQTZ3OXJVdl9mZE96SGF2SzNLZk9sY1hlbkVOQVFzcEVnUEFsU1hleVhReDdYeWlVS1VCamZ5anUxOXFHelZzQXJ2a19vamR5aTZqS0R2eFI5TWtwUE5Jc2ZaTXVqbkotNXFSeGlIS2V5ZmJQV0I3MUJoNlNVRGpPQ1VONUEwZDFPcW9WdWJGRlNqalhTa3I1dHhZWEh1QVJyU0R4a2JYQlhNWjRwLURjWGV2bm83UFg2QmxvZTFvR080QWFZME9oZ19hM21VUHp2VVNsREZMT0xIejUtWkFJYXFuaWtocVRZTExqSlBsV0ZMQ1ZjVDNJMS0zVXhzVGdWTjJXTVNvNnlUX1VHQ0FFajFvaHpGNk8yMGhQX2dCTTdHdXhuZUF5SE1JbDJ4STNMTWctSF9VV0hqVQ?oc=5",
-   "id": 38
-  },
-  {
-   "titular": "Andalucía se consolida en el mapa del lujo hotelero y alcanza las 17 Llaves MICHELIN",
-   "fuente": "El Economista",
-   "fecha": "2026-09-26",
-   "enlace": "https://news.google.com/rss/articles/CBMi8wFBVV95cUxPWG9ILTdBbU9FR1M5SmxHMVVkRmZSbXphblF3WEc1RHA5enlxX0wxQ0czdFdVNTRYWDV4R0h2UmZXYzAyVmt1SE9MVHM3QlB1NzlpLTJOODBpNXVtQjBMcGVDU1FzUWc5anZENmhLNF84RDRqRUk0a1Z6YlhwV2psMVpKTUxCQlJPY1hPMTdnRWVrYnhWcVR4ZHhXbmtxQVVweGtNcXR3UDR5OURTZ0o0aXlMd1NFd0gycURqS1NPOGE1V3I0U1phQm5tUTQxdkpqa1RXZEJic3UwbWhGcEh0UktMWjU2OWRaQ2NMZGtFc21ycXPSAd4BQVVfeXFMTWw3MkRHa3lBd0dwWFV3ajB5ckVYVHRzTkZMNDJuV1RkUURBUGRuTWppNnNQWVFzcXhtUWFrNDMzV3E5OUY1Y3Z1U3FqRmhOUzNqMWZrOWlLRUZSTmhCV0NBQTk0bGd1bEpZN2R4eUFiV3k2TkE1WHlwd2RrNzBYM296MU02eXRhQm1Nb3QyN1FkUWk3VFlQNHl0b3BKeGVPbHRBQ3lmcTItSGVrQXljZUM0bW5veHl0QWxzbzMwU1Vud1NnbWRUakE3M3h2Z29uQWFSYjVEcXRmb1ZlUFFR?oc=5",
-   "id": 39
-  },
-  {
-   "titular": "Gran Marbella Resort & Beach Club recibe su primera Llave Michelin",
-   "fuente": "Revista Andalucía Económica",
-   "fecha": "2026-09-26",
-   "enlace": "https://news.google.com/rss/articles/CBMinAFBVV95cUxNUWdyVkRfRmtQa2Q4YjNfbmJtRjJUbG10U25rbjdNZW5yQkI1TXEtd0JENGlqUjlWLUp4ZjM0YzRaYUpsWjgwa1BHMG9QNDJINElRRUk0UTh0a2lHb2dXZDRKYUxGRDVCVDB5ZVMydXMtQjh5b3RJa2M5eDktVjVoNTFJMzc3bFJqWmN1N1JkOW1MOElSTW9DM0ZhQVI?oc=5",
    "id": 40
   }
  ],
  "graficas": [
   {
-   "clave": "pernoct_hotel",
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-08-pernoct_hotel.png",
-   "titulo": "Pernoctaciones hoteleras en Marbella"
+   "clave": "paro",
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-S43-paro.png",
+   "titulo": "Paro registrado en Marbella"
   },
   {
-   "clave": "adr",
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-08-adr.png",
-   "titulo": "Tarifa media diaria de los hoteles (€)"
+   "clave": "afiliacion",
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-S43-afiliacion.png",
+   "titulo": "Afiliados a la Seguridad Social (residentes)"
   }
  ],
  "foto": {
-  "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/foto01.jpg",
-  "credito": "Foto: Ypsilon from Finland · CC0 · Wikimedia Commons",
-  "enlace": "https://commons.wikimedia.org/wiki/File:Beach_in_Marbella.JPG"
+  "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/foto07.jpg",
+  "credito": "Foto: Milan Trninic (www.wedesignmarbella.com) · CC BY-SA 4.0 · Wikimedia Commons",
+  "enlace": "https://commons.wikimedia.org/wiki/File:Playa_Puerto_Ban%C3%BAs_Beach_with_tranquil_water_%26_a_cafe.jpg"
  },
  "enlaces": {
   "observatorio_turistico": "https://josehino.github.io/observatorio-turistico-marbella/",
@@ -471,5 +533,155 @@
   "web": "https://ammaconsulting.github.io/newsletter-turismo-marbella/",
   "baja": "https://ammaconsulting.github.io/newsletter-turismo-marbella/baja.html"
  },
- "fuentes": "INE (Encuesta de Ocupación Hotelera, Apartamentos Turísticos y Viviendas Turísticas), Turismo Costa del Sol Big Data, SEPE, Seguridad Social (IECA)."
+ "fuentes": "INE (Encuesta de Ocupación Hotelera, Apartamentos Turísticos y Viviendas Turísticas), Turismo Costa del Sol Big Data, SEPE, Seguridad Social (IECA).",
+ "_previo": {
+  "turismo_marbella": {
+   "viajeros_hotel": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 83817.0,
+    "anio_anterior": 84294.0,
+    "variacion_interanual_pct": -0.6,
+    "indicador": "Viajeros en hoteles",
+    "serie_ine": "EOT42428"
+   },
+   "pernoct_hotel": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 346351.0,
+    "anio_anterior": 350366.0,
+    "variacion_interanual_pct": -1.1,
+    "indicador": "Pernoctaciones en hoteles",
+    "serie_ine": "EOT42534"
+   },
+   "viajeros_esp": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 17905.0,
+    "anio_anterior": 23730.0,
+    "variacion_interanual_pct": -24.5,
+    "indicador": "Viajeros residentes en España",
+    "serie_ine": "EOT2759"
+   },
+   "viajeros_ext": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 65912.0,
+    "anio_anterior": 60564.0,
+    "variacion_interanual_pct": 8.8,
+    "indicador": "Viajeros extranjeros",
+    "serie_ine": "EOT2760"
+   },
+   "ocupacion_plazas": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 72.21,
+    "anio_anterior": 69.35,
+    "variacion_puntos": 2.9,
+    "indicador": "Ocupación hotelera por plazas (%)",
+    "serie_ine": "EOT3152"
+   },
+   "estancia_media": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 4.13,
+    "anio_anterior": 4.16,
+    "variacion_interanual_pct": -0.7,
+    "indicador": "Estancia media (días)",
+    "serie_ine": "EOT2936"
+   },
+   "adr": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 377.8,
+    "anio_anterior": 369.41,
+    "variacion_interanual_pct": 2.3,
+    "indicador": "Tarifa media diaria ADR (€)",
+    "serie_ine": "EOT43542"
+   },
+   "revpar": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 321.82,
+    "anio_anterior": 301.57,
+    "variacion_interanual_pct": 6.7,
+    "indicador": "Ingreso por habitación disponible RevPAR (€)",
+    "serie_ine": "EOT43946"
+   },
+   "pernoct_apart": {
+    "periodo": "2026-08",
+    "mes": "agosto de 2026",
+    "valor": 93273.0,
+    "anio_anterior": 102191.0,
+    "variacion_interanual_pct": -8.7,
+    "indicador": "Pernoctaciones en apartamentos turísticos",
+    "serie_ine": "EOT41394"
+   },
+   "vut_viviendas": {
+    "periodo": "2026-05",
+    "mes": "mayo de 2026",
+    "valor": 6987.0,
+    "anio_anterior": 7934.0,
+    "variacion_interanual_pct": -11.9,
+    "indicador": "Viviendas de uso turístico",
+    "serie_ine": "VTE3889"
+   },
+   "cuota_extranjeros_pct": 78.6
+  },
+  "economia_marbella": {
+   "paro_registrado": {
+    "periodo": "2026-09",
+    "mes": "septiembre de 2026",
+    "valor": 6246,
+    "anio_anterior": 6954,
+    "variacion_interanual_pct": -10.2
+   },
+   "afiliados_seguridad_social": {
+    "periodo": "2026-09",
+    "mes": "septiembre de 2026",
+    "valor": 69317,
+    "anio_anterior": 65645,
+    "variacion_interanual_pct": 5.6
+   },
+   "contratos": {
+    "periodo": "2026-09",
+    "mes": "septiembre de 2026",
+    "valor": 4772,
+    "anio_anterior": 4695,
+    "variacion_interanual_pct": 1.6,
+    "pct_indefinidos": 68.9
+   }
+  },
+  "mercados_internacionales": {
+   "periodo": "2026-05",
+   "mes": "mayo de 2026",
+   "fuente": "Turismo Costa del Sol · Big Data (microdato EOH del INE)",
+   "top_pernoctaciones_hotel": [
+    {
+     "pais": "Reino Unido",
+     "pernoctaciones": 82129
+    },
+    {
+     "pais": "Irlanda",
+     "pernoctaciones": 17005
+    },
+    {
+     "pais": "Francia",
+     "pernoctaciones": 15963
+    },
+    {
+     "pais": "Estados Unidos",
+     "pernoctaciones": 15789
+    },
+    {
+     "pais": "Alemania",
+     "pernoctaciones": 14150
+    },
+    {
+     "pais": "Países Bajos",
+     "pernoctaciones": 11459
+    }
+   ]
+  }
+ }
 }
