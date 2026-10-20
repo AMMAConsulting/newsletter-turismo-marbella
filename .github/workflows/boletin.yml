@@ -9,6 +9,7 @@ on:
     - cron: "0 7 * * 1"                 # lunes 08:00-09:00 en España
     # Martes: se arranca con margen (GitHub retrasa a menudo las tareas programadas)
     # y la tarea espera dentro hasta las 13:30 de Madrid antes de enviar.
+    - cron: "15 9 * * 2"                # 11:15 en verano / 10:15 en invierno
     - cron: "15 10 * * 2"               # 12:15 en verano / 11:15 en invierno
     - cron: "15 11 * * 2"               # 13:15 en verano / 12:15 en invierno
   workflow_dispatch:
@@ -39,7 +40,7 @@ jobs:
           DIA=$(TZ=Europe/Madrid date +%u); HORA=$(TZ=Europe/Madrid date +%H)
           if [ "$DIA" = "1" ]; then
             echo "accion=generar" >> "$GITHUB_OUTPUT"
-          elif [ "$DIA" = "2" ] && [ "$HORA" -ge 11 ] && [ "$HORA" -le 15 ]; then
+          elif [ "$DIA" = "2" ] && [ "$HORA" -ge 10 ] && [ "$HORA" -le 15 ]; then
             echo "accion=enviar" >> "$GITHUB_OUTPUT"      # si las dos ejecuciones envían, Make ignora la repetida
           else
             echo "accion=nada" >> "$GITHUB_OUTPUT"
