@@ -7,8 +7,10 @@ name: Boletín semanal
 on:
   schedule:
     - cron: "0 7 * * 1"                 # lunes 08:00-09:00 en España
-    - cron: "30 11 * * 2"               # martes 13:30 en verano (CEST)
-    - cron: "30 12 * * 2"               # martes 13:30 en invierno (CET)
+    # Martes: se arranca con margen (GitHub retrasa a menudo las tareas programadas)
+    # y la tarea espera dentro hasta las 13:30 de Madrid antes de enviar.
+    - cron: "15 10 * * 2"               # 12:15 en verano / 11:15 en invierno
+    - cron: "15 11 * * 2"               # 13:15 en verano / 12:15 en invierno
   workflow_dispatch:
     inputs:
       accion:
@@ -37,8 +39,8 @@ jobs:
           DIA=$(TZ=Europe/Madrid date +%u); HORA=$(TZ=Europe/Madrid date +%H)
           if [ "$DIA" = "1" ]; then
             echo "accion=generar" >> "$GITHUB_OUTPUT"
-          elif [ "$DIA" = "2" ] && [ "$HORA" -ge 13 ] && [ "$HORA" -le 14 ]; then
-            echo "accion=enviar" >> "$GITHUB_OUTPUT"      # el otro cron cae a las 12:30 o 14:30 y Make ignora el repetido
+          elif [ "$DIA" = "2" ] && [ "$HORA" -ge 11 ] && [ "$HORA" -le 15 ]; then
+            echo "accion=enviar" >> "$GITHUB_OUTPUT"      # si las dos ejecuciones envían, Make ignora la repetida
           else
             echo "accion=nada" >> "$GITHUB_OUTPUT"
           fi
@@ -77,6 +79,15 @@ jobs:
             sleep 20
           done
           echo "Pages tarda más de lo normal; se pide el borrador igualmente"
+
+      - name: Esperar a las 13:30 (hora de Madrid)
+        if: steps.que.outputs.accion == 'enviar' && github.event_name == 'schedule'
+        run: |
+          OBJ=$(TZ=Europe/Madrid date -d "today 13:30" +%s); AHORA=$(date +%s)
+          if [ "$AHORA" -lt "$OBJ" ]; then
+            echo "Esperando $(( (OBJ - AHORA) / 60 )) minutos hasta las 13:30"
+            sleep $(( OBJ - AHORA ))
+          fi
 
       - name: Avisar a Make
         if: steps.que.outputs.accion != 'nada'
