@@ -1,10 +1,17 @@
 [
  {
   "edicion": "2026-S43",
-  "file": "foto07.jpg"
+  "files": [
+   "foto07.jpg"
+  ]
  },
  {
   "edicion": "2026-S44",
-  "file": "b026.jpg"
+  "files": [
+   "b026.jpg",
+   "b024.jpg",
+   "b048.jpg",
+   "b025.jpg"
+  ]
  }
 ]

@@ -390,36 +390,51 @@ def fotos_noticias(lista, edicion):
 
 
 # ---------------------------------------------------------------- foto de la semana
-def elegir_foto(edicion):
-    """Una foto distinta por edición: la primera del banco que no se haya usado nunca.
+FOTOS_POR_EDICION = 4
 
-    El banco (docs/img/fotos/banco.json) son fotos libres de Wikimedia Commons revisadas
-    a mano; las usadas quedan en docs/boletin/fotos_usadas.json. Si se reejecuta la misma
-    semana se repite su foto. Si el banco se agota, se reutiliza la que lleve más tiempo
-    sin salir y se avisa para ampliarlo.
+
+def elegir_fotos(edicion):
+    """Fotos de portada de la edición: FOTOS_POR_EDICION del banco que no hayan salido nunca.
+
+    Make pone la 1.ª en el primer borrador de la semana y pasa a la siguiente en cada
+    versión nueva (cambios o nuevo «generar»), así que la portada no se repite entre
+    versiones. El banco (docs/img/fotos/banco.json) son fotos libres de Wikimedia Commons
+    revisadas a mano; las reservadas quedan en docs/boletin/fotos_usadas.json y no vuelven
+    a salir. Si se reejecuta la misma semana se conservan sus fotos. Si el banco se agota,
+    se reutilizan las que lleven más tiempo sin salir y se avisa para ampliarlo.
     """
     banco = json.loads((RAIZ / "docs" / "img" / "fotos" / "banco.json").read_text(encoding="utf-8"))
     ruta = SALIDA / "fotos_usadas.json"
     usadas = json.loads(ruta.read_text(encoding="utf-8")) if ruta.exists() else []
-    ya = next((u["file"] for u in usadas if u["edicion"] == edicion), None)
-    vistas = {u["file"] for u in usadas}
-    if ya:
-        f = next((x for x in banco if x["file"] == ya), None)
-    else:
-        f = next((x for x in banco if x["file"] not in vistas), None)
-        if f is None:
+    # Formato antiguo: {"edicion", "file"}; nuevo: {"edicion", "files": [...]}
+    for u in usadas:
+        u.setdefault("files", [u.pop("file")] if "file" in u else [])
+    propia = next((u for u in usadas if u["edicion"] == edicion), None)
+    orden = [f for u in usadas for f in u["files"]]
+    if propia is None:
+        propia = {"edicion": edicion, "files": []}
+        usadas.append(propia)
+    elegidas = list(propia["files"])
+    while len(elegidas) < FOTOS_POR_EDICION:
+        libres = [x for x in banco if x["file"] not in orden]
+        if libres:
+            f = libres[0]
+        else:
             print("AVISO: banco de fotos agotado; se reutiliza la más antigua. Conviene ampliarlo.", file=sys.stderr)
-            orden = [u["file"] for u in usadas]
-            f = min(banco, key=lambda x: max((i for i, n in enumerate(orden) if n == x["file"]), default=-1))
-        usadas.append({"edicion": edicion, "file": f["file"]})
-        ruta.write_text(json.dumps(usadas, ensure_ascii=False, indent=1), encoding="utf-8")
-    if f is None:                               # foto antigua fuera del banco: la primera del banco
-        f = banco[0]
-    restantes = len([x for x in banco if x["file"] not in {u["file"] for u in usadas}])
-    print(f"Foto {f['file']} · quedan {restantes} sin usar en el banco")
-    return {"url": f'{WEB}/img/fotos/{f["file"]}',
-            "credito": f'Foto: {f["autor"] or "Wikimedia Commons"} · {f["licencia"]} · Wikimedia Commons',
-            "enlace": f["url"]}
+            f = min((x for x in banco if x["file"] not in elegidas),
+                    key=lambda x: max((i for i, n in enumerate(orden) if n == x["file"]), default=-1))
+        elegidas.append(f["file"])
+        orden.append(f["file"])
+    propia["files"] = elegidas
+    ruta.write_text(json.dumps(usadas, ensure_ascii=False, indent=1), encoding="utf-8")
+    por_nombre = {x["file"]: x for x in banco}
+    fotos = [por_nombre.get(n, banco[0]) for n in elegidas]   # foto antigua fuera del banco: la primera
+    restantes = len([x for x in banco if x["file"] not in orden])
+    print(f"Fotos de portada {elegidas} · quedan {restantes} sin usar en el banco")
+    # El crédito va ya escapado: Make lo pega tal cual en el HTML
+    return [{"url": f'{WEB}/img/fotos/{f["file"]}',
+             "credito": html.escape(f'Foto: {f["autor"] or "Wikimedia Commons"} · {f["licencia"]} · Wikimedia Commons'),
+             "enlace": f["url"]} for f in fotos]
 
 
 # ---------------------------------------------------------------- plantilla
@@ -503,9 +518,6 @@ def render_plantilla(d):
     img = '<img src="{}" width="536" alt="{}" style="display:block;width:100%;height:auto;border:0;margin:6px 0 16px">'
     rep = {
         "[[EDICION]]": d["edicion_texto"],
-        "[[FOTO_URL]]": d["foto"]["url"],
-        "[[FOTO_ENLACE]]": d["foto"]["enlace"],
-        "[[FOTO_CREDITO]]": html.escape(d["foto"]["credito"]),
         "[[KPIS]]": tarjetas_tema(tema, d),
         "[[TEMA_ETIQUETA]]": d["tema"]["etiqueta"],
         "[[GRAFICAS]]": "".join(img.format(x["url"], html.escape(x["titulo"])) for x in d["graficas"]),
@@ -633,11 +645,11 @@ def main():
         fn(serie, titulo, nombre)
         graficas.append({"clave": clave, "url": f"{WEB}/boletin/{nombre}", "titulo": titulo})
 
-    foto = elegir_foto(edicion)
+    fotos_portada = elegir_fotos(edicion)
     candidatas = noticias()
     fotos_noticias(candidatas, edicion)
     for x in candidatas:
-        x["imagen"] = x["imagen"] or foto["url"]
+        x["imagen"] = x["imagen"] or "%%FOTO_URL%%"   # sin foto propia: la de portada (la pone Make)
 
     datos = {
         "generado": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -653,7 +665,7 @@ def main():
         "economia_marbella": economia,
         "noticias_candidatas": candidatas,
         "graficas": graficas,
-        "foto": foto,
+        "fotos_portada": fotos_portada,
         "enlaces": {
             "observatorio_turistico": "https://josehino.github.io/observatorio-turistico-marbella/",
             "observatorio_economico": "https://josehino.github.io/observatorio-economico-marbella/",

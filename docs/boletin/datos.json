@@ -422,7 +422,7 @@
    "medios": 1,
    "otros_titulares": [],
    "id": 17,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg"
+   "imagen": "%%FOTO_URL%%"
   },
   {
    "titular": "El resort The St. Regis Marbella, primer St. Regis de la Costa del Sol, abrirá en 2031 frente a las dunas",
@@ -460,7 +460,7 @@
     "La Costa del Sol presenta su oferta de turismo idiomático a agentes especializados del sector"
    ],
    "id": 20,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg"
+   "imagen": "%%FOTO_URL%%"
   },
   {
    "titular": "La Costa del Sol, del éxito turístico al reto de la sostenibilidad",
@@ -545,11 +545,6 @@
    "titulo": "Tarifa media diaria de los hoteles (€)"
   }
  ],
- "foto": {
-  "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg",
-  "credito": "Foto: Martin Morris · CC BY-SA 2.0 · Wikimedia Commons",
-  "enlace": "https://commons.wikimedia.org/wiki/File:Plaza_de_los_Naranjos3.jpg"
- },
  "enlaces": {
   "observatorio_turistico": "https://josehino.github.io/observatorio-turistico-marbella/",
   "observatorio_economico": "https://josehino.github.io/observatorio-economico-marbella/",
@@ -760,5 +755,27 @@
     }
    ]
   }
- }
+ },
+ "fotos_portada": [
+  {
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg",
+   "credito": "Foto: Martin Morris · CC BY-SA 2.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Plaza_de_los_Naranjos3.jpg"
+  },
+  {
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b024.jpg",
+   "credito": "Foto: Martin Morris · CC BY-SA 2.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Plaza_de_los_Naranjos1.jpg"
+  },
+  {
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b048.jpg",
+   "credito": "Foto: Harvey Barrison from Massapequa, NY, USA · CC BY-SA 2.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Marbella_2015_10_20_1734_(24646823391).jpg"
+  },
+  {
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b025.jpg",
+   "credito": "Foto: Martin Morris · CC BY-SA 2.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Plaza_de_los_Naranjos2.jpg"
+  }
+ ]
 }

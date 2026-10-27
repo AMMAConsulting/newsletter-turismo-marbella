@@ -62,6 +62,12 @@ for n in range(1, 6):
     CAMPOS[f"N{n}_ENLACE"] = f'first(map(9.noticias_candidatas; "enlace"; "id"; get(7.noticias; "{n}.id")))'
     CAMPOS[f"N{n}_IMAGEN"] = f'first(map(9.noticias_candidatas; "imagen"; "id"; get(7.noticias; "{n}.id")))'
 
+# Portada: una foto distinta en cada versión del borrador (15.version), rotando por las
+# fotos_portada que deja build.py. Van al final: las noticias sin foto llevan %%FOTO_URL%%.
+FOTO = "get(9.fotos_portada; ((15.version - 1) mod length(9.fotos_portada)) + 1)"
+for marca, campo in (("FOTO_URL", "url"), ("FOTO_ENLACE", "enlace"), ("FOTO_CREDITO", "credito")):
+    CAMPOS[marca] = f'get({FOTO}; "{campo}")'
+
 expr = "toString(5.data)"
 for marca, valor in CAMPOS.items():
     expr = f'replace({expr}; "%%{marca}%%"; {valor})'
@@ -110,6 +116,9 @@ redactar = [
                 ]}},
     {"id": 7, "module": "json:ParseJSON", "version": 1, "parameters": {}, "mapper": {"json": "{{6.result}}"}},
     {"id": 9, "module": "json:ParseJSON", "version": 1, "parameters": {}, "mapper": {"json": "{{toString(4.data)}}"}},
+    # Versión del borrador dentro de la semana: 1 en el primero, +1 en cada cambio o regeneración
+    {"id": 15, "module": "util:SetVariable2", "version": 1, "parameters": {},
+     "mapper": {"name": "version", "value": "{{if(3.edicion = 1.edicion; ifempty(3.version; 1) + 1; 1)}}"}},
     {"id": 8, "module": "util:SetVariable2", "version": 1, "parameters": {},
      "mapper": {"name": "html", "value": HTML}},
     {"id": 10, "module": "datastore:AddRecord", "version": 1,
@@ -117,7 +126,7 @@ redactar = [
      "mapper": {"key": "borrador", "overwrite": True, "data": {
          "tipo": "borrador", "estado": "borrador", "edicion": "{{1.edicion}}",
          "asunto": "{{7.asunto}}", "contenido": "{{toBinary(6.result)}}", "html": "{{toBinary(8.html)}}", "fecha": "{{now}}",
-         "envio": "{{ifempty(1.envio; 3.envio)}}"}}},
+         "version": "{{15.version}}", "envio": "{{ifempty(1.envio; 3.envio)}}"}}},
     {"id": 11, "module": "email:ActionSendEmail", "version": 7,
      "parameters": {"account": SMTP, "saveAfterSent": False},
      "mapper": {"to": [REVISOR], "from": REMITENTE,
