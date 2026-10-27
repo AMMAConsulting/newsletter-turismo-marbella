@@ -1,5 +1,5 @@
 {
- "generado": "2026-10-26T07:41:29Z",
+ "generado": "2026-10-27T15:33:11Z",
  "edicion": "2026-S44",
  "edicion_texto": "Semana del 26 de octubre de 2026",
  "envio": "2026-10-27T13:30:00+01:00",
@@ -240,131 +240,188 @@
  },
  "noticias_candidatas": [
   {
-   "titular": "La nueva horneada de grandes hoteles en Marbella",
+   "titular": "Turismo Costa del Sol refuerza su presencia en el turismo de negocios en la feria IMEX America",
+   "fuente": "Europa Press",
+   "fecha": "2026-10-27",
+   "enlace": "https://www.europapress.es/andalucia/malaga-00356/noticia-turismo-costa-sol-refuerza-presencia-turismo-negocios-feria-imex-america-20261027153254.html",
+   "medios": 5,
+   "otros_titulares": [
+    "La Costa del Sol refuerza su posicionamiento en el turismo de lujo con su presencia en el congreso DUCO en Marbella",
+    "Marbella conquista a los grandes prescriptores del turismo de lujo internacional en Duco Spain & Portugal",
+    "Marbella refuerza su posicionamiento internacional como destino de excelencia..."
+   ],
+   "id": 1,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-01.jpg"
+  },
+  {
+   "titular": "Marbella rinde un emotivo homenaje a Salvador Gil, Moñi, dando su nombre a una...",
+   "fuente": "www.marbella.es",
+   "fecha": "2026-10-26",
+   "enlace": "https://www.marbella.es/actualidad/noticias/marbella-rinde-un-emotivo-homenaje-a-salvador-gil-moni-dando-su-nombre-a-una-plaza-para-reconocer-su-legado-deportivo-y-personal.html",
+   "medios": 2,
+   "otros_titulares": [
+    "Marbella rinde homenaje a las leyendas que forjaron su mito y busca su segunda edad de oro"
+   ],
+   "id": 2,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-02.jpg"
+  },
+  {
+   "titular": "La nueva hornada de grandes hoteles en Marbella",
    "fuente": "Málaga Hoy",
    "fecha": "2026-10-26",
    "enlace": "https://www.malagahoy.es/marbella/nueva-horneada-grandes-hoteles-marbella_0_2008326139.html",
-   "id": 1,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-01.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 3,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-03.jpg"
+  },
+  {
+   "titular": "Marbella permitirá a los hoteles aumentar altura y edificabilidad para impulsar su modernización",
+   "fuente": "Diario Sur",
+   "fecha": "2026-10-26",
+   "enlace": "https://www.diariosur.es/marbella/marbella-permitira-hoteles-aumentar-altura-edificabilidad-impulsar-20261026224347-nt.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 4,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-04.jpg"
+  },
+  {
+   "titular": "Málaga acudirá a la World Travel Market en busca de un turista de mayor poder adquisitivo",
+   "fuente": "Málaga Hoy",
+   "fecha": "2026-10-26",
+   "enlace": "https://www.malagahoy.es/malaga/malaga-acudira-world-travel-market_0_2008350467.amp.html",
+   "medios": 2,
+   "otros_titulares": [
+    "¿Qué busca en la Costa del Sol el turista atraído por la oferta de salud y bienestar?"
+   ],
+   "id": 5,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-05.jpg"
+  },
+  {
+   "titular": "Málaga reunirá al sector portuario y turístico andaluz el 3-N para impulsar la innovación en el turismo marítimo",
+   "fuente": "Al Sol de la Costa",
+   "fecha": "2026-10-26",
+   "enlace": "https://alsoldelacosta.com/malaga-reunira-al-sector-portuario-y-turistico-andaluz-el-3-n-para-impulsar-la-innovacion-en-el-turismo-maritimo/",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 6,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-06.jpg"
   },
   {
    "titular": "Más de 220 marcas del turismo de alta gama se reúnen en Marbella",
    "fuente": "La Opinión de Málaga",
    "fecha": "2026-10-25",
    "enlace": "https://www.laopiniondemalaga.es/marbella/2026/10/25/220-marcas-turismo-alta-gama-135721168.html",
-   "id": 2,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-02.jpg"
+   "medios": 2,
+   "otros_titulares": [
+    "Marbella reúne a más de 170 agentes internacionales en una cumbre de turismo de alta gama"
+   ],
+   "id": 7,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-07.jpg"
   },
   {
    "titular": "Marbella (Málaga) atrae a más de 170 agentes de viajes internacionales en un encuentro de turismo de lujo",
-   "fuente": "Europa Press",
+   "fuente": "tuperiodico.soy",
    "fecha": "2026-10-25",
-   "enlace": "https://www.europapress.es/andalucia/malaga-00356/noticia-marbella-malaga-atrae-mas-170-agentes-viajes-internacionales-encuentro-turismo-lujo-20261025145956.html",
-   "id": 3,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-03.jpg"
-  },
-  {
-   "titular": "Marbella conquista a los grandes prescriptores del turismo de lujo internacional en el DUCO 2026",
-   "fuente": "Al Sol de la Costa",
-   "fecha": "2026-10-25",
-   "enlace": "https://alsoldelacosta.com/marbella-conquista-a-los-grandes-prescriptores-del-turismo-de-lujo-internacional-en-el-duco-2026/",
-   "id": 4,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-04.jpg"
-  },
-  {
-   "titular": "Marbella rinde homenaje a las leyendas que forjaron su mito y busca su segunda edad de oro",
-   "fuente": "El Debate",
-   "fecha": "2026-10-25",
-   "enlace": "https://www.eldebate.com/estilo-vida/viajar/20261025/marbella-rinde-homenaje-leyendas-forjaron-mito-busca-segunda-edad-oro_472775.html",
-   "id": 5,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-05.jpg"
-  },
-  {
-   "titular": "Expertos advierten: la Costa del Sol se juega su futuro turístico en la vivienda, la movilidad y el talento",
-   "fuente": "Andalucía Información",
-   "fecha": "2026-10-25",
-   "enlace": "https://www.andaluciainformacion.es/articulo/malaga-economia/expertos-advierten-costa-sol-juega-futuro-turistico-vivienda-movilidad-talento/202610251850083517459.html",
-   "id": 6,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-06.jpg"
-  },
-  {
-   "titular": "Punto de mérito del Marbella Paraíso en el campo del Almería B (2-2)",
-   "fuente": "Marbella24horas",
-   "fecha": "2026-10-25",
-   "enlace": "https://www.marbella24horas.es/futbol/punto-de-merito-del-marbella-paraiso-en-el-campo-del-almeria-b-2-2-43746",
-   "id": 7,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-07.jpg"
+   "enlace": "https://tuperiodico.soy/actualidad/marbella-malaga-atrae-a-mas-de-170-agentes-de-viajes-internacionales-en-un-encue",
+   "medios": 2,
+   "otros_titulares": [
+    "Marbella reúne a más de 170 agentes de viajes en una cita de turismo de lujo con presencia estadounidense"
+   ],
+   "id": 8,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-08.jpg"
   },
   {
    "titular": "IU pide proteger el casco antiguo de Marbella tras un cambio en las normas urbanísticas",
    "fuente": "La Opinión de Málaga",
    "fecha": "2026-10-24",
-   "enlace": "https://www.laopiniondemalaga.es/marbella/2026/10/24/iu-pide-proteger-casco-antiguo-135686970.amp.html",
-   "id": 8,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-08.jpg"
+   "enlace": "https://www.laopiniondemalaga.es/marbella/2026/10/24/iu-pide-proteger-casco-antiguo-135686970.html",
+   "medios": 2,
+   "otros_titulares": [
+    "Modifican 15 normas urbanísticas para tratar de impulsar la economía",
+    "El Ayuntamiento aprueba la modificación de 15 normas urbanísticas para impulsar..."
+   ],
+   "id": 9,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-09.jpg"
   },
   {
    "titular": "Turismo de Gibraltar, finalista en los TTG Awards por su apuesta por el turismo responsable",
    "fuente": "Al Sol de la Costa",
    "fecha": "2026-10-24",
    "enlace": "https://alsoldelacosta.com/turismo-de-gibraltar-finalista-en-los-ttg-awards-por-su-apuesta-por-el-turismo-responsable/",
-   "id": 9,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-09.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 10,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-10.jpg"
   },
   {
    "titular": "Turismo reúne a las principales empresas del sector para impulsar la implantación del sello SICTED en San Roque",
    "fuente": "Al Sol de la Costa",
    "fecha": "2026-10-24",
    "enlace": "https://alsoldelacosta.com/turismo-reune-a-las-principales-empresas-del-sector-para-impulsar-la-implantacion-del-sello-sicted-en-san-roque/",
-   "id": 10,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-10.jpg"
-  },
-  {
-   "titular": "Turismo Costa del Sol se promociona como destino en el segmento MICE en Canadá",
-   "fuente": "Malaga Actualidad",
-   "fecha": "2026-10-23",
-   "enlace": "https://www.malagactualidad.es/teletipos/76096-turismo-costa-del-sol-se-promociona-como-destino-en-el-segmento-mice-en-canada",
+   "medios": 1,
+   "otros_titulares": [],
    "id": 11,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-11.jpg"
   },
   {
    "titular": "El ‘palo’ de los falsos turistas: así robaban relojes de 450.000 euros en Ibiza y Marbella",
    "fuente": "El Confidencial",
    "fecha": "2026-10-23",
    "enlace": "https://www.elconfidencial.com/espana/andalucia/2026-10-23/el-palo-de-los-falsos-turistas-asi-robaban-relojes-de-450-000-euros-en-marbella-e-ibiza_4450793/",
+   "medios": 1,
+   "otros_titulares": [],
    "id": 12,
    "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-12.jpg"
-  },
-  {
-   "titular": "Baleares, a la cabeza en turistas extranjeros en septiembre con 1,7 millones",
-   "fuente": "Ultima Hora",
-   "fecha": "2026-10-23",
-   "enlace": "https://www.ultimahora.es/noticias/local/2026/10/23/2734743/baleares-cabeza-turistas-extranjeros-septiembre-millones.html",
-   "id": 13,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-13.jpg"
   },
   {
    "titular": "El turismo genera más de 59.000 empleos en hoteles andaluces este verano, un 10% más que el año anterior",
    "fuente": "Al Sol de la Costa",
    "fecha": "2026-10-23",
    "enlace": "https://alsoldelacosta.com/el-turismo-genera-mas-de-59-000-empleos-en-hoteles-andaluces-este-verano-un-10-mas-que-el-ano-anterior/",
-   "id": 14,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-14.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 13,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-13.jpg"
   },
   {
    "titular": "Marbella acogerá este sábado el I Trofeo Nacional Rafael Vera, que reunirá a...",
    "fuente": "www.marbella.es",
    "fecha": "2026-10-22",
    "enlace": "https://www.marbella.es/actualidad/noticias/marbella-acogera-este-sabado-el-i-trofeo-nacional-rafael-vera-que-reunira-a-alrededor-de-60-culturistas-de-toda-espana.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 14,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-14.jpg"
+  },
+  {
+   "titular": "El Ayuntamiento limpia más de 19.000 imbornales en lo que va de año para...",
+   "fuente": "www.marbella.es",
+   "fecha": "2026-10-22",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-limpia-mas-de-19-000-imbornales-en-lo-que-va-de-ano-para-garantizar-el-buen-funcionamiento-de-la-red-de-drenaje.html",
+   "medios": 1,
+   "otros_titulares": [],
    "id": 15,
    "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-15.jpg"
+  },
+  {
+   "titular": "El Ayuntamiento consensúa con los mayores de Nueva Andalucía los pormenores de...",
+   "fuente": "www.marbella.es",
+   "fecha": "2026-10-22",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-consensua-con-los-mayores-de-nueva-andalucia-los-pormenores-de-las-obras-de-remodelacion-integral-del-nuevo-centro-de-participacion-activa-de-nueva-andalucia-que-arrancaran-a-finales-de-ano.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 16,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-16.jpg"
   },
   {
    "titular": "Marbella proyecta un complejo de lujo con un hotel de 169 habitaciones y 151 residencias privadas",
    "fuente": "Brains Real Estate News",
    "fecha": "2026-10-22",
    "enlace": "https://brainsre.news/marbella-complejo-lujo-hotel-169-habitaciones/",
-   "id": 16,
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 17,
    "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg"
   },
   {
@@ -372,79 +429,37 @@
    "fuente": "La Revue des Hôtels",
    "fecha": "2026-10-22",
    "enlace": "https://larevuedeshotels.com/es/resort-st-regis-marbella-primer-st-regis-costa-sol-abrira-2031-frente",
-   "id": 17,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-17.jpg"
-  },
-  {
-   "titular": "La alcaldesa subraya la trayectoria de Frutas y Verduras Eladio como referente...",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-10-22",
-   "enlace": "https://www.marbella.es/actualidad/noticias/la-alcaldesa-subraya-la-trayectoria-de-frutas-y-verduras-eladio-como-referente-de-calidad-y-compromiso-con-marbella-en-la-conmemoracion-de-su-20-aniversario.html",
+   "medios": 8,
+   "otros_titulares": [
+    "La marca hotelera de lujo St. Regis desembarcará en Marbella con un proyecto de 500 M €",
+    "Marbella tendrá su primer St. Regis, el ultralujo de Marriott: un 'resort' de 500 millones frente al mar",
+    "Marbella (Málaga) sigue creciendo en lujo con la llegada de St. Regis Hotels & Resorts"
+   ],
    "id": 18,
    "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-18.jpg"
   },
   {
-   "titular": "Marbella refuerza su posicionamiento internacional como destino de excelencia...",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-10-21",
-   "enlace": "https://www.marbella.es/actualidad/noticias/marbella-refuerza-su-posicionamiento-internacional-como-destino-de-excelencia-con-la-celebracion-de-duco-spain-portugal-2026.html",
+   "titular": "Continúa su tramitación un nuevo proyecto de lujo en Marbella",
+   "fuente": "Alimarket.es",
+   "fecha": "2026-10-22",
+   "enlace": "https://www.alimarket.es/hoteles/noticia/432923/continua-su-tramitacion-un-nuevo-proyecto-de-lujo-en-marbella",
+   "medios": 1,
+   "otros_titulares": [],
    "id": 19,
    "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-19.jpg"
-  },
-  {
-   "titular": "El Ayuntamiento adapta 32 cruces semafóricos a las exigencias de la nueva...",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-10-21",
-   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-adapta-32-cruces-semaforicos-a-las-exigencias-de-la-nueva-normativa-del-gobierno-central-y-advierte-de-sus-posibles-efectos-sobre-la-movilidad.html",
-   "id": 20,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-20.jpg"
-  },
-  {
-   "titular": "Marbella acoge por segundo año el encuentro DUCO Spain & Portugal",
-   "fuente": "Marbella24horas",
-   "fecha": "2026-10-21",
-   "enlace": "https://www.marbella24horas.es/turismo/marbella-acoge-por-segundo-ano-el-encuentro-duco-spain-amp-portugal-43727",
-   "id": 21,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-21.jpg"
-  },
-  {
-   "titular": "La marca hotelera de lujo St. Regis desembarcará en Marbella con un proyecto de 500 M €",
-   "fuente": "Hosteltur",
-   "fecha": "2026-10-21",
-   "enlace": "https://www.hosteltur.com/179381_la-marca-hotelera-de-lujo-st-regis-desembarcara-en-marbella-con-un-proyecto-de-500-m-eur.html",
-   "id": 22,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-22.jpg"
-  },
-  {
-   "titular": "Marbella (Málaga) sigue creciendo en lujo con la llegada de St. Regis Hotels & Resorts",
-   "fuente": "Tourinews",
-   "fecha": "2026-10-21",
-   "enlace": "https://www.tourinews.es/resumen-de-prensa/notas-de-prensa-empresas-turismo/marbella-malaga-sigue-creciendo-en-lujo-con-llegada-st-regis-hotels-resorts_4495254_102.html",
-   "id": 23,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-23.jpg"
-  },
-  {
-   "titular": "Marbella tendrá su primer St. Regis, el ultralujo de Marriott: un 'resort' de 500 millones frente al mar",
-   "fuente": "lavozdelsur.es",
-   "fecha": "2026-10-21",
-   "enlace": "https://www.lavozdelsur.es/ediciones/malaga/marbella-tendra-su-primer-st-regis-el-ultralujo-de-marriott-un-resort-de-500-millones-frente-al-mar.html",
-   "id": 24,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-24.jpg"
-  },
-  {
-   "titular": "Nuevo hotel de súper lujo en la Costa del Sol: St. Regis desembarca con una inversión de 500 millones",
-   "fuente": "Cadena SER",
-   "fecha": "2026-10-21",
-   "enlace": "https://cadenaser.com/andalucia/2026/10/21/nuevo-hotel-de-super-lujo-en-la-costa-del-sol-st-regis-desembarca-con-una-inversion-de-500-millones-ser-malaga/",
-   "id": 25,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-25.jpg"
   },
   {
    "titular": "Turismo Costa del Sol acerca su oferta de turismo idiomático a agentes especializados en un doble fam trip tras la semana del español de FEDELE",
    "fuente": "Diputación de Málaga",
    "fecha": "2026-10-21",
    "enlace": "https://www.malaga.es/noticias/com1_md3_cd-54993/turismo-costa-del-sol-acerca-su-oferta-de-turismo-idiomatico-a-agentes-especializados-en-un-doble-fam-trip-tras-la-semana-del-espanol-de-fedele",
-   "id": 26,
+   "medios": 4,
+   "otros_titulares": [
+    "Turismo Costa del Sol acerca su oferta a las agencias de viajes mayoristas y minoristas de Galicia",
+    "Turismo Costa del Sol acerca su oferta a las agencias de viajes gallegas en unas nuevas jornadas profesionales",
+    "La Costa del Sol presenta su oferta de turismo idiomático a agentes especializados del sector"
+   ],
+   "id": 20,
    "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg"
   },
   {
@@ -452,112 +467,70 @@
    "fuente": "Inout Viajes",
    "fecha": "2026-10-21",
    "enlace": "https://www.inoutviajes.com/noticia/32867/turismo-nacional/la-costa-del-sol-del-exito-turistico-al-reto-de-la-sostenibilidad.html",
-   "id": 27,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-27.jpg"
-  },
-  {
-   "titular": "Turismo Costa del Sol acerca su oferta a las agencias de viajes gallegas en unas nuevas jornadas profesionales",
-   "fuente": "https://tuperiodico.soy/",
-   "fecha": "2026-10-21",
-   "enlace": "https://tuperiodico.soy/actualidad/andalucia/turismo-costa-del-sol-acerca-su-oferta-a-las-agencias-de-viajes-gallegas-en-unas",
-   "id": 28,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-28.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 21,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-21.jpg"
   },
   {
    "titular": "Los alojamientos de la Costa del Sol ganan 1,2 millones de pernoctaciones hasta agosto",
    "fuente": "Diario Sur",
    "fecha": "2026-10-21",
    "enlace": "https://www.diariosur.es/turismo/alojamientos-costa-sol-ganan-millones-pernoctaciones-agosto-20261015054500-nt.html",
-   "id": 29,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-29.jpg"
-  },
-  {
-   "titular": "Modifican 15 normas urbanísticas para tratar de impulsar la economía",
-   "fuente": "La Opinión de Málaga",
-   "fecha": "2026-10-21",
-   "enlace": "https://www.laopiniondemalaga.es/marbella/2026/10/21/modifican-15-normas-urbanisticas-tratar-135560486.html",
-   "id": 30,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-30.jpg"
-  },
-  {
-   "titular": "El Ayuntamiento aprueba la modificación de 15 normas urbanísticas para impulsar...",
-   "fuente": "www.marbella.es",
-   "fecha": "2026-10-20",
-   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-aprueba-la-modificacion-de-15-normas-urbanisticas-para-impulsar-la-actividad-economica-facilitar-nuevas-inversiones-generar-mas-empleo-y-revitalizar-los-cascos-historicos.html",
-   "id": 31,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-31.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 22,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-22.jpg"
   },
   {
    "titular": "Marbella recibe el premio internacional ‘Best Hub’ en Startup OLÉ Salamanca por...",
    "fuente": "www.marbella.es",
    "fecha": "2026-10-20",
    "enlace": "https://www.marbella.es/actualidad/noticias/marbella-recibe-el-premio-internacional-best-hub-en-startup-ole-salamanca-por-su-apuesta-por-la-innovacion-y-el-emprendimiento.html",
-   "id": 32,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-32.jpg"
-  },
-  {
-   "titular": "La marca hotelera St. Regis desembarca en Marbella con un proyecto de 500 millones de inversión",
-   "fuente": "Diario Sur",
-   "fecha": "2026-10-20",
-   "enlace": "https://www.diariosur.es/marbella/marca-hotelera-regis-desembarca-marbella-proyecto-500-20261020200917-nt.html",
-   "id": 33,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-33.jpg"
-  },
-  {
-   "titular": "Turismo Costa del Sol presenta su oferta de turismo idiomático a agentes especializados del sector",
-   "fuente": "Europa Press",
-   "fecha": "2026-10-20",
-   "enlace": "https://www.europapress.es/andalucia/malaga-00356/noticia-turismo-costa-sol-presenta-oferta-turismo-idiomatico-agentes-especializados-sector-20261020142652.html",
-   "id": 34,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-34.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 23,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-23.jpg"
   },
   {
    "titular": "Los perfiles de turismo 'wellness' que arrasan en la Costa del Sol: \"Un visitante que busca cuidarse, desconectar y dedicar tiempo a sí mismo\"",
    "fuente": "heraldo.es",
    "fecha": "2026-10-20",
    "enlace": "https://www.heraldo.es/noticias/viajes/2026/10/20/perfiles-turismo-wellness-costa-sol-visitante-busca-cuidarse-desconectar-tiempo-si-mismo-2061226.html",
-   "id": 35,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-35.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 24,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-24.jpg"
   },
   {
    "titular": "Turismo Costa del Sol implanta UDS Government",
    "fuente": "HayCanal",
    "fecha": "2026-10-20",
    "enlace": "https://haycanal.com/noticias/23605/turismo-costa-del-sol-implanta-uds-government",
-   "id": 36,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-36.jpg"
-  },
-  {
-   "titular": "Turismo hormonal: hoteles ofrecen paquetes con chequeos y tratamientos de testosterona",
-   "fuente": "La Vanguardia",
-   "fecha": "2026-10-19",
-   "enlace": "https://www.lavanguardia.com/vida/20261019/11661482/marbella-meca-tratamientos-hormonales.html",
-   "id": 37,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-37.jpg"
-  },
-  {
-   "titular": "Descubre La Fonda, el refugio histórico que devuelve el pulso al casco antiguo marbellí",
-   "fuente": "Guía Repsol",
-   "fecha": "2026-10-19",
-   "enlace": "https://www.guiarepsol.com/es/dormir/en-la-gloria/hotel-la-fonda-marbella/",
-   "id": 38,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b026.jpg"
-  },
-  {
-   "titular": "¿Qué busca en la Costa del Sol el turista atraído por la oferta de salud y bienestar?",
-   "fuente": "Diario Sur",
-   "fecha": "2026-10-19",
-   "enlace": "https://www.diariosur.es/turismo/busca-costa-sol-turista-atraido-oferta-salud-20261019183410-nt.html",
-   "id": 39,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-39.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 25,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-25.jpg"
   },
   {
    "titular": "Mijas coordina con Turismo y Planificación Costa del Sol nuevas acciones para atraer turismo de golf en 2027",
    "fuente": "Al Sol de la Costa",
    "fecha": "2026-10-19",
    "enlace": "https://alsoldelacosta.com/mijas-coordina-con-turismo-y-planificacion-costa-del-sol-nuevas-acciones-para-atraer-turismo-de-golf-en-2027/",
-   "id": 40,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-40.jpg"
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 26,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-26.jpg"
+  },
+  {
+   "titular": "Así es el viajero 'wellness' que elige la Costa del Sol: mujeres de más de 60 años, para larga estancia y que buscan desconexión y relax",
+   "fuente": "20Minutos",
+   "fecha": "2026-10-19",
+   "enlace": "https://www.20minutos.es/andalucia/malaga/asi-es-viajero-wellness-que-elige-costa-sol-mujeres-mas-60-anos-para-larga-estancia-que-buscan-desconexion-relax_7050772_0.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 27,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S44-27.jpg"
   }
  ],
  "graficas": [
