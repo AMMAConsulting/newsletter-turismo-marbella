@@ -64,9 +64,11 @@ for n in range(1, 6):
 
 # Portada: una foto distinta en cada versión del borrador (15.version), rotando por las
 # fotos_portada que deja build.py. Van al final: las noticias sin foto llevan %%FOTO_URL%%.
-FOTO = "get(9.fotos_portada; ((15.version - 1) mod length(9.fotos_portada)) + 1)"
+# (mismo patrón map() que las noticias; el índice da la vuelta al llegar al final, sin «mod»)
+NF = "length(9.fotos_portada)"
+IDX = f"15.version - floor((15.version - 1) / {NF}) * {NF}"
 for marca, campo in (("FOTO_URL", "url"), ("FOTO_ENLACE", "enlace"), ("FOTO_CREDITO", "credito")):
-    CAMPOS[marca] = f'get({FOTO}; "{campo}")'
+    CAMPOS[marca] = f'get(map(9.fotos_portada; "{campo}"); {IDX})'
 
 expr = "toString(5.data)"
 for marca, valor in CAMPOS.items():
