@@ -51,7 +51,11 @@ CAMPOS = {
     "ENTRADILLA_CORTA": "7.entradilla_corta", "TITULO_TEMA": "7.titulo_tema",
     "TEXTO_TEMA": "7.texto_tema", "TEXTO_RESUMEN": "7.texto_resumen",
 }
-for n in (1, 2, 3):
+# De 1 a 5 noticias: los huecos que la IA no rellena quedan dentro de un comentario HTML
+for n in range(1, 6):
+    if n > 1:
+        CAMPOS[f"N{n}_INI"] = f'if(length(7.noticias) >= {n}; ""; "<!--")'
+        CAMPOS[f"N{n}_FIN"] = f'if(length(7.noticias) >= {n}; ""; "-->")'
     CAMPOS[f"N{n}_TITULAR"] = f'get(7.noticias; "{n}.titular")'
     CAMPOS[f"N{n}_RESUMEN"] = f'get(7.noticias; "{n}.resumen")'
     CAMPOS[f"N{n}_FUENTE"] = f'get(7.noticias; "{n}.fuente")'
@@ -80,6 +84,10 @@ redactar = [
      "filter": {"name": "Generar o cambios (con clave)", "conditions": [
          [clave_ok(), {"a": "{{1.accion}}", "o": "text:equal", "b": "generar"}],
          [clave_ok(), {"a": "{{1.accion}}", "o": "text:equal", "b": "cambios"}]]}},
+    # Historial de las noticias ya enviadas (registro "publicadas"; existe siempre)
+    {"id": 14, "module": "datastore:GetRecord", "version": 1,
+     "parameters": {"datastore": STORE},
+     "mapper": {"key": "publicadas", "returnWrapped": False}},
     # Se responde ya: GPT tarda y el revisor no tiene que esperar
     {"id": 13, "module": "gateway:WebhookRespond", "version": 1, "mapper": {
         "status": "{{if(1.accion = \"cambios\"; 302; 200)}}", "body": "ok",
@@ -97,7 +105,8 @@ redactar = [
                         "{{if(1.accion = \"cambios\"; \"MODO REVISIÓN. " + REVISION.replace('"', "'") +
                         "\"; \"MODO NUEVA EDICIÓN: redacta desde cero con los datos de esta semana. El borrador anterior que aparece abajo es el de la semana pasada: no repitas su titular, su asunto ni su enfoque.\")}}"
                         "\n\nBORRADOR ANTERIOR (JSON):\n{{toString(3.contenido)}}"
-                        "\n\nCAMBIOS QUE PIDE EL REVISOR:\n{{1.texto}}"},
+                        "\n\nCAMBIOS QUE PIDE EL REVISOR:\n{{1.texto}}"
+                        "\n\nNOTICIAS YA PUBLICADAS EN EDICIONES ANTERIORES (no repitas ninguno de estos hechos):\n{{toString(14.contenido)}}"},
                 ]}},
     {"id": 7, "module": "json:ParseJSON", "version": 1, "parameters": {}, "mapper": {"json": "{{6.result}}"}},
     {"id": 9, "module": "json:ParseJSON", "version": 1, "parameters": {}, "mapper": {"json": "{{toString(4.data)}}"}},
@@ -142,6 +151,19 @@ enviar = [
      "mapper": {"key": "borrador", "data": {"estado": "enviado", "fecha": "{{now}}"},
                 "upsert": False, "overwriteArrays": False}},
     responder(23, "aprobado"),
+    # Las noticias enviadas se añaden al historial (una vez por edición, antes de recorrer los suscriptores)
+    {"id": 29, "module": "json:ParseJSON", "version": 1, "parameters": {}, "mapper": {"json": "{{toString(20.contenido)}}"}},
+    {"id": 30, "module": "datastore:GetRecord", "version": 1,
+     "parameters": {"datastore": STORE},
+     "mapper": {"key": "publicadas", "returnWrapped": False}},
+    {"id": 31, "module": "util:SetVariable2", "version": 1, "parameters": {},
+     "mapper": {"name": "historial", "value":
+                '{{toString(30.contenido)}}\n{{20.edicion}}: {{join(map(29.noticias; "titular"); " | ")}} '
+                '(hechos: {{join(map(29.noticias; "hecho"); " | ")}})'}},
+    {"id": 32, "module": "datastore:AddRecord", "version": 1,
+     "parameters": {"datastore": STORE},
+     "mapper": {"key": "publicadas", "overwrite": True, "data": {
+         "tipo": "historial", "fecha": "{{now}}", "contenido": "{{toBinary(31.historial)}}"}}},
     {"id": 24, "module": "datastore:SearchRecord", "version": 1,
      "parameters": {"datastore": STORE, "continueWhenNoRes": False, "limit": 900},
      "mapper": {"filter": [[

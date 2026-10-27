@@ -24,6 +24,7 @@ import os
 import re
 import sys
 import time
+import unicodedata
 import urllib.parse
 import urllib.request
 from pathlib import Path
@@ -258,9 +259,52 @@ def noticias(dias=8, por_consulta=12, maximo=40):
             n += 1
             out.append({"titular": titular, "fuente": fuente, "fecha": fecha.strftime("%Y-%m-%d"), "enlace": link})
     out.sort(key=lambda x: x["fecha"], reverse=True)
-    out = out[:maximo]
+    out = agrupar(out)[:maximo]
     for i, x in enumerate(out, 1):
         x["id"] = i
+    return out
+
+
+# Varios medios cuentan el mismo hecho con titulares distintos: se agrupan por palabras
+# significativas compartidas y se deja una sola noticia por hecho, con el número de medios
+# que lo cubren (sirve a la IA como pista de importancia).
+COMUNES = set("""marbella marbelli turismo turistico turistica turisticos turisticas turistas costa malaga
+andalucia andaluces espana sector destino nuevo nueva nuevos nuevas sobre entre desde hasta para tras
+como este esta estos estas millones euros anos semana gran grandes primer primera lujo hotel hoteles
+hotelera hotelero hoteleros alojamientos internacional internacionales ciudad ayuntamiento alcaldesa
+junta diputacion gobierno""".split())
+
+
+def _palabras(t):
+    """(palabras significativas, nombres propios): un nombre propio compartido (St. Regis,
+    DUCO, Marriott...) basta para tratarlas como el mismo hecho; si no, hacen falta dos palabras."""
+    t = unicodedata.normalize("NFKD", t).encode("ascii", "ignore").decode()
+    ws = re.findall(r"[A-Za-z0-9]{4,}", t)
+    todas = {w.lower() for w in ws} - COMUNES
+    propios = {w.lower() for w in ws[1:] if w[0].isupper()} - COMUNES
+    return todas, propios
+
+
+def _mismo_hecho(p, q):
+    return len(p[0] & q[0]) >= 2 or bool(p[1] & q[1])
+
+
+def agrupar(lista):
+    grupos = []
+    for x in lista:
+        p = _palabras(x["titular"])
+        g = next((g for g in grupos if any(_mismo_hecho(p, q) for q in g["palabras"])), None)
+        if g:
+            g["items"].append(x)
+            g["palabras"].append(p)
+        else:
+            grupos.append({"palabras": [p], "items": [x]})
+    out = []
+    for g in grupos:
+        x = dict(g["items"][0])   # la más reciente
+        x["medios"] = len({y["fuente"] for y in g["items"]})
+        x["otros_titulares"] = [y["titular"] for y in g["items"][1:4]]
+        out.append(x)
     return out
 
 

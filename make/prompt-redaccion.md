@@ -10,8 +10,8 @@ Recibirás un JSON con los últimos datos oficiales disponibles (turismo, mercad
 4. Usa SOLO cifras que aparezcan en el JSON. No inventes datos, causas ni fechas. Cada cifra con su mes de referencia: las fuentes publican con retraso y no todas van al mismo mes.
 5. Las tasas (ocupación, cuota de extranjeros) se comparan en puntos porcentuales usando `variacion_puntos` ("+2,9 puntos"), nunca como % de variación.
 6. Formato numérico español: 346.351 · 72,2 % · 378 € · +2,3 %. Usa &nbsp; entre la cifra y % o €.
-7. Elige las 3 noticias más relevantes de la semana para el turismo y la economía de Marbella y la Costa del Sol (inversiones, aperturas, conectividad, promoción, decisiones públicas). Descarta sucesos, necrológicas, deportes y noticias de otros destinos. Evita dos noticias sobre el mismo hecho.
-8. No repitas el titular, el asunto ni el enfoque del borrador de la semana anterior si se te muestra.
+7. NOTICIAS: elige entre 3 y 5, según cuántas haya de verdad importantes para el turismo y la economía de Marbella y la Costa del Sol (inversiones, aperturas, conectividad, promoción, decisiones públicas, datos del sector). Pon 4 o 5 solo si todas tienen peso; si no, quédate en 3. Ordénalas de más a menos importante. Pista de importancia: `medios` dice cuántos medios distintos cuentan ese hecho. No te limites a coger las primeras de la lista: léelas todas. Descarta sucesos, necrológicas, deportes y noticias de otros destinos.
+8. NUNCA REPETIR NOTICIAS. Cada noticia elegida tiene que ser un hecho distinto: si dos candidatas hablan del mismo evento, inversión, proyecto o anuncio aunque los titulares y los medios sean distintos (por ejemplo, un congreso contado como «reúne a 220 marcas» y como «atrae a 170 agentes»), es UNA sola noticia. Y no elijas ninguna cuyo hecho ya aparezca en NOTICIAS YA PUBLICADAS, aunque tenga un enfoque o un dato nuevo. Tampoco repitas el titular, el asunto ni el enfoque del borrador de la semana anterior. Si para no repetir solo quedan menos de 3 noticias relevantes, pon menos.
 9. Los textos largos van en HTML sencillo: solo <p> y <strong>. Nada de títulos, listas, emojis ni enlaces.
 
 Devuelve EXCLUSIVAMENTE un JSON con esta forma:
@@ -25,14 +25,14 @@ Devuelve EXCLUSIVAMENTE un JSON con esta forma:
   "texto_tema": "<p>2-3 párrafos sobre el tema de la semana.</p>",
   "texto_resumen": "<p>3-4 frases con el resto de indicadores.</p>",
   "noticias": [
-    {"id": 0, "titular": "Titular reescrito, claro y breve", "resumen": "Una o dos frases de contexto, sin inventar nada que no diga el titular.", "fuente": "Medio"},
-    {"id": 0, "titular": "...", "resumen": "...", "fuente": "..."},
-    {"id": 0, "titular": "...", "resumen": "...", "fuente": "..."}
+    {"id": 0, "hecho": "El hecho en pocas palabras, con sus nombres propios (p. ej. «Hotel X: apertura de 200 habitaciones en Puerto Banús»)", "titular": "Titular reescrito, claro y breve", "resumen": "Una o dos frases de contexto, sin inventar nada que no diga el titular.", "fuente": "Medio"},
+    {"id": 0, "hecho": "...", "titular": "...", "resumen": "...", "fuente": "..."},
+    {"id": 0, "hecho": "...", "titular": "...", "resumen": "...", "fuente": "..."}
   ]
 }
 
-`id` es el campo `id` de la noticia elegida en `noticias_candidatas`.
+`noticias` lleva de 3 a 5 elementos (o menos si no hay más sin repetir). `id` es el campo `id` de la noticia elegida en `noticias_candidatas`.
 
 # Prompt para la revisión (cuando el revisor pide cambios)
 
-Recibirás el JSON del borrador anterior, los datos originales y los cambios que pide el revisor. Aplica TODOS los cambios pedidos y deja igual todo lo demás. Mismas reglas y mismo formato JSON de salida.
+Recibirás el JSON del borrador anterior, los datos originales y los cambios que pide el revisor. Aplica TODOS los cambios pedidos y deja igual todo lo demás (si piden quitar o añadir noticias, el número final puede ir de 1 a 5). Mismas reglas y mismo formato JSON de salida.
