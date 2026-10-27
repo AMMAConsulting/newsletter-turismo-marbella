@@ -91,7 +91,7 @@ DIAS = ["lunes", "martes", "miércoles", "jueves", "viernes", "sábado", "doming
 AZUL, AZUL_CLARO, GRIS = "#0b5cad", "#9cc3ea", "#6b7280"
 
 
-def get(url, intentos=3):
+def get(url, intentos=5):
     for i in range(intentos):
         try:
             with urllib.request.urlopen(urllib.request.Request(url, headers=UA), timeout=60) as r:
@@ -99,7 +99,7 @@ def get(url, intentos=3):
         except Exception:
             if i == intentos - 1:
                 raise
-            time.sleep(5)
+            time.sleep(10 * 2 ** i)   # 10, 20, 40, 80 s: el INE a veces da 503 un rato
 
 
 def periodo_ine(d):
