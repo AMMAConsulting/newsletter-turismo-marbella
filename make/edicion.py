@@ -56,6 +56,7 @@ for n in (1, 2, 3):
     CAMPOS[f"N{n}_RESUMEN"] = f'get(7.noticias; "{n}.resumen")'
     CAMPOS[f"N{n}_FUENTE"] = f'get(7.noticias; "{n}.fuente")'
     CAMPOS[f"N{n}_ENLACE"] = f'first(map(9.noticias_candidatas; "enlace"; "id"; get(7.noticias; "{n}.id")))'
+    CAMPOS[f"N{n}_IMAGEN"] = f'first(map(9.noticias_candidatas; "imagen"; "id"; get(7.noticias; "{n}.id")))'
 
 expr = "toString(5.data)"
 for marca, valor in CAMPOS.items():

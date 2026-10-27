@@ -264,6 +264,85 @@ def noticias(dias=8, por_consulta=12, maximo=40):
     return out
 
 
+# Las noticias de Google News llegan con un enlace intermedio (news.google.com/rss/articles/...).
+# Se traduce al del periódico con el mismo método que usa la web de Google News, y de ahí
+# se saca la foto de portada (og:image). Si algo falla, la noticia se queda con el enlace
+# de Google y sin foto propia (luego se le pone la foto de la semana).
+NAVEGADOR = {"User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 "
+                           "(KHTML, like Gecko) Chrome/130.0 Safari/537.36"}
+
+
+def leer(url, datos=None, cabeceras=None, limite=1_500_000):
+    req = urllib.request.Request(url, data=datos, headers={**NAVEGADOR, **(cabeceras or {})})
+    with urllib.request.urlopen(req, timeout=20) as r:
+        return r.read(limite), r.headers.get_content_charset() or "utf-8"
+
+
+def enlace_real(enlace):
+    if "news.google.com" not in enlace:
+        return enlace
+    aid = urllib.parse.urlparse(enlace).path.rstrip("/").split("/")[-1]
+    pg = leer(f"https://news.google.com/rss/articles/{aid}")[0].decode("utf-8", "replace")
+    sg = re.search(r'data-n-a-sg="([^"]+)"', pg).group(1)
+    ts = re.search(r'data-n-a-ts="([^"]+)"', pg).group(1)
+    peticion = json.dumps(["garturlreq", [["X", "X", ["X", "X"], None, None, 1, 1, "US:en", None, 1, None, None,
+                                           None, None, None, 0, 1], "X", "X", 1, [1, 1, 1], 1, 1, None, 0, 0, None, 0],
+                           aid, int(ts), sg])
+    cuerpo = urllib.parse.urlencode({"f.req": json.dumps([[["Fbv4je", peticion]]])}).encode()
+    txt = leer("https://news.google.com/_/DotsSplashUi/data/batchexecute", cuerpo,
+               {"Content-Type": "application/x-www-form-urlencoded;charset=UTF-8"})[0].decode("utf-8", "replace")
+    return json.loads(json.loads(txt.split("\n\n")[1])[0][2])[1]
+
+
+def foto_portada(url):
+    datos, cs = leer(url)
+    pg = datos.decode(cs, "replace")
+    for patron in (r'<meta[^>]+(?:property|name)=["\'](?:og:image|twitter:image)(?::src)?["\'][^>]*content=["\']([^"\']+)',
+                   r'<meta[^>]+content=["\']([^"\']+)["\'][^>]*(?:property|name)=["\'](?:og:image|twitter:image)'):
+        m = re.search(patron, pg, re.I)
+        if m:
+            return urllib.parse.urljoin(url, html.unescape(m.group(1)))
+    return None
+
+
+def miniatura(url, destino, ancho=280, alto=187):
+    """Recorta la foto a 3:2 y la guarda pequeña (280 px = 140 px en pantallas retina)."""
+    from io import BytesIO
+    from PIL import Image
+    datos, _ = leer(url, limite=15_000_000)
+    im = Image.open(BytesIO(datos)).convert("RGB")
+    w, h = im.size
+    if w < 200 or h < 120:
+        raise ValueError(f"foto demasiado pequeña ({w}x{h})")
+    if w / h > ancho / alto:
+        nw = round(h * ancho / alto)
+        im = im.crop(((w - nw) // 2, 0, (w - nw) // 2 + nw, h))
+    else:
+        nh = round(w * alto / ancho)
+        im = im.crop((0, (h - nh) // 3, w, (h - nh) // 3 + nh))
+    im.resize((ancho, alto), Image.LANCZOS).save(destino, "JPEG", quality=82, optimize=True, progressive=True)
+
+
+def fotos_noticias(lista, edicion):
+    for p in SALIDA.glob(f"not-{edicion}-*.jpg"):   # al reejecutar la semana los id cambian
+        p.unlink()
+    con = 0
+    for x in lista:
+        x["imagen"] = ""
+        try:
+            x["enlace"] = enlace_real(x["enlace"])
+            img = foto_portada(x["enlace"])
+            if img:
+                nombre = f"not-{edicion}-{x['id']:02d}.jpg"
+                miniatura(img, SALIDA / nombre)
+                x["imagen"] = f"{WEB}/boletin/{nombre}"
+                con += 1
+        except Exception as e:
+            print("foto noticia:", x["id"], x["fuente"], repr(e)[:150], file=sys.stderr)
+        time.sleep(0.5)
+    print(f"Fotos de noticias: {con} de {len(lista)}")
+
+
 
 
 # ---------------------------------------------------------------- foto de la semana
@@ -520,6 +599,10 @@ def main():
         graficas.append({"clave": clave, "url": f"{WEB}/boletin/{nombre}", "titulo": titulo})
 
     foto = elegir_foto(edicion)
+    candidatas = noticias()
+    fotos_noticias(candidatas, edicion)
+    for x in candidatas:
+        x["imagen"] = x["imagen"] or foto["url"]
 
     datos = {
         "generado": dt.datetime.now(dt.timezone.utc).strftime("%Y-%m-%dT%H:%M:%SZ"),
@@ -533,7 +616,7 @@ def main():
         "acumulado_anual": acumulados,
         "mercados_internacionales": paises,
         "economia_marbella": economia,
-        "noticias_candidatas": noticias(),
+        "noticias_candidatas": candidatas,
         "graficas": graficas,
         "foto": foto,
         "enlaces": {
@@ -556,6 +639,12 @@ def main():
                   if (m := re.match(r"graf-(\d{4}-(?:S\d\d|\d\d))-", p.name))})
     for viejo in eds[:-6]:
         for p in SALIDA.glob(f"graf-{viejo}-*.png"):
+            p.unlink()
+    # Y lo mismo con las fotos de las noticias
+    eds = sorted({m.group(1) for p in SALIDA.glob("not-*.jpg")
+                  if (m := re.match(r"not-(\d{4}-S\d\d)-", p.name))})
+    for viejo in eds[:-6]:
+        for p in SALIDA.glob(f"not-{viejo}-*.jpg"):
             p.unlink()
     print(f"Edición {edicion} · tema {tema['id']} · {len(datos['noticias_candidatas'])} noticias · novedades: {datos['novedades']}")
 
