@@ -443,14 +443,6 @@ def tarjetas_tema(tema, d):
     return "".join(out)
 
 
-def caja_novedades(nov):
-    if not nov:
-        return ""
-    return ('<tr><td class="px" style="padding:4px 32px 6px"><div style="background:#ecfdf5;border-left:3px solid #047857;'
-            'border-radius:6px;padding:10px 14px;font-size:13px;line-height:20px;color:#065f46">'
-            f'<strong>Datos nuevos esta semana:</strong> {html.escape(" · ".join(nov))}</div></td></tr>')
-
-
 def tabla_paises(p):
     filas = "".join(
         f'<tr><td style="padding:7px 0;border-bottom:1px solid #eef0f3;font-size:14px">{i + 1}. {x["pais"]}</td>'
@@ -471,7 +463,6 @@ def render_plantilla(d):
         "[[FOTO_ENLACE]]": d["foto"]["enlace"],
         "[[FOTO_CREDITO]]": html.escape(d["foto"]["credito"]),
         "[[KPIS]]": tarjetas_tema(tema, d),
-        "[[NOVEDADES]]": caja_novedades(d["novedades"]),
         "[[TEMA_ETIQUETA]]": d["tema"]["etiqueta"],
         "[[GRAFICAS]]": "".join(img.format(x["url"], html.escape(x["titulo"])) for x in d["graficas"]),
         # La tabla solo si no hay gráfica de países (no repetir el ranking)
