@@ -41,7 +41,7 @@ plt.rcParams.update(plt_rc)
 RAIZ = Path(__file__).parent
 SALIDA = RAIZ / "docs" / "boletin"
 WEB = "https://ammaconsulting.github.io/newsletter-turismo-marbella"
-ECO = "https://josehino.github.io/observatorio-economico-marbella/data"
+ECO = "https://ammaconsulting.github.io/observatorio-economico-marbella/data"
 UA = {"User-Agent": "boletin-turismo-marbella/1.0"}
 
 MESES = ["enero", "febrero", "marzo", "abril", "mayo", "junio", "julio",
@@ -595,7 +595,7 @@ def main():
     # Países (Turismo Costa del Sol Big Data, en el observatorio turístico)
     paises = None
     try:
-        p = json.loads(get("https://josehino.github.io/observatorio-turistico-marbella/data/paises_marbella.json"))
+        p = json.loads(get("https://ammaconsulting.github.io/observatorio-turistico-marbella/data/paises_marbella.json"))
         mes = p["meses"][-1]
         i = len(p["meses"]) - 1
         pern = p["datos"]["Hoteles"]["Pernoctaciones"]
@@ -667,8 +667,8 @@ def main():
         "graficas": graficas,
         "fotos_portada": fotos_portada,
         "enlaces": {
-            "observatorio_turistico": "https://josehino.github.io/observatorio-turistico-marbella/",
-            "observatorio_economico": "https://josehino.github.io/observatorio-economico-marbella/",
+            "observatorio_turistico": "https://ammaconsulting.github.io/observatorio-turistico-marbella/",
+            "observatorio_economico": "https://ammaconsulting.github.io/observatorio-economico-marbella/",
             "web": WEB + "/",
             "baja": WEB + "/baja.html",
         },
