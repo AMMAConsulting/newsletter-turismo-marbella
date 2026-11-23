@@ -1,85 +1,95 @@
 {
- "generado": "2026-11-16T09:31:11Z",
- "edicion": "2026-S47",
- "edicion_texto": "Semana del 16 de noviembre de 2026",
- "envio": "2026-11-17T13:30:00+01:00",
- "envio_texto": "martes 17 de noviembre a las 13:30",
+ "generado": "2026-11-23T08:20:59Z",
+ "edicion": "2026-S48",
+ "edicion_texto": "Semana del 23 de noviembre de 2026",
+ "envio": "2026-11-24T13:30:00+01:00",
+ "envio_texto": "martes 24 de noviembre a las 13:30",
  "tema": {
-  "id": "empleo",
-  "etiqueta": "TEMA DE LA SEMANA · EMPLEO Y ECONOMÍA",
-  "foco": "Empleo: paro registrado, afiliación a la Seguridad Social, contratos y estabilidad (indefinidos)."
+  "id": "hoteles",
+  "etiqueta": "TEMA DE LA SEMANA · HOTELES",
+  "foco": "Hoteles: viajeros, pernoctaciones, ocupación, estancia media, tarifa media (ADR) y RevPAR."
  },
- "novedades": [],
+ "novedades": [
+  "Viajeros en hoteles (octubre de 2026)",
+  "Pernoctaciones en hoteles (octubre de 2026)",
+  "Viajeros residentes en España (octubre de 2026)",
+  "Viajeros extranjeros (octubre de 2026)",
+  "Ocupación hotelera por plazas (%) (octubre de 2026)",
+  "Estancia media (días) (octubre de 2026)",
+  "Tarifa media diaria ADR (€) (octubre de 2026)",
+  "Ingreso por habitación disponible RevPAR (€) (octubre de 2026)",
+  "Cuota de viajeros extranjeros en hoteles (%) (octubre de 2026)"
+ ],
  "turismo_marbella": {
   "viajeros_hotel": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 80024.0,
-   "anio_anterior": 76463.0,
-   "variacion_interanual_pct": 4.7,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 64670.0,
+   "anio_anterior": 67642.0,
+   "variacion_interanual_pct": -4.4,
    "indicador": "Viajeros en hoteles",
    "serie_ine": "EOT42428"
   },
   "pernoct_hotel": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 275757.0,
-   "anio_anterior": 271548.0,
-   "variacion_interanual_pct": 1.6,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 231506.0,
+   "anio_anterior": 246242.0,
+   "variacion_interanual_pct": -6.0,
    "indicador": "Pernoctaciones en hoteles",
    "serie_ine": "EOT42534"
   },
   "viajeros_esp": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 20456.0,
-   "anio_anterior": 16845.0,
-   "variacion_interanual_pct": 21.4,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 11827.0,
+   "anio_anterior": 14236.0,
+   "variacion_interanual_pct": -16.9,
    "indicador": "Viajeros residentes en España",
    "serie_ine": "EOT2759"
   },
   "viajeros_ext": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 59568.0,
-   "anio_anterior": 59618.0,
-   "variacion_interanual_pct": -0.1,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 52842.0,
+   "anio_anterior": 53406.0,
+   "variacion_interanual_pct": -1.1,
    "indicador": "Viajeros extranjeros",
    "serie_ine": "EOT2760"
   },
   "ocupacion_plazas": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 59.06,
-   "anio_anterior": 56.49,
-   "variacion_puntos": 2.6,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 52.41,
+   "anio_anterior": 53.79,
+   "variacion_puntos": -1.4,
    "indicador": "Ocupación hotelera por plazas (%)",
    "serie_ine": "EOT3152"
   },
   "estancia_media": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 3.45,
-   "anio_anterior": 3.55,
-   "variacion_interanual_pct": -2.8,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 3.58,
+   "anio_anterior": 3.64,
+   "variacion_interanual_pct": -1.6,
    "indicador": "Estancia media (días)",
    "serie_ine": "EOT2936"
   },
   "adr": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 286.57,
-   "anio_anterior": 252.79,
-   "variacion_interanual_pct": 13.4,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 206.57,
+   "anio_anterior": 204.38,
+   "variacion_interanual_pct": 1.1,
    "indicador": "Tarifa media diaria ADR (€)",
    "serie_ine": "EOT43542"
   },
   "revpar": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 231.18,
-   "anio_anterior": 199.65,
-   "variacion_interanual_pct": 15.8,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 148.22,
+   "anio_anterior": 151.82,
+   "variacion_interanual_pct": -2.4,
    "indicador": "Ingreso por habitación disponible RevPAR (€)",
    "serie_ine": "EOT43946"
   },
@@ -138,28 +148,28 @@
    "serie_ine": "VTE15629"
   },
   "cuota_extranjeros": {
-   "periodo": "2026-09",
-   "mes": "septiembre de 2026",
-   "valor": 74.4,
-   "anio_anterior": 78.0,
-   "variacion_puntos": -3.6,
+   "periodo": "2026-10",
+   "mes": "octubre de 2026",
+   "valor": 81.7,
+   "anio_anterior": 79.0,
+   "variacion_puntos": 2.7,
    "indicador": "Cuota de viajeros extranjeros en hoteles (%)"
   }
  },
  "acumulado_anual": {
   "viajeros_hotel": {
    "desde": "2026-01",
-   "hasta": "2026-09",
-   "total": 622217,
-   "anio_anterior": 584935,
-   "variacion_pct": 6.4
+   "hasta": "2026-10",
+   "total": 686887,
+   "anio_anterior": 652577,
+   "variacion_pct": 5.3
   },
   "pernoct_hotel": {
    "desde": "2026-01",
-   "hasta": "2026-09",
-   "total": 2143295,
-   "anio_anterior": 2066233,
-   "variacion_pct": 3.7
+   "hasta": "2026-10",
+   "total": 2374801,
+   "anio_anterior": 2312475,
+   "variacion_pct": 2.7
   }
  },
  "mercados_internacionales": {
@@ -230,374 +240,388 @@
  },
  "noticias_candidatas": [
   {
-   "titular": "Cinco destinos para una escapada de otoño en la que alejarse de todo y desconectar",
-   "fuente": "Mujerhoy",
-   "fecha": "2026-11-15",
-   "enlace": "https://www.mujerhoy.com/placeres/viajes/escapadas-otono-espana-hoteles-destino-lujo-desconectar-20261115134721-nt.html",
-   "medios": 1,
-   "otros_titulares": [],
+   "titular": "El precio medio diario (ADR) en los hoteles españoles escala hasta los 177,7€ en los nueve primeros meses del año, un 5,5% más que en 2025 - Gaceta del Turismo -",
+   "fuente": "Gaceta del Turismo -",
+   "fecha": "2026-11-23",
+   "enlace": "https://gacetadelturismo.com/hoteles/el-precio-medio-diario-adr-en-los-hoteles-espanoles-escala-hasta-los-1777e-en-los-nueve-primeros-meses-del-ano-un-55-mas-que-en-2025/",
+   "medios": 4,
+   "otros_titulares": [
+    "Marbella se mantiene como destino hotelero más caro con un precio medio de 408 euros por noche",
+    "El precio medio en los hoteles españoles se incrementa un 5,5 %, hasta 178 euros",
+    "El precio medio diario de los hoteles españoles alcanza los 177,7 euros hasta septiembre, un 5,5% más"
+   ],
    "id": 1,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-01.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-01.jpg"
   },
   {
-   "titular": "Azure Beach & Pool, de METT Marbella – Estepona, reconocido con el premio a la Mejor Piscina de Hotel en los Beyond Luxury Awards 2026",
-   "fuente": "Al Sol de la Costa",
-   "fecha": "2026-11-15",
-   "enlace": "https://alsoldelacosta.com/azure-beach-pool-de-mett-marbella-estepona-reconocido-con-el-premio-a-la-mejor-piscina-de-hotel-en-los-beyond-luxury-awards-2026/",
-   "medios": 1,
+   "titular": "La Costa del Sol refuerza la promoción del destino en la recta final de año",
+   "fuente": "Diario Sur",
+   "fecha": "2026-11-23",
+   "enlace": "https://www.diariosur.es/turismo/costa-sol-refuerza-promocion-destino-recta-final-20261119063001-nt_amp.html",
+   "medios": 4,
    "otros_titulares": [
-    "Nobu Hotel Marbella, quinto mejor hotel de España en los Condé Nast Traveler Readers Choice Awards 2026"
+    "Turismo Costa del Sol refuerza su promoción del segmento idiomático en ICEF Berlín con 3.000 profesionales del sector educativo internacional",
+    "Turismo Costa del Sol refuerza su promoción en Islandia y pone en valor las conexiones aéreas directas durante el invierno",
+    "La Costa del Sol se acerca a Berlín para promocionar el turismo idiomático con talleres, seminarios y encuentros"
    ],
    "id": 2,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-02.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-02.jpg"
   },
   {
-   "titular": "Llega la escuela de taxistas: la asociación mayoritaria de Marbella apuesta por la formación",
-   "fuente": "Diario Sur",
-   "fecha": "2026-11-15",
-   "enlace": "https://www.diariosur.es/marbella/llega-escuela-taxistas-asociacion-mayoritaria-marbella-apuesta-20261115212159-nt_amp.html",
-   "medios": 2,
-   "otros_titulares": [
-    "Marbella tendrá una escuela de formación para nuevos conductores de taxi"
-   ],
+   "titular": "Magia para animar al Casco Antiguo de Marbella durante la temporada baja",
+   "fuente": "La Opinión de Málaga",
+   "fecha": "2026-11-23",
+   "enlace": "https://www.laopiniondemalaga.es/marbella/2026/11/23/magia-marbella-comercio-136705033.html",
+   "medios": 1,
+   "otros_titulares": [],
    "id": 3,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-03.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-03.jpg"
   },
   {
-   "titular": "La Junta aprueba en el Consejo Andaluz de Turismo la designación de Benahavís como Municipio Turístico",
-   "fuente": "Al Sol de la Costa",
-   "fecha": "2026-11-15",
-   "enlace": "https://alsoldelacosta.com/la-junta-aprueba-en-el-consejo-andaluz-de-turismo-la-designacion-de-benahavis-como-municipio-turistico/",
-   "medios": 2,
-   "otros_titulares": [
-    "Aprobado en el Consejo Andaluz de Turismo la designación de Benahavís como Municipio Turístico"
-   ],
+   "titular": "El turismo no echará de menos a las dos Sánchez",
+   "fuente": "Preferente.com",
+   "fecha": "2026-11-23",
+   "enlace": "https://www.preferente.com/rss1/el-turismo-no-echara-de-menos-a-las-dos-sanchez-353186.html",
+   "medios": 1,
+   "otros_titulares": [],
    "id": 4,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-04.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-04.jpg"
   },
   {
-   "titular": "El Ayuntamiento de Marbella destaca la iniciativa de crear una escuela del taxista",
-   "fuente": "AZ Costa del Sol",
-   "fecha": "2026-11-15",
-   "enlace": "https://www.azcostadelsol.com/marbella/el-ayuntamiento-de-marbella-destaca-la-iniciativa-de-crear-una-escuela-del-taxista/",
+   "titular": "Málaga: el 22 por ciento de la población vive del turismo",
+   "fuente": "Preferente.com",
+   "fecha": "2026-11-22",
+   "enlace": "https://www.preferente.com/noticias-de-hoteles/malaga-el-22-por-ciento-de-la-poblacion-vive-del-turismo-353150.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 5,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-05.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-05.jpg"
   },
   {
-   "titular": "Charles Heidsieck Blanc des Millénaires 2017 gana la",
-   "fuente": "Malagaes",
-   "fecha": "2026-11-14",
-   "enlace": "https://www.malagaes.com/charles-heidsieck-blanc-des-millenaires-2017-gana-la-tercera-edicion-de-eclat-de-champagne-celebrada-en-puente-romano-marbella/",
-   "medios": 1,
-   "otros_titulares": [],
-   "id": 6,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-06.jpg"
-  },
-  {
-   "titular": "Turismo Costa del Sol refuerza su promoción en Islandia y pone en valor las conexiones aéreas directas durante el invierno",
+   "titular": "CIT Marbella y la Facultad de Turismo de la UMA firman un acuerdo para acercar el ámbito universitario al tejido empresarial",
    "fuente": "Al Sol de la Costa",
-   "fecha": "2026-11-14",
-   "enlace": "https://alsoldelacosta.com/turismo-costa-del-sol-refuerza-su-promocion-en-islandia-y-pone-en-valor-las-conexiones-aereas-directas-durante-el-invierno/",
+   "fecha": "2026-11-22",
+   "enlace": "https://alsoldelacosta.com/cit-marbella-y-la-facultad-de-turismo-de-la-uma-firman-un-acuerdo-para-acercar-el-ambito-universitario-al-tejido-empresarial/",
+   "medios": 2,
+   "otros_titulares": [
+    "CIT Marbella y la Facultad de Turismo de la UMA acuerdan una colaboración"
+   ],
+   "id": 6,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-06.jpg"
+  },
+  {
+   "titular": "Los hoteles evolucionan para sacar partido a cada segundo y metro cuadrado",
+   "fuente": "ABC",
+   "fecha": "2026-11-21",
+   "enlace": "https://www.abc.es/economia/hoteles-evolucionan-sacar-partido-segundo-metro-cuadrado-20261122001201-nt_amp.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 7,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-07.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-07.jpg"
   },
   {
-   "titular": "Piden prisión permanente para un hombre acusado matar a otro en un ajuste de cuentas en Marbella",
-   "fuente": "El Noticiero Digital",
-   "fecha": "2026-11-14",
-   "enlace": "https://www.elnoticierodigital.com/piden-prision-permanente-para-un-hombre-acusado-matar-a-otro-en-un-ajuste-de-cuentas-en-marbella/",
+   "titular": "Marbella y la UMA se alían para impulsar la innovación y la formación en el sector turístico",
+   "fuente": "Área Costa del Sol",
+   "fecha": "2026-11-21",
+   "enlace": "https://www.areacostadelsol.com/marbella/marbella-uma-alian-impulsar-innovacion-sector-turistico/",
    "medios": 1,
    "otros_titulares": [],
    "id": 8,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-08.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-08.jpg"
   },
   {
-   "titular": "Turismo Costa del Sol cifra en 185,6 millones € las pérdidas por el cierre del AVE Málaga-Madrid",
-   "fuente": "Al Sol de la Costa",
-   "fecha": "2026-11-14",
-   "enlace": "https://alsoldelacosta.com/urismo-costa-del-sol-cifra-en-1856-millones-e-las-perdidas-por-el-cierre-del-ave-malaga-madrid/",
-   "medios": 5,
-   "otros_titulares": [
-    "Turismo Costa del Sol estima pérdidas de 185,6 millones por el cierre del AVE y prevé casi 2.000 empleos afectados",
-    "Turismo Costa del Sol estima en 185 millones las pérdidas por la interrupción del AVE",
-    "Pérdidas de 185 millones y casi 2.000 empleos en el turismo de la Costa del Sol por la interrupción del AVE"
-   ],
-   "id": 9,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-09.jpg"
-  },
-  {
-   "titular": "El Cuerpo de Bomberos de Marbella refuerza su plantilla con la toma de posesión de cuatro nuevos sargentos",
+   "titular": "El Ayuntamiento rinde homenaje a los 75 trabajadores municipales jubilados este...",
    "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-13",
-   "enlace": "https://www.marbella.es/actualidad/noticias/el-cuerpo-de-bomberos-de-marbella-refuerza-su-plantilla-con-la-toma-de-posesion-de-cuatro-nuevos-sargentos.html",
+   "fecha": "2026-11-20",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-rinde-homenaje-a-los-75-trabajadores-municipales-jubilados-este-ano-y-reconoce-su-dedicacion-al-servicio-publico.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 9,
+   "imagen": "%%FOTO_URL%%"
+  },
+  {
+   "titular": "El Consejo Municipal de Infancia y Adolescencia celebra una nueva sesión para...",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-20",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-consejo-municipal-de-infancia-y-adolescencia-celebra-una-nueva-sesion-para-abordar-cuestiones-de-interes-para-este-sector-de-la-poblacion.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 10,
    "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "La sede del distrito Este de Marbella acogerá el 18 de noviembre una ponencia en el marco de los actos conmemorativos del Día Internacional de la Eliminación de la Violencia contra la Mujer",
-   "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-13",
-   "enlace": "https://www.marbella.es/actualidad/noticias/la-sede-del-distrito-este-de-marbella-acogera-el-18-de-noviembre-una-ponencia-en-el-marco-de-los-actos-conmemorativos-del-dia-internacional-de-la-eliminacion-de-la-violencia-contra-la-mujer.html",
+   "titular": "El precio de los hoteles sigue desbocado: subió un 5,5% hasta septiembre y rozó los 178 euros",
+   "fuente": "Cinco Días",
+   "fecha": "2026-11-20",
+   "enlace": "https://cincodias.elpais.com/companias/2026-11-20/el-precio-de-los-hoteles-sigue-desbocado-subio-un-55-hasta-septiembre-y-rozo-los-178-euros.html",
    "medios": 1,
-   "otros_titulares": [
-    "San Pedro Alcántara acogerá los días 14 y 15 de noviembre el Campeonato de Andalucía de Gimnasia Rítmica, que se celebra por primera vez en la ciudad",
-    "Marbella acogerá del 18 al 21 de noviembre la primera edición de ‘Voces del...",
-    "San Pedro Alcántara contará con un presupuesto de 32,3 millones de euros para..."
-   ],
+   "otros_titulares": [],
    "id": 11,
    "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "Hilton impulsa sus residencias de lujo y pone el foco en Marbella",
-   "fuente": "20Minutos",
-   "fecha": "2026-11-13",
-   "enlace": "https://www.20minutos.es/theluxonomist/lifestyle/hilton-impulsa-sus-residencias-lujo-pone-foco-marbella_7060657_0.html",
-   "medios": 1,
-   "otros_titulares": [],
+   "titular": "Los hoteles de Baleares rozan los 260 euros por noche entre enero y septiembre",
+   "fuente": "Mallorcadiario.com",
+   "fecha": "2026-11-20",
+   "enlace": "https://www.mallorcadiario.com/hoteles-baleares-260-euros-noche-enero-septiembre",
+   "medios": 2,
+   "otros_titulares": [
+    "Precios hoteleros: Marbella y Baleares lideran las subidas en España"
+   ],
    "id": 12,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-12.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-12.jpg"
   },
   {
-   "titular": "San Roque refuerza su apuesta por el turismo británico en la World Travel Market de Londres",
-   "fuente": "Al Sol de la Costa",
-   "fecha": "2026-11-13",
-   "enlace": "https://alsoldelacosta.com/san-roque-refuerza-su-apuesta-por-el-turismo-britanico-en-la-world-travel-market-de-londres/",
+   "titular": "Turismo Costa del Sol muestra el Caminito del Rey a medio centenar de participantes de un congreso internacional",
+   "fuente": "Europa Press",
+   "fecha": "2026-11-20",
+   "enlace": "https://www.europapress.es/andalucia/malaga-00356/noticia-turismo-costa-sol-muestra-caminito-rey-medio-centenar-participantes-congreso-internacional-20261120123552.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 13,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-13.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-13.jpg"
   },
   {
-   "titular": "El Ayuntamiento respalda la celebración del I Foro Puerto Banús de Moda, Lujo y Estilo de Vida",
-   "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-12",
-   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-respalda-la-celebracion-del-i-foro-puerto-banus-de-moda-lujo-y-estilo-de-vida.html",
+   "titular": "Turismo Costa del Sol estrena identidad de marca para conmemorar medio siglo de promoción internacional",
+   "fuente": "El Catalán",
+   "fecha": "2026-11-20",
+   "enlace": "https://www.elcatalan.es/turismo-costa-del-sol-estrena-identidad-de-marca-para-conmemorar-medio-siglo-de-promocion-internacional",
    "medios": 2,
    "otros_titulares": [
-    "Puerto Banús reúne a profesionales de moda, turismo y comercio para analizar el sector del lujo en Marbella"
+    "Turismo Costa del Sol estrena identidad corporativa por su 50 aniversario para desestacionalizar destino"
    ],
    "id": 14,
-   "imagen": "%%FOTO_URL%%"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-14.jpg"
   },
   {
-   "titular": "Marbella organiza una veintena de actividades de sensibilización con motivo del...",
+   "titular": "Marbella celebra del 23 al 27 de noviembre la quinta edición de ‘Marcientífica’...",
    "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-12",
-   "enlace": "https://www.marbella.es/actualidad/noticias/marbella-organiza-una-veintena-de-actividades-de-sensibilizacion-con-motivo-del-25n-bajo-el-lema-una-ciudad-que-respeta-una-sociedad-que-avanza.html",
+   "fecha": "2026-11-19",
+   "enlace": "https://www.marbella.es/actualidad/noticias/marbella-celebra-del-23-al-27-de-noviembre-la-quinta-edicion-de-marcientifica-con-expertos-de-primer-nivel-y-propuestas-que-conectan-ciencia-tecnologia-artes-y-humanidades.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 15,
    "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "Palladium presenta su programación de Navidad para hoteles de España, México y el Caribe",
-   "fuente": "Vinetur",
-   "fecha": "2026-11-12",
-   "enlace": "https://www.vinetur.com/es/20261111110868/palladium-hotel-group-will-roll-out-holiday-programs-across-its-spain-hotels-and-caribbean-resorts.html",
-   "medios": 2,
-   "otros_titulares": [
-    "El Ayuntamiento prepara el alumbrado de Navidad, que contará con más de 3,8 millones de luces LED"
-   ],
+   "titular": "El Ayuntamiento respalda la XXVI Gala de Premios Empresariales de CIT Marbella,...",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-19",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-respalda-la-xxvi-gala-de-premios-empresariales-de-cit-marbella-que-distinguira-el-proximo-27-de-noviembre-a-eladio-rueda-la-ciudad-autonoma-de-ceuta-les-roches-y-nubeseo.html",
+   "medios": 1,
+   "otros_titulares": [],
    "id": 16,
    "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "Costa del Sol impulsa el turismo de golf internacional para 2027",
-   "fuente": "OpenGolf",
-   "fecha": "2026-11-12",
-   "enlace": "https://opengolf.es/actualidad/la-costa-del-sol-busca-nuevos-mercados-para-el-golf-y-prepara-su-estrategia-turistica-de-2027/",
-   "medios": 3,
-   "otros_titulares": [
-    "Costa del Sol impulsa oportunidades de negocio para el segmento de golf con reuniones profesionales especializadas",
-    "Turismo Costa del Sol impulsa nuevas oportunidades de negocio para el turismo de golf con 25 reuniones profesionales",
-    "Turismo Costa del Sol cierra la WTM con más de medio centenar de reuniones profesionales y perspectivas positivas"
-   ],
-   "id": 17,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-17.jpg"
-  },
-  {
-   "titular": "La Subbética busca atraer a turistas neerlandeses y belgas residentes en la Costa del Sol",
-   "fuente": "Priego Digital",
-   "fecha": "2026-11-12",
-   "enlace": "https://priegodigital.es/noticia/17031-la-subbetica-busca-atraer-a-turistas-neerlandeses-y-belgas-residentes-en-la-costa-del-sol",
+   "titular": "La alcaldesa mantiene un encuentro con el sector inmobiliario para abordar el...",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-19",
+   "enlace": "https://www.marbella.es/actualidad/noticias/la-alcaldesa-mantiene-un-encuentro-con-el-sector-inmobiliario-para-abordar-el-nuevo-marco-de-ordenacion-urbanistica-del-municipio.html",
    "medios": 1,
    "otros_titulares": [],
-   "id": 18,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-18.jpg"
+   "id": 17,
+   "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "El Campeonato de Andalucía de Tenis en Silla de Ruedas reunirá desde mañana hasta el domingo día 15 en Marbella a algunos de los mejores jugadores del panorama nacional",
-   "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-12",
-   "enlace": "https://www.marbella.es/actualidad/noticias/el-campeonato-de-andalucia-de-tenis-en-silla-de-ruedas-reunira-desde-manana-hasta-el-domingo-dia-15-en-marbella-a-algunos-de-los-mejores-jugadores-del-panorama-nacional.html",
+   "titular": "Puente Romano opta por un antiguo directivo para tomar las riendas del complejo",
+   "fuente": "Diario Sur",
+   "fecha": "2026-11-19",
+   "enlace": "https://www.diariosur.es/marbella/puente-romano-opta-antiguo-directivo-tomar-riendas-20261118195814-nt.html",
+   "medios": 4,
+   "otros_titulares": [
+    "Puente Romano Marbella nombra a Francesco Roccato nuevo director general",
+    "Puente Romano Marbella enciende la Navidad el 28 de noviembre con un mes de celebraciones",
+    "Puente Romano Marbella inaugura su temporada navideña bajo el sol el el 28 de noviembre"
+   ],
+   "id": 18,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-18.jpg"
+  },
+  {
+   "titular": "La Costa del Sol impulsa su promoción internacional de golf en Londres con cerca de 350 reuniones profesionales",
+   "fuente": "Malaga Actualidad",
+   "fecha": "2026-11-19",
+   "enlace": "https://www.malagactualidad.es/teletipos/76783-la-costa-del-sol-impulsa-su-promocion-internacional-de-golf-en-londres-con-cerca-de-350-reuniones-pr",
    "medios": 1,
    "otros_titulares": [],
    "id": 19,
    "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "Marbellup inicia su segunda etapa con nuevas iniciativas como una docena de...",
-   "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-11",
-   "enlace": "https://www.marbella.es/actualidad/noticias/marbellup-inicia-su-segunda-etapa-con-nuevas-iniciativas-como-una-docena-de-seminarios-especializados-seis-talleres-practicos-y-cuatro-jornadas-empresariales.html",
+   "titular": "El turismo emplea en la Costa del Sol a casi el 22% de los ocupados de la provincia hasta septiembre",
+   "fuente": "Diario Sur",
+   "fecha": "2026-11-19",
+   "enlace": "https://www.diariosur.es/turismo/turismo-emplea-costa-sol-ocupados-provincia-septiembre-20261116054516-nt.html",
    "medios": 1,
-   "otros_titulares": [
-    "El Ayuntamiento inicia la segunda fase para la consolidación del talud de la..."
-   ],
+   "otros_titulares": [],
    "id": 20,
-   "imagen": "%%FOTO_URL%%"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-20.jpg"
   },
   {
-   "titular": "La guionista y directora Ángeles González-Sinde participa esta semana en un encuentro y en un taller de cine en Marbella",
-   "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-10",
-   "enlace": "https://www.marbella.es/actualidad/noticias/la-guionista-y-directora-angeles-gonzalez-sinde-participa-esta-semana-en-un-encuentro-y-en-un-taller-de-cine-en-marbella.html",
+   "titular": "De Mykonos y Tulum a la Costa del Sol: el exclusivo restaurante al aire libre y ‘night-club’ que seduce al tur",
+   "fuente": "Diario AS",
+   "fecha": "2026-11-19",
+   "enlace": "https://as.com/tikitakas/gastronomia/de-mykonos-y-tulum-a-la-costa-del-sol-el-exclusivo-restaurante-al-aire-libre-y-night-club-que-seduce-al-turismo-internacional-en-marbella-f202611-n/",
    "medios": 1,
    "otros_titulares": [],
    "id": 21,
    "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "Puente Romano Marbella nombra a Francesco Roccato nuevo director general",
-   "fuente": "Revista HOSTELERÍA",
-   "fecha": "2026-11-10",
-   "enlace": "https://www.revistahosteleria.com/texto-diario/mostrar/6083431/puente-romano-marbella-nombra-francesco-roccato-nuevo-director-general",
+   "titular": "El Ayuntamiento respalda el acuerdo de colaboración entre el CIT Marbella y la...",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-17",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-respalda-el-acuerdo-de-colaboracion-entre-el-cit-marbella-y-la-universidad-de-malaga-para-impulsar-la-formacion-y-la-investigacion-turistica-en-la-ciudad.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 22,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-22.jpg"
-  },
-  {
-   "titular": "Marbella corona al mejor champán del año",
-   "fuente": "Diario Sur",
-   "fecha": "2026-11-10",
-   "enlace": "https://www.diariosur.es/malagaenlamesa/marbella-corona-mejor-champan-ano-20261110202529-nt.html",
-   "medios": 1,
-   "otros_titulares": [],
-   "id": 23,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-23.jpg"
-  },
-  {
-   "titular": "Así es el refugio de Erling Haaland en Marbella: una villa de 6 millones de euros con cine privado y cancha de tenis",
-   "fuente": "TN",
-   "fecha": "2026-11-10",
-   "enlace": "https://tn.com.ar/sociedad/2026/11/10/asi-es-el-refugio-de-erling-haaland-en-marbella-una-villa-de-6-millones-de-euros-con-cine-privado-y-cancha-de-tenis/",
-   "medios": 1,
-   "otros_titulares": [],
-   "id": 24,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-24.jpg"
-  },
-  {
-   "titular": "La Costa del Sol confía en las reservas de última hora para aumentar su cuota en el mercado británico",
-   "fuente": "La Opinión de Málaga",
-   "fecha": "2026-11-10",
-   "enlace": "https://www.laopiniondemalaga.es/malaga/2026/11/10/costa-sol-turismo-britanico-reservas-136288980.html",
-   "medios": 2,
-   "otros_titulares": [
-    "La Costa del Sol detecta buenas perspectivas del mercado británico para 2027 tras reunirse con aerolíneas y turoperadores"
-   ],
-   "id": 25,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-25.jpg"
-  },
-  {
-   "titular": "Costa del Sol refuerza alianzas con TTOO británicos ante la crisis ferroviaria",
-   "fuente": "Hosteltur",
-   "fecha": "2026-11-10",
-   "enlace": "https://www.hosteltur.com/179859_costa-del-sol-refuerza-alianzas-con-ttoo-britanicos-ante-la-crisis-ferroviaria.html",
-   "medios": 1,
-   "otros_titulares": [],
-   "id": 26,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-26.jpg"
-  },
-  {
-   "titular": "Marbella activa el Plan de Emergencia Municipal en fase de preemergencia ante la alerta amarilla por lluvias",
-   "fuente": "Ayuntamiento de Marbella",
-   "fecha": "2026-11-09",
-   "enlace": "https://www.marbella.es/actualidad/noticias/marbella-activa-el-plan-de-emergencia-municipal-en-fase-de-preemergencia-ante-la-alerta-amarilla-por-lluvias.html",
-   "medios": 1,
-   "otros_titulares": [],
-   "id": 27,
    "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "La Séptima desvela un escándalo judicial con Eduardo Inda por protagonista: Okdiario ha pagado 1000 euros y hotel de lujo en Marbella a jueces por 15 minutos de intervención",
-   "fuente": "El Constitucional",
-   "fecha": "2026-11-09",
-   "enlace": "https://www.elconstitucional.es/es/nacional/septima-desvela-escandalo-judicial-con-eduardo-inda-por-protagonista-okdiario-ha-pagado-1000-euros-hotel-lujo-en-marbella-jueces-por-15-minutos-intervencion_9938_102.html",
+   "titular": "El Pleno aprueba inicialmente el presupuesto municipal de Marbella para 2027,...",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-17",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-pleno-aprueba-inicialmente-el-presupuesto-municipal-de-marbella-para-2027-que-asciende-a-476-9-millones-de-euros.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 23,
+   "imagen": "%%FOTO_URL%%"
+  },
+  {
+   "titular": "CIT y la UMA impulsan la formación y la investigación turística en Marbella",
+   "fuente": "Diario Sur",
+   "fecha": "2026-11-17",
+   "enlace": "https://www.diariosur.es/marbella/cit-uma-impulsan-formacion-investigacion-turistica-marbella-20261117184527-nt.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 24,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-24.jpg"
+  },
+  {
+   "titular": "Marriott incrementa un 60% sus branded residences en EMEA en tres años",
+   "fuente": "Hosteltur",
+   "fecha": "2026-11-17",
+   "enlace": "https://www.hosteltur.com/180036_marriott-incrementa-un-60-sus-branded-residences-en-emea-en-tres-anos.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 25,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-25.jpg"
+  },
+  {
+   "titular": "Turismo Costa del Sol destaca el impacto turístico y solidario de la Media Maratón Holiday World Benalmádena",
+   "fuente": "El Noticiero Digital",
+   "fecha": "2026-11-17",
+   "enlace": "https://www.elnoticierodigital.com/turismo-costa-del-sol-destaca-el-impacto-turistico-y-solidario-de-la-media-maraton-holiday-world-benalmadena/",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 26,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-26.jpg"
+  },
+  {
+   "titular": "La Costa del Sol se queda sin campos de golf: la demanda récord desborda una oferta de 70 instalaciones",
+   "fuente": "El Debate",
+   "fecha": "2026-11-17",
+   "enlace": "https://www.eldebate.com/espana/andalucia/malaga/20261117/costa-sol-queda-campos-golf-demanda-record-desborda-oferta-70-instalaciones_481528.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 27,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-27.jpg"
+  },
+  {
+   "titular": "Marbella alcanzó en septiembre un récord de 5.766 trabajadores hoteleros, un 40,3% más que en 2025",
+   "fuente": "Al Sol de la Costa",
+   "fecha": "2026-11-17",
+   "enlace": "https://alsoldelacosta.com/marbella-alcanzo-en-septiembre-un-record-de-5-766-trabajadores-hoteleros-un-403-mas-que-en-2025/",
    "medios": 1,
    "otros_titulares": [],
    "id": 28,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-28.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-28.jpg"
   },
   {
-   "titular": "Tea Shop abre su primera tienda en Marbella con más de 120 variedades de tés e infusiones",
-   "fuente": "La Opinión de Málaga",
-   "fecha": "2026-11-09",
-   "enlace": "https://www.laopiniondemalaga.es/marbella/2026/11/09/tea-shop-abre-primera-tienda-136239234.amp.html",
+   "titular": "El conseller Bauzà visita el campus de Les Roches en Marbella en el marco de colaboración con la EHIB",
+   "fuente": "www.caib.es",
+   "fecha": "2026-11-16",
+   "enlace": "https://www.caib.es/webgoib/es/w/el-conseller-bauza-visita-el-campus-de-les-roches-en-marbella-en-el-marco-de-colaboracion-con-la-ehib",
    "medios": 1,
    "otros_titulares": [],
    "id": 29,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-29.jpg"
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-29.jpg"
   },
   {
-   "titular": "El truco de Amelia Bono en Marbella para llevar vaqueros y parecer más alta sin usar tacones",
-   "fuente": "HOLA",
-   "fecha": "2026-11-08",
-   "enlace": "https://www.hola.com/moda/20261108933809/amelia-bono-vaqueros-marbella/",
+   "titular": "El Ayuntamiento finaliza la renovación del acerado y la mejora del alumbrado en calle Las Torres, en Nueva Andalucía",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-16",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-finaliza-la-renovacion-del-acerado-y-la-mejora-del-alumbrado-en-calle-las-torres-en-nueva-andalucia.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 30,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-30.jpg"
+   "imagen": "%%FOTO_URL%%"
   },
   {
-   "titular": "Marbella en invierno: 48 horas entre mercados, casco antiguo y paseo marítimo - www.marie-claire.es",
-   "fuente": "www.marie-claire.es",
-   "fecha": "2026-11-08",
-   "enlace": "https://www.marie-claire.es/viajes/marbella-en-invierno-48-horas-entre-mercados-casco-antiguo.html",
+   "titular": "La alcaldesa respalda a la asociación Marbella Verde en la primera jornada de puertas abiertas de sus huertos ecológicos",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-16",
+   "enlace": "https://www.marbella.es/actualidad/noticias/la-alcaldesa-respalda-a-la-asociacion-marbella-verde-en-la-primera-jornada-de-puertas-abiertas-de-sus-huertos-ecologicos.html",
    "medios": 1,
    "otros_titulares": [],
    "id": 31,
-   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S47-31.jpg"
+   "imagen": "%%FOTO_URL%%"
+  },
+  {
+   "titular": "El Ayuntamiento destaca la iniciativa de crear una escuela del taxista y subraya...",
+   "fuente": "Ayuntamiento de Marbella",
+   "fecha": "2026-11-15",
+   "enlace": "https://www.marbella.es/actualidad/noticias/el-ayuntamiento-destaca-la-iniciativa-de-crear-una-escuela-del-taxista-y-subraya-el-papel-de-estos-profesionales-como-grandes-embajadores-de-marbella.html",
+   "medios": 1,
+   "otros_titulares": [],
+   "id": 32,
+   "imagen": "%%FOTO_URL%%"
+  },
+  {
+   "titular": "Llega la escuela de taxistas: la asociación mayoritaria de Marbella apuesta por la formación",
+   "fuente": "Diario Sur",
+   "fecha": "2026-11-15",
+   "enlace": "https://www.diariosur.es/marbella/llega-escuela-taxistas-asociacion-mayoritaria-marbella-apuesta-20261115212159-nt.html",
+   "medios": 2,
+   "otros_titulares": [
+    "Marbella tendrá una escuela de taxistas para formar a nuevos conductores y mejorar el servicio"
+   ],
+   "id": 33,
+   "imagen": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/not-2026-S48-33.jpg"
   }
  ],
  "graficas": [
   {
-   "clave": "paro",
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-S47-paro.png",
-   "titulo": "Paro registrado en Marbella"
+   "clave": "pernoct_hotel",
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-S48-pernoct_hotel.png",
+   "titulo": "Pernoctaciones hoteleras en Marbella"
   },
   {
-   "clave": "afiliacion",
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-S47-afiliacion.png",
-   "titulo": "Afiliados a la Seguridad Social (residentes)"
+   "clave": "adr",
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/boletin/graf-2026-S48-adr.png",
+   "titulo": "Tarifa media diaria de los hoteles (€)"
   }
  ],
  "fotos_portada": [
   {
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b023.jpg",
-   "credito": "Foto: Mark Gilbert · CC BY-SA 3.0 · Wikimedia Commons",
-   "enlace": "https://commons.wikimedia.org/wiki/File:Plaza_De_Los_Naranjos,_Marbella.jpg"
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b012.jpg",
+   "credito": "Foto: Peter &amp; Michelle S · CC BY 2.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Marbella_beach_(5307442067).jpg"
   },
   {
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b031.jpg",
-   "credito": "Foto: Harvey Barrison from Massapequa, NY, USA · CC BY-SA 2.0 · Wikimedia Commons",
-   "enlace": "https://commons.wikimedia.org/wiki/File:Marbella_2015_10_20_1705_(24713857086).jpg"
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b009.jpg",
+   "credito": "Foto: Diliff · CC BY-SA 3.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Marbella_Beach,_Costa_Del_Sol,_Spain_-_Sept_2008.jpg"
   },
   {
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b019.jpg",
-   "credito": "Foto: Mark Gilbert · CC BY-SA 3.0 · Wikimedia Commons",
-   "enlace": "https://commons.wikimedia.org/wiki/File:Puerto_Banus_Marina,_Marbella_-_Spain.jpg"
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b013.jpg",
+   "credito": "Foto: Peter &amp; Michelle S · CC BY 2.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Marbella_beach_(5307469139).jpg"
   },
   {
-   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b017.jpg",
-   "credito": "Foto: Milan Trninic (www.wedesignmarbella.com) · CC BY-SA 4.0 · Wikimedia Commons",
-   "enlace": "https://commons.wikimedia.org/wiki/File:Av_Jos%C3%A9_Ban%C3%BAs,_Playas_del_Duque,_Puerto_Ban%C3%BAs,_Marbella_01.jpg"
+   "url": "https://ammaconsulting.github.io/newsletter-turismo-marbella/img/fotos/b043.jpg",
+   "credito": "Foto: Hernán Piñera from Marbella · CC BY-SA 2.0 · Wikimedia Commons",
+   "enlace": "https://commons.wikimedia.org/wiki/File:Marbella_(16365059180).jpg"
   }
  ],
  "enlaces": {
